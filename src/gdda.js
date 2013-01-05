@@ -9,20 +9,24 @@
 (function($) {
 
   // Collection method.
-  $.fn.awesome = function() {
+  $.fn.gdda = function() {
+    "strict";
     return this.each(function() {
-      $(this).html('awesome');
+      $(this).html('gdda');
     });
   };
 
   // Static method.
-  $.awesome = function() {
-    return 'awesome';
+  $.gdda = function() {
+    "strict";
+    return 'gdda';
   };
 
-  // Custom selector.
-  $.expr[':'].awesome = function(elem) {
-    return elem.textContent.indexOf('awesome') >= 0;
+  $.expr[':'].gdda = function(elem) {
+    "strict";
+    if($(elem).attr('gdda')){
+      return true;
+    }
   };
 
 }(jQuery));

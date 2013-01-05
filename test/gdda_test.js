@@ -22,7 +22,7 @@
       raises(block, [expected], [message])
   */
 
-  module('jQuery#awesome', {
+  module('jQuery#gdda', {
     setup: function() {
       this.elems = $('#qunit-fixture').children();
     }
@@ -30,28 +30,30 @@
 
   test('is chainable', 1, function() {
     // Not a bad test to run on collection methods.
-    strictEqual(this.elems.awesome(), this.elems, 'should be chaninable');
+    strictEqual(this.elems.gdda(), this.elems, 'should be chaninable');
   });
 
-  test('is awesome', 1, function() {
-    strictEqual(this.elems.awesome().text(), 'awesomeawesomeawesome', 'should be thoroughly awesome');
+  test('is gdda', 1, function() {
+   // debugger;
+    strictEqual(this.elems.gdda().text(), 'gddagddagdda', 'should be thoroughly gdda');
   });
 
-  module('jQuery.awesome');
+  module('jQuery.gdda');
 
-  test('is awesome', 1, function() {
-    strictEqual($.awesome(), 'awesome', 'should be thoroughly awesome');
+  test('is gdda', 1, function() {
+    strictEqual($.gdda(), 'gdda', 'should be thoroughly gdda');
   });
 
-  module(':awesome selector', {
+  module(':gdda selector', {
     setup: function() {
       this.elems = $('#qunit-fixture').children();
     }
   });
 
-  test('is awesome', 1, function() {
+
+  test('is gdda', 1, function() {
     // Use deepEqual & .get() when comparing jQuery objects.
-    deepEqual(this.elems.filter(':awesome').get(), this.elems.last().get(), 'knows awesome when it sees it');
+    deepEqual($('span:gdda').text(),'awesome test markup', 'knows gdda when it sees it');
   });
 
 }(jQuery));
