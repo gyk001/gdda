@@ -35,7 +35,7 @@
 
   test('is gdda', 1, function() {
    // debugger;
-    strictEqual(this.elems.gdda().text(), 'gddagddagdda', 'should be thoroughly gdda');
+    strictEqual(this.elems.gdda({debug:false}).text(), 'gddagddagdda', 'should be thoroughly gdda');
   });
 
   module('jQuery.gdda');
