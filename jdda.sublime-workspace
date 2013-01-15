@@ -1,0 +1,503 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"e",
+				"extends"
+			],
+			[
+				"ex",
+				"expected"
+			],
+			[
+				"j",
+				"jQuery.each	jQuery.each"
+			],
+			[
+				"fun",
+				"function"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/jquery.gdda.js",
+			"settings":
+			{
+				"buffer_size": 1408,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "test/gdda_test.js",
+			"settings":
+			{
+				"buffer_size": 2246,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"selected_items":
+		[
+			[
+				"fo",
+				"Format: Javascript"
+			],
+			[
+				"",
+				"Bracket Highlighter: Fold by Brackets"
+			],
+			[
+				"INSTALL",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"for",
+				"Format: Javascript"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"pro",
+				"Project: Close"
+			],
+			[
+				"project",
+				"Project: Save As"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ip",
+				"Package Control: Install Package"
+			],
+			[
+				"sy xml",
+				"Set Syntax: XML"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"new file",
+				"File: New View into File"
+			],
+			[
+				"Snippet: ",
+				"Snippet: While Loop"
+			],
+			[
+				"sy ma",
+				"Set Syntax: Markdown"
+			],
+			[
+				"package control r",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 426.0
+	},
+	"console":
+	{
+		"height": 183.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/GuoWork/javascript/gdda/dist/jquery.gdda.min.js",
+		"/C/Users/Guo/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/D/GuoWork/SoftUtil/SLT2/Data/Packages/Objective-C/Objective-C.tmLanguage",
+		"/C/Users/Guo/Desktop/新建文本文档.txt",
+		"/C/Users/Guo/AppData/Roaming/Sublime Text 2/Packages/GBK Encoding Support/tmp/wordpress-multi-subdir+.conf                D%3A%5CGuoWork%5CHDDeploy%5Cnginx%5Cconf%5Csub%5Cwordpress-multi-subdir+.conf",
+		"/D/GuoWork/HDDeploy/nginx/html/doc/wp-config.php",
+		"/C/Users/Guo/Desktop/文献系统域名替换.sql",
+		"/D/GuoWork/HDDeploy/nginx/html/doc-/wp-config.php",
+		"/D/GuoWork/HDDeploy/nginx/html/doc/.htaccess",
+		"/D/GuoWork/javascript/gdda/gdda.jquery.json",
+		"/D/xampp/htdocs/doc/.htaccess",
+		"/D/GuoWork/HDDeploy/nginx/html/-wp/wp-config.php",
+		"/D/GuoWork/HDDeploy/nginx/conf/hdhkm.net.conf",
+		"/C/Users/Guo/AppData/Roaming/Sublime Text 2/Packages/GBK Encoding Support/tmp/hdhkm.net.conf                D%3A%5CGuoWork%5CHDDeploy%5Cnginx%5Cconf%5Chdhkm.net.conf",
+		"/D/GuoWork/HDDeploy/nginx/conf/sub/wordpress-multi-subdir .conf",
+		"/D/GuoWork/HDDeploy/nginx/html/doc/wp-includes/class.wp-scripts.php",
+		"/D/GuoWork/javascript/gdda/test/gdda_test.js",
+		"/D/GuoWork/javascript/gdda/test/gdda.html",
+		"/D/GuoWork/Workspace/HSAS.unknow/WebContent/js/business/hsasGridUtil.js",
+		"/D/GuoWork/HDDeploy/nginx/logs/access.log",
+		"/D/GuoWork/HDDeploy/xxfpm/start.bat",
+		"/C/Users/Guo/Desktop/a.html",
+		"/D/GuoWork/Workspace/ehr/src/main/webapp/js/page/msgbox/msgbox.html",
+		"/C/Users/Guo/Desktop/a.js",
+		"/D/CAS 问题",
+		"/D/GuoWork/Elink/conf/serverConfig.properties",
+		"/D/GuoWork/javascript/gdda/src/jquery.gdda.js",
+		"/C/im/海淀卫生平台-20130107140434.crt",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/D/GuoWork/Workspace/HSAS.unknow/WebContent/js/business/chart2/commonCharts.js",
+		"/D/GuoWork/Workspace/ehr/src/main/webapp/header.jsp",
+		"/D/GuoWork/Workspace/HSAS.unknow/src/com/sinosoft/common/servlet/ExportHighFreqChartServlet.java",
+		"/D/GuoWork/Workspace/HSAS.unknow/WebContent/index.jsp",
+		"/D/GuoWork/Workspace/HSAS.unknow/WebContent/js/highchart/modules/exporting.js",
+		"/D/GuoWork/Workspace/HSAS.unknow/WebContent/js/highchart/highcharts.js",
+		"/C/Users/Guo/AppData/Roaming/Sublime Text 2/Packages/GBK Encoding Support/tmp/Sms.ini                D%3A%5CGuoWork%5CElink%5CSMS%5CYT%5CSms.ini",
+		"/D/GuoWork/Elink/SMS/YT/Sms.ini",
+		"/D/GuoWork/Elink/SMS/LX/smsbsconfig.ini",
+		"/D/GuoWork/Elink/EIMServer.ini",
+		"/D/GuoWork/javascript/gdda/libs/lib-loader.js",
+		"/D/GuoWork/javascript/gdda/src/gdda.js",
+		"/D/GuoWork/javascript/gdda/grunt.js",
+		"/D/GuoWork/javascript/gdda/libs/jquery-loader.js",
+		"/C/Users/Guo/AppData/Roaming/Sublime Text 2/Packages/GBK Encoding Support/tmp/prototype-adapter.src.js                D%3A%5CGuoWork%5Cjavascript%5Cgdda%5Clibs%5Chighcharts%5Cjs%5Cadapters%5Cprototype-adapter.src.js",
+		"/D/GuoWork/javascript/gdda/libs/highcharts/js/adapters/prototype-adapter.src.js",
+		"/C/Users/Guo/AppData/Roaming/Sublime Text 2/Packages/Git/status.py",
+		"/C/Users/Guo/AppData/Roaming/Sublime Text 2/Packages/Git/git.py",
+		"/D/GuoWork/SoftUtil/SublimeText2/PackageSetup.py",
+		"/D/GuoWork/javascript/grunt-demo/src/grunt-demo-1.js",
+		"/D/GuoWork/javascript/grunt-demo/test/grunt-demo-1_test.js",
+		"/D/GuoWork/javascript/gdda/libs/jquery/jquery.js",
+		"/D/精神卫生/地区机构表/TRANSLATE_YEARLY_MH_BAK.sql",
+		"/D/精神卫生/地区机构表/TRANSLATE_YEARLY_MH_TRANS.sql",
+		"/D/GuoWork/SoftUtil/Eclipse_jee/dropins/exploreFS.link",
+		"/H/cmdline.txt",
+		"/H/config.txt",
+		"/D/精神卫生/地区机构表/trans_zonecode_match12.sql",
+		"/D/精神卫生/地区机构表/com_orgnise12.sql",
+		"/D/精神卫生/地区机构表/com_zonecode12.sql",
+		"/D/上地机房部署文件/nginx/html/hsas/js/page/gis.js",
+		"/D/精神卫生/地区机构表/com_organise.sql",
+		"/C/海淀卫生平台/filever.conf",
+		"/C/海淀卫生平台/set.ini",
+		"/C/海淀卫生平台/Update.conf",
+		"/C/Users/Guo/Desktop/mode_cdftemplete.jsp",
+		"/D/精神卫生/trans_zonecode_match12.sql",
+		"/D/上地机房部署文件/nginx/html/hsas/jsp/page/gis/zfxdr_punish.jsp",
+		"/D/上地机房部署文件/nginx/html/hsas/js/page/gis_map.js",
+		"/D/精神卫生/trans_organise_match_transid_0000000201.csv",
+		"/D/上地机房部署文件/nginx/html/hsas/jsp/popup/gis_chart_popup.html",
+		"/D/GuoWork/javascript/gdda/CONTRIBUTING.md",
+		"/D/GuoWork/javascript/gdda/package.json",
+		"/D/GuoWork/javascript/jquery/src/core.js",
+		"/D/GuoWork/javascript/gdda/README.md",
+		"/C/Users/Guo/.ssh/id_rsa.pub",
+		"/D/GuoWork/javascript/gdda/LICENSE-GPL",
+		"/D/GuoWork/javascript/gdda/dist/gdda.min.js",
+		"/D/GuoWork/javascript/gdda/dist/gdda.js",
+		"/D/GuoWork/javascript/jquery-validation/jquery.validate.js",
+		"/D/GuoWork/javascript/jquery-validation/lib/jquery-1.8.3.js",
+		"/D/GuoWork/javascript/jquery-validation/lib/jquery-1.7.2.js",
+		"/D/GuoWork/javascript/jquery-validation/lib/jquery.js",
+		"/D/GuoWork/javascript/jquery-validation/build/release.sh",
+		"/D/GuoWork/javascript/jquery/src/data.js",
+		"/D/GuoWork/javascript/jquery/CONTRIBUTING.md",
+		"/D/GuoWork/javascript/jquery/grunt.js",
+		"/D/GuoWork/javascript/jquery/.gitmodules",
+		"/D/GuoWork/javascript/jquery/.editorconfig",
+		"/D/GuoWork/javascript/jquery/src/support.js",
+		"/D/GuoWork/javascript/jquery/src/exports.js",
+		"/D/GuoWork/javascript/jquery/src/sizzle/README.md",
+		"/D/GuoWork/javascript/grunt-study/dist/grunt-study.js",
+		"/D/GuoWork/javascript/jquery/README.md",
+		"/D/GuoWork/javascript/jquery/test/qunit/History.md",
+		"/D/GuoWork/javascript/jquery/test/qunit/README.md",
+		"/D/GuoWork/javascript/jquery/src/css.js",
+		"/D/GuoWork/javascript/grunt-demo/README.md",
+		"/D/GuoWork/javascript/grunt-demo/test/grunt-demo-1.html",
+		"/D/GuoWork/javascript/grunt-study/dist/grunt-study.min.js",
+		"/D/GuoWork/Workspace/Aurora-Server/pom.xml",
+		"/D/GuoWork/Workspace/Aurora-Server/.project",
+		"/C/Users/Guo/Desktop/structure1355114936571.xml",
+		"/D/GuoWork/Workspace/ehr/src/main/webapp/js/business/util/page.js",
+		"/D/ROOT/js/highchart/highcharts.src.js",
+		"/D/GuoWork/Workspace/HSAS/src/com/sinosoft/common/filter/CharacterEncodingFilter.java",
+		"/D/GuoWork/Workspace/UAAMS/WebContent/js/userManageTree.js",
+		"/C/Users/Guo/Desktop/EXPORT.out",
+		"/C/Users/Guo/Desktop/ehr.sql",
+		"/C/Users/Guo/Desktop/bigtab.txt",
+		"/C/Users/Guo/Desktop/bt.txt",
+		"/C/Users/Guo/Desktop/UserHandleAction.jad",
+		"/C/Users/Guo/Desktop/xxx.out",
+		"/C/Users/Guo/Desktop/UserHandleAction.class",
+		"/D/GuoWork/hddeployback/UserAction.jad",
+		"/D/GuoWork/hddeployback/xxx.out",
+		"/E/xxx.out",
+		"/D/GuoWork/HDDeploy/conf/etc/rc.d/init.d/nginx",
+		"/D/GuoWork/HDDeploy/conf/etc/rc.d/init.d/tm-cas",
+		"/C/Ping/10.165.190.232_2012-11-13.txt",
+		"/H/未命名文件夹/pom.xml",
+		"/I/封闭文件/egit/egit_02.html",
+		"/I/封闭文件/egit/index.html",
+		"/I/封闭文件/egit/egit_01.html",
+		"/I/封闭文件/git_quickstart.html",
+		"/D/GuoWork/SoftUtil/MsysGit/progit/zh/01-introduction/01-chapter1.markdown",
+		"/D/GuoWork/SoftUtil/MsysGit/curl_test/248后台访问日志.txt",
+		"/D/GuoWork/SoftUtil/MsysGit/curl_test/247后台访问日志.txt",
+		"/D/GuoWork/hddeployback/247log/go_test.log"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"wp",
+			"	location / {\n		root html;\n		access_log on;\n		allow all;\n	}",
+			"[\\r]\"",
+			"[\\n]\"",
+			"[\\r][\\n]\"",
+			".*<< \"",
+			".*\"",
+			".*",
+			"debugger",
+			"awesome",
+			"TranslateYearlyExceptionHandle",
+			"clickBigTabCell",
+			"chart",
+			"add",
+			"							\n",
+			"fill",
+			"fill'",
+			"				\n",
+			"setval",
+			"	\n",
+			"setvalue",
+			"user.realName",
+			"UDP_R_VIEWER_PERSON_REG",
+			"UDP_R_VIEWER_EHR_PERSIONINFO",
+			"UDP_R_VIEWER_EHR_JOURNAL",
+			"_PNAME_SUGGEST",
+			"PERSON_REG",
+			"?",
+			"gyk",
+			"update uaams_user",
+			"update uaams_au",
+			"update",
+			"im",
+			"gyk",
+			"delete",
+			"update UAAMS_USER",
+			"UserAction",
+			"IM",
+			" IM",
+			":IM",
+			"IM",
+			"UserAction.java",
+			"UserAction",
+			"changeLogonUserSubmit",
+			"IM修改",
+			"关闭",
+			"delete from UAAMS_AU",
+			"delete ",
+			"delete",
+			"axis",
+			"xsi:type",
+			"213",
+			"231",
+			"13:52",
+			"17:13",
+			"16:09",
+			"17:47:",
+			"17:47:23",
+			"          \n",
+			"     \n"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/jquery.gdda.js",
+					"settings":
+					{
+						"buffer_size": 1408,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								232,
+								232
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "test/gdda_test.js",
+					"settings":
+					{
+						"buffer_size": 2246,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								671,
+								671
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 247.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/D/GuoWork/javascript/gdda/jdda.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 97.0,
+	"status_bar_visible": true
+}

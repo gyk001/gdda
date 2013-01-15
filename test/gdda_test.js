@@ -50,10 +50,22 @@
     }
   });
 
-
   test('is gdda', 1, function() {
     // Use deepEqual & .get() when comparing jQuery objects.
     deepEqual($('span:gdda').text(),'awesome test markup', 'knows gdda when it sees it');
   });
 
+ module('jQuery#gdda#core', {
+    setup: function() {
+      this.elems = $('#qunit-fixture').children();
+    }
+  });
+  test('gdda extends', 1, function() {
+    expect(4);
+    ok( !! $.gdda.core,'gdda.core is exist!' );
+    ok( ! $.gdda.core.test,'before extend gdda.core.test is not exist!' );
+    $.extend($.gdda.core,{'test':function(){return 'gdda.core.test!';}});
+    ok( !! $.gdda.core.test,'before extend gdda.core.test is exist!' );
+    equal($.gdda.core.test(),'gdda.core.test!','gdda.core.test result is OK!');
+  });
 }(jQuery));

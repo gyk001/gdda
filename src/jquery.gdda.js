@@ -11,7 +11,11 @@
   "strict";
   //TODO: 暴露默认配置,允许运行时更改 
   var defaults = {
-    debug : true
+    debug : true,
+    suffix : {
+      search : '_search',
+      tool : '_tool'
+    }
   };
 
   var db = {
@@ -33,8 +37,6 @@
     }   
   };
 
-
-
   //TODO: Collection method.
   $.fn.gdda = function(options) {
     //
@@ -52,16 +54,32 @@
     });
   };
 
-
-
-  //TODO: Static method.
+  // TODO: Static method.
   $.gdda = function() {
     return 'gdda';
   };
 
   $.gdda.defaults = defaults;
+  $.gdda.predefine={
 
-  //TODO:
+  };
+  
+  $.gdda.core={
+    clear:function(){
+
+    },
+    loadconfig:function(){
+      
+    }
+  };
+
+  $.gdda.etc={
+  };
+
+  $.gdda.stretch={
+  };
+
+  // TODO:
   $.expr[':'].gdda = function(elem) {
     if($(elem).attr('gdda')){
       return true;
