@@ -27,8 +27,16 @@
 			"file": "src/jquery.gdda.js",
 			"settings":
 			{
-				"buffer_size": 1408,
+				"buffer_size": 1406,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/GuoWork/SoftUtil/ST2/Data/Packages/User/Preferences.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 132,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -43,9 +51,29 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 375.0,
+		"height": 60.0,
 		"selected_items":
 		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"showt",
+				"Git: Show Tags"
+			],
 			[
 				"fo",
 				"Format: Javascript"
@@ -59,15 +87,7 @@
 				"Package Control: Install Package"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"insta",
-				"Package Control: Install Package"
-			],
-			[
-				"instal",
 				"Package Control: Install Package"
 			],
 			[
@@ -131,7 +151,7 @@
 				"Package Control: Remove Package"
 			]
 		],
-		"width": 426.0
+		"width": 386.0
 	},
 	"console":
 	{
@@ -148,6 +168,9 @@
 	},
 	"file_history":
 	[
+		"/D/GuoWork/SoftUtil/SLT2/sublime_plugin.pyc",
+		"/D/GuoWork/SoftUtil/SLT2/sublime_text.exe",
+		"/C/Users/Guo/AppData/Roaming/Sublime Text 2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
 		"/D/GuoWork/javascript/gdda/dist/jquery.gdda.min.js",
 		"/C/Users/Guo/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/D/GuoWork/SoftUtil/SLT2/Data/Packages/Objective-C/Objective-C.tmLanguage",
@@ -272,10 +295,7 @@
 		"/I/封闭文件/egit/index.html",
 		"/I/封闭文件/egit/egit_01.html",
 		"/I/封闭文件/git_quickstart.html",
-		"/D/GuoWork/SoftUtil/MsysGit/progit/zh/01-introduction/01-chapter1.markdown",
-		"/D/GuoWork/SoftUtil/MsysGit/curl_test/248后台访问日志.txt",
-		"/D/GuoWork/SoftUtil/MsysGit/curl_test/247后台访问日志.txt",
-		"/D/GuoWork/hddeployback/247log/go_test.log"
+		"/D/GuoWork/SoftUtil/MsysGit/progit/zh/01-introduction/01-chapter1.markdown"
 	],
 	"find":
 	{
@@ -370,7 +390,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -378,15 +398,15 @@
 					"file": "src/jquery.gdda.js",
 					"settings":
 					{
-						"buffer_size": 1408,
+						"buffer_size": 1406,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								232,
-								232
+								915,
+								915
 							]
 						],
 						"settings":
@@ -397,13 +417,40 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 396.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "/D/GuoWork/SoftUtil/ST2/Data/Packages/User/Preferences.sublime-settings",
+					"settings":
+					{
+						"buffer_size": 132,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								68,
+								68
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "test/gdda_test.js",
 					"settings":
 					{
@@ -414,8 +461,8 @@
 						"selection":
 						[
 							[
-								671,
-								671
+								939,
+								939
 							]
 						],
 						"settings":
@@ -426,7 +473,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 540.0,
+						"translation.y": 405.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -469,6 +516,10 @@
 	{
 		"height": 247.0
 	},
+	"output.unsaved_changes":
+	{
+		"height": 120.0
+	},
 	"replace":
 	{
 		"height": 0.0
@@ -479,6 +530,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"",
+				"/D/GuoWork/javascript/gdda/src/jquery.gdda.js"
+			]
 		],
 		"width": 0.0
 	},
@@ -498,6 +553,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 97.0,
+	"side_bar_width": 170.0,
 	"status_bar_visible": true
 }

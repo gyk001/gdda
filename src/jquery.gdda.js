@@ -18,6 +18,7 @@
     }
   };
 
+
   var db = {
     dir:function(obj,isdebug){
       if(isdebug){
@@ -34,7 +35,7 @@
           c.log(obj);
         }
       } 
-    }   
+    }
   };
 
   //TODO: Collection method.
