@@ -8,4 +8,4 @@ node_js:
 #  - nohup python -m SimpleHTTPServer 8000 &
 
 script:
-  - node grunt
+  - grunt
