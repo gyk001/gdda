@@ -35,7 +35,15 @@
 			"file": "/D/GuoWork/SoftUtil/ST2/Data/Packages/User/Preferences.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 132,
+				"buffer_size": 144,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".travis.yml",
+			"settings":
+			{
+				"buffer_size": 144,
 				"line_ending": "Unix"
 			}
 		},
@@ -51,19 +59,19 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 60.0,
+		"height": 375.0,
 		"selected_items":
 		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
 			],
 			[
 				"instal",
-				"Package Control: Install Package"
-			],
-			[
-				"ins",
 				"Package Control: Install Package"
 			],
 			[
@@ -168,6 +176,8 @@
 	},
 	"file_history":
 	[
+		"/D/GuoWork/javascript/gdda/jdda.sublime-project",
+		"/C/Users/Guo/Desktop/Main.java",
 		"/D/GuoWork/SoftUtil/SLT2/sublime_plugin.pyc",
 		"/D/GuoWork/SoftUtil/SLT2/sublime_text.exe",
 		"/C/Users/Guo/AppData/Roaming/Sublime Text 2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
@@ -293,9 +303,7 @@
 		"/H/未命名文件夹/pom.xml",
 		"/I/封闭文件/egit/egit_02.html",
 		"/I/封闭文件/egit/index.html",
-		"/I/封闭文件/egit/egit_01.html",
-		"/I/封闭文件/git_quickstart.html",
-		"/D/GuoWork/SoftUtil/MsysGit/progit/zh/01-introduction/01-chapter1.markdown"
+		"/I/封闭文件/egit/egit_01.html"
 	],
 	"find":
 	{
@@ -390,7 +398,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -427,15 +435,15 @@
 					"file": "/D/GuoWork/SoftUtil/ST2/Data/Packages/User/Preferences.sublime-settings",
 					"settings":
 					{
-						"buffer_size": 132,
+						"buffer_size": 144,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								68,
-								68
+								144,
+								144
 							]
 						],
 						"settings":
@@ -451,6 +459,33 @@
 				},
 				{
 					"buffer": 2,
+					"file": ".travis.yml",
+					"settings":
+					{
+						"buffer_size": 144,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								144,
+								144
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/YAML/YAML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "test/gdda_test.js",
 					"settings":
 					{
