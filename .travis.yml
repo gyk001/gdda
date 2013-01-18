@@ -3,9 +3,9 @@ language: node_js
 node_js:
   - 0.8
 
-before_script:
-  - phantomjs --version
-  - nohup python -m SimpleHTTPServer 8000 &
+#before_script:
+#  - phantomjs --version
+#  - nohup python -m SimpleHTTPServer 8000 &
 
 script:
-  - node grunt
+  - grunt
