@@ -23,38 +23,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "src/jquery.gdda.js",
-			"settings":
-			{
-				"buffer_size": 1406,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/GuoWork/SoftUtil/ST2/Data/Packages/User/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 144,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": ".travis.yml",
-			"settings":
-			{
-				"buffer_size": 144,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test/gdda_test.js",
-			"settings":
-			{
-				"buffer_size": 2246,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -176,6 +144,10 @@
 	},
 	"file_history":
 	[
+		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.js",
+		"/D/GuoWork/SoftUtil/ST2/Data/Packages/User/Preferences.sublime-settings",
+		"/Users/Guo/Workspace/javascript/gdda/test/gdda_test.js",
+		"/Users/Guo/Workspace/javascript/gdda/.travis.yml",
 		"/D/GuoWork/javascript/gdda/jdda.sublime-project",
 		"/C/Users/Guo/Desktop/Main.java",
 		"/D/GuoWork/SoftUtil/SLT2/sublime_plugin.pyc",
@@ -299,11 +271,7 @@
 		"/E/xxx.out",
 		"/D/GuoWork/HDDeploy/conf/etc/rc.d/init.d/nginx",
 		"/D/GuoWork/HDDeploy/conf/etc/rc.d/init.d/tm-cas",
-		"/C/Ping/10.165.190.232_2012-11-13.txt",
-		"/H/未命名文件夹/pom.xml",
-		"/I/封闭文件/egit/egit_02.html",
-		"/I/封闭文件/egit/index.html",
-		"/I/封闭文件/egit/egit_01.html"
+		"/C/Ping/10.165.190.232_2012-11-13.txt"
 	],
 	"find":
 	{
@@ -398,121 +366,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/jquery.gdda.js",
-					"settings":
-					{
-						"buffer_size": 1406,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								915,
-								915
-							]
-						],
-						"settings":
-						{
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 396.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/D/GuoWork/SoftUtil/ST2/Data/Packages/User/Preferences.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 144,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								144,
-								144
-							]
-						],
-						"settings":
-						{
-							"origin_encoding": "ASCII",
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": ".travis.yml",
-					"settings":
-					{
-						"buffer_size": 144,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								144,
-								144
-							]
-						],
-						"settings":
-						{
-							"origin_encoding": "ASCII",
-							"syntax": "Packages/YAML/YAML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "test/gdda_test.js",
-					"settings":
-					{
-						"buffer_size": 2246,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								939,
-								939
-							]
-						],
-						"settings":
-						{
-							"origin_encoding": "ASCII",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 405.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

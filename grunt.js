@@ -13,8 +13,12 @@ module.exports = function(grunt) {
     },
     concat: {
       dist: {
-        src: ['<banner:meta.banner>', '<file_strip_banner:src/<%= pkg.name %>.js>'],
-        dest: 'dist/<%= pkg.name %>.js'
+        src: ['<banner:meta.banner>', 
+          '<file_strip_banner:src/<%= pkg.name %>.js>',
+          '<file_strip_banner:src/<%= pkg.name %>.log.js>',
+          '<file_strip_banner:src/<%= pkg.name %>.util.js>',
+          '<file_strip_banner:src/<%= pkg.name %>.core.querybox.js>'],
+        dest: 'dist/<%= pkg.name %>.src.js'
       }
     },
     min: {

@@ -27,7 +27,7 @@
       this.elems = $('#qunit-fixture').children();
     }
   });
-
+/*
   test('is chainable', 1, function() {
     // Not a bad test to run on collection methods.
     strictEqual(this.elems.gdda(), this.elems, 'should be chaninable');
@@ -68,4 +68,5 @@
     ok( !! $.gdda.core.test,'before extend gdda.core.test is exist!' );
     equal($.gdda.core.test(),'gdda.core.test!','gdda.core.test result is OK!');
   });
+*/
 }(jQuery));

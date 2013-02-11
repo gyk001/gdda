@@ -2,7 +2,7 @@
   // Get any jquery=___ param from the query string.
   var jqversion = location.search.match(/[?&]jquery=(.*?)(?=&|$)/);
   var path;
-  if (jqversion) {
+  if(jqversion) {
     // A version was specified, load that version from code.jquery.com.
     path = 'http://code.jquery.com/jquery-' + jqversion[1] + '.js';
   } else {
@@ -10,11 +10,29 @@
     path = '../libs/jquery/jquery.js';
   }
   // This is the only time I'll ever use document.write, I promise!
-  document.write('<script src="' + path + '"></script>');
+  var nodes = ['<script src="' + path + '"></script>',
   // highcharts
-  document.write('<script src="../libs/highcharts/js/highcharts.js"></script>');
+  '<script src="../libs/highcharts/js/highcharts.js"></script>',
   // jqgrid
-  document.write('<script src="../libs/jqgrid/js/jquery.jqGrid.min.js"></script>');
-  document.write('<link rel="stylesheet" href="../libs/jqgrid/css/ui.jqgrid.css" media="screen">');
+  '<script src="../libs/jqgrid/js/jquery.jqGrid.min.js"></script>',
+  '<link rel="stylesheet" href="../libs/jqgrid/css/ui.jqgrid.css" media="screen">',
+  // log4javascript
+  '<link rel="stylesheet" type="text/css" media="screen,print" href="../libs/log/main.css"/>',
+  '<script type="text/javascript" src="../libs/log/log4javascript.js"></script>',
+  '<script type="text/javascript">',
+  // <![CDATA[
+  'var _log4javascript = log4javascript.getLogger("main");', 
+  '_log4javascript.addAppender(new log4javascript.PopUpAppender());',
+  //'log.debug("This is debugging message from the log4javascript basic demo page");',
+  // ]]>
+  '</script>', 
+  '<script src="../src/jquery.gdda.js"></script>',
+  '<script src="../src/jquery.gdda.log.js"></script>', 
+  '<script src="../src/jquery.gdda.util.js"></script>', 
+  '<script src="../src/jquery.gdda.core.querybox.js"></script>'];
+
+  for(var i = 0; i < nodes.length; i++) {
+    document.write(nodes[i]);
+  };
 
 }());
