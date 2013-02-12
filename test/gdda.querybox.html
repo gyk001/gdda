@@ -24,7 +24,12 @@
       name: 'year',
       label:'统计年份',
       value: 2012,
-      verify: ['num', 'len:4', 'min:1990', 'max:2013']
+      verify: ['num', 'len:4', 'min:1990', 'max:2013'],
+      callback:{
+        blur:function($querybox,$cur){
+          $cur.val($cur.val()+'...');
+        }
+      }
     }, {
       name: 'type',
       type: 'select',
@@ -35,8 +40,12 @@
         ['yy', '区属二级医院'],
         ['wsz', '卫生站']
       ],
-      fun: function(qb, cur) {
-        alert($(cur).val());
+      callback: {
+        change:function($querybox,$cur) {
+          //alert($cur.val());
+          var $year = $('[name=year]',$querybox);
+          $year.val($year.val()+$cur.val());
+        }
       }
     }];
     var params = {

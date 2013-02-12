@@ -10,6 +10,7 @@
 	var _QB_TYPE = _KEYS.QB_TYPE;
 	var _QB_NAME = _KEYS.QB_NAME;
 	var _QB_SELECT_VALUES = _KEYS.QB_SELECT_VALUES;
+	var _QB_CALLBACK = _KEYS.QB_CALLBACK;
 
 
 	var _renderCtrl = function($querybox,ctrlCfg){
@@ -38,7 +39,18 @@
 			}
 			var fun = _renderCtrl[type];
 			if(typeof fun ==='function'){
-				fun(ctrlId,name,$querybox,ctrlCfg);
+				var $ctrl = fun(ctrlId,name,$querybox,ctrlCfg);
+				var callback = ctrlCfg[_QB_CALLBACK];
+				if(callback){
+					for (var eType in callback) {
+						var cb = callback[eType];
+						if(typeof cb === 'function'){
+							$ctrl.bind(eType+'.gdda',function(){
+								cb($querybox,$ctrl);
+							});
+						}
+					};
+				}
 			}else{
 				throw new Error('querybox ctrl type unknown:'+type);
 			}
@@ -47,8 +59,9 @@
 	_renderCtrl.input = function(ctrlId,name,$querybox,ctrlCfg){
 		var node = ['<input name="',name,'" id="',ctrlId,'"/>'].join('');
 		var $ctrl = $(node).appendTo($querybox);
-		var value = 
-		$ctrl.val(ctrlCfg[_QB_VALUE]);
+		//var value = 
+		return $ctrl.val(ctrlCfg[_QB_VALUE]);
+
 		//['<input name="',name,'" id="',qbId,'_',name,'" />']
 		//$('<input/>').attr('name',name).attr('id',[qbId,'_',name,'_',_KEYS.QB_LABEL].join('')).appendTo($querybox);
 	};
@@ -69,6 +82,7 @@
 				$('<option/>').attr('value',opt[0]).text(opt[1]).attr('selected',(val && val === opt[0])).appendTo($ctrl);
 			}
 		}
+		return $ctrl;
 	};
 
 

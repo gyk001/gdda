@@ -22,7 +22,8 @@
       QB_VALUE:'value',
       QB_VERIFY:'verify',
       QB_TYPE:'type',
-      QB_SELECT_VALUES:'values'
+      QB_SELECT_VALUES:'values',
+      QB_CALLBACK:'callback'
     }
   };
 
