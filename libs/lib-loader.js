@@ -7,7 +7,7 @@
     path = 'http://code.jquery.com/jquery-' + jqversion[1] + '.js';
   } else {
     // No version was specified, load the local version.
-    path = '../libs/jquery/jquery.js';
+    path = '../libs/jquery/1.8.3/jquery-1.8.3.js';
   }
   // This is the only time I'll ever use document.write, I promise!
   var nodes = ['<script src="' + path + '"></script>',
@@ -29,7 +29,9 @@
   '<script src="../src/jquery.gdda.js"></script>',
   '<script src="../src/jquery.gdda.log.js"></script>', 
   '<script src="../src/jquery.gdda.util.js"></script>', 
-  '<script src="../src/jquery.gdda.core.querybox.js"></script>'];
+  '<script src="../src/jquery.gdda.core.querybox.js"></script>', 
+  '<script src="../src/jquery.gdda.core.config.js"></script>', 
+  '<script src="../src/jquery.gdda.core.js"></script>'];
 
   for(var i = 0; i < nodes.length; i++) {
     document.write(nodes[i]);

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Test-config</title>
+  <!-- Load local jQuery. This can be overridden with a ?jquery=___ param. -->
+  <script src="../libs/lib-loader.js"></script>
+  <!-- Load local QUnit (grunt requires v1.0.0 or newer). -->
+  <link rel="stylesheet" href="../libs/qunit/qunit.css" media="screen">
+  <script src="../libs/qunit/qunit.js"></script>
+  <!-- Load local lib and tests. -->
+  <!--
+  <script src="../src/jquery.gdda.core.querybox.js"></script>
+  -->
+  <!-- Removing access to jQuery and $. But it'll still be available as _$, if
+       you REALLY want to mess around with jQuery in the console. REMEMBER WE
+       ARE TESTING YOUR PLUGIN HERE -->
+  <script>//window._$ = jQuery.noConflict(true);</script>
+  <script type="text/javascript">
+
+  $(function() {
+    window._GDDA_DEBUG = true;
+    /*
+    var paramsCfg = [{
+      name: 'year',
+      label:'统计年份',
+      value: 2012,
+      hide:true,
+      verify: ['num', 'len:4', 'min:1990', 'max:2013'],
+      callback:{
+        blur:function($querybox,$cur){
+          $cur.val($cur.val()+'...');
+        }
+      }
+    }, {
+      name: 'type',
+      type: 'select',
+      label:'机构类型',
+      value: 'yy',
+      values: [
+        ['sq', '社区服务中心'],
+        ['yy', '区属二级医院'],
+        ['wsz', '卫生站']
+      ],
+      callback: {
+        change:function($querybox,$cur) {
+          //alert($cur.val());
+          var $year = $('[name=year]',$querybox);
+          $year.val($year.val()+$cur.val()).parent().show();
+        }
+      }
+    }];
+    var params = {
+      year :12,
+      type:'wsz'
+    };
+    $.gdda.core.querybox.ctrl.input2 = function(ctrlId,name,$querybox,ctrlCfg){
+      var node = ['<input name="',name,'" id="',ctrlId,'"/>'].join('');
+      var $ctrl = $(node).appendTo($querybox);
+      //var value = 
+      return $ctrl.val(ctrlCfg['value']);
+    };
+    $.gdda.core.querybox.render('test_qb_t', paramsCfg, params);
+    $.gdda.core.querybox.render('test_qb_b', paramsCfg);
+
+  // var _cfg = $.gdda.core.config;
+  // var _log = $.gdda.log;
+
+  // _log.log(_cfg.exists(_qid));
+  // _cfg.load(_qid);
+  // _log.log(_cfg.exists(_qid));
+  // _log.log(_cfg.exists(_qid));
+  // setTimeout(function(){
+  //   _log.log(_cfg.exists(_qid));
+  //   _log.log(_cfg.exists(_qid));
+  //   _log.log(_cfg.exists(_qid));
+  // },500);
+
+*/
+  var did = 'config_01';
+  var did2 = 'config_02';
+  var _qid = 'bmi.year.grid_0100'; 
+
+  //$('#'+did).gdda(_qid);
+  $.gdda.core.querybox.addQueryDoneCallback(function(){alert(1);});
+  $('#'+did).gdda({qid:_qid});
+  setTimeout(function(){
+    $.gdda.core.querybox.addQueryDoneCallback(function(){alert(2);});
+    $('#'+did2).gdda({qid:_qid});
+  },2000);
+  
+
+
+  //$.gdda('#'+did,_qid);
+/*
+  setTimeout(function(){
+    $.gdda(_qid);
+  },500);
+*/
+    //$.gdda.core.config.module.grid = {};
+   // $.gdda.core.config.process(config);
+    //$.gdda.core.config.loader.
+    //['<input name="',name,'" id="',qbId,'_',name,'" />']
+    //$('<input/>').attr('name',name).attr('id',[qbId,'_',name,'_',_KEYS.QB_LABEL].join('')).appendTo($querybox);
+
+    //renderQueryBox('test_qb_b', params);
+    //renderQueryBox('test_qb_m', params);
+    /*
+    $t = $('#test_qb_t');
+    $b = $('#test_qb_b');
+    $m = $('#test_qb_m');
+
+    var thoder = _divHolder($t);
+    var bhoder = _divHolder($b);
+    var mhoder = _divHolder($m);
+
+    bhoder.detach();
+    thoder.detach();
+    thoder.retach();
+    bhoder.retach();
+
+    mhoder.detach();
+    mhoder.retach();
+    */
+
+  });
+  </script>
+</head>
+<body>
+  <div id="querybox_in_middle">
+    <div>top</div>
+    <div id="test_qb_m">
+      <label for="test_qb_m_x">X档案1</label><input id="test_qb_m_x" name="x" value="xx1">
+    </div>
+    <div>bottom</div>
+  </div>
+  <hr/>
+  <div id="querybox_in_top">
+    <div>
+      <div id="test_qb_t">
+      <label for="test_qb_m_x">X档案2</label><input id="test_qb_t_x" name="x" value="xx2">
+    </div>
+    <div>bottom</div>
+    </div>
+  </div>
+  <hr/>
+   <div id="querybox_in_bottom">
+    <div>top</div>
+    <div>
+      <div id="test_qb_b">
+      <label for="test_qb_b_x">X档案3</label><input id="test_qb_b_x" name="x" value="xx3">
+    </div>
+    </div>
+  </div>
+
+   <hr/>
+   <div id="config_01">
+   </div>
+   <div id="config_01_query">
+   </div>
+  <hr/>
+   <div id="config_02">
+   </div>
+</body>
+</html>

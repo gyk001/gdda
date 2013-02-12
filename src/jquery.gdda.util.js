@@ -4,18 +4,27 @@
 	var _gdda = $.gdda;
 	var _log = _gdda.log;
 
+	var _hide_querybox_container=false;
+
 	if(!String.prototype.trim) {
 		String.prototype.trim = function () {
 			return this .replace(/^\s\s*/, '' ).replace(/\s\s*$/, '' );
 		};
 	}
 
-	function _findDivById(x) {
-		if(typeof x === "string") {
-			return document.getElementById(x);
+	var _getHideQueryboxContainer = function(){
+		if(! _hide_querybox_container){
+			_hide_querybox_container = $('<div/>').hide().appendTo($('body'));
+		}
+		return _hide_querybox_container;
+	};
+
+	var _findNodeById = function(id) {
+		if(typeof id === "string") {
+			return document.getElementById(id);
 		}
 		return;
-	}
+	};
 
 	var _divHolder = function($div){
 		//return new function(){
@@ -70,10 +79,12 @@
 		return undefined;
 	};
 
-	$.extend(_gdda,{
+	$.extend(true,_gdda,{
 		util:{
 			trim: _trim,
-			divHolder: _divHolder
+			findNodeById:_findNodeById,
+			divHolder: _divHolder,
+			getHideQBParent:_getHideQueryboxContainer
 		}
 	});
 })(jQuery,undefined);

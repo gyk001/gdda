@@ -9,13 +9,14 @@
 
 (function($) {
   "use strict";
-  //TODO: 暴露默认配置,允许运行时更改 
-  var defaults = {
+  $.gdda = {
+    defaults:{//暴露默认配置,允许运行时更改
     debug : true,
     suffix : {
-      search : '_search',
+      query : '_query',
       tool : '_tool'
     },
+    urlPrefix:'http://localhost:8000/ajaxdemo/',
     KEYS:{
       QUERYBOX:{
         CTRL_CLS:'qbctrl',
@@ -29,34 +30,46 @@
         CALLBACK:'callback'
       }
     }
+  },
+    _ajaxs :{}
   };
 
-
-  //TODO: Collection method.
-  $.fn.gdda = function(options) {
-    //
-    var opts = $.extend($.gdda.defaults, options); 
-    /*
-    var isdebug = opts.debug;
-    var log = function(obj){
-        db.log(obj,isdebug);
-    };
-    var dir = function(obj){
-        db.dir(obj,isdebug);
-    };
-
-    dir(opts);
-    */
-    return this.each(function(opts) {
-      $(this).html('gdda');
-    });
-  };
-
+/*
   // TODO: Static method.
-  $.gdda = function() {
+  $.gdda = function(selector,qid_or_options,options_null) {
+    //至少有两个参数
+    if(arguments.length>1){
+      var $dom = $(selector);
+      if($dom.length<1){
+        return;
+      }
+      $dom.each(function(){
+        var $this = $(this);
+        var id = $this.attr('id');
+        if(id){
+          //qid_or_options为string，则视为qid
+          if(typeof qid_or_options ==='string'){
+            if(! options_null){
+              options_null = {
+                did:id
+              }
+            }else{
+              options_null.did = id;
+            }
+            _gdda_with_qid.call(this,qid_or_options,options_null);
+          }else{
+            qid_or_options.did = id;
+            _gdda_with_options.apply(this,qid_or_options);
+          }
+          
+        }
+      });
+    }else{
+      throw new Error('$.gdda() must has at least 2 params!');
+    }
   };
-
-  $.gdda.defaults = defaults;
+*/
+ 
   /*
   $.gdda.predefine={
 

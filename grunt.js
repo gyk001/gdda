@@ -17,7 +17,10 @@ module.exports = function(grunt) {
           '<file_strip_banner:src/<%= pkg.name %>.js>',
           '<file_strip_banner:src/<%= pkg.name %>.log.js>',
           '<file_strip_banner:src/<%= pkg.name %>.util.js>',
-          '<file_strip_banner:src/<%= pkg.name %>.core.querybox.js>'],
+          '<file_strip_banner:src/<%= pkg.name %>.core.querybox.js>',
+          '<file_strip_banner:src/<%= pkg.name %>.core.config.js>',
+          '<file_strip_banner:src/<%= pkg.name %>.core.js>'],
+
         dest: 'dist/<%= pkg.name %>.src.js'
       }
     },
