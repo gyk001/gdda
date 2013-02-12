@@ -19,6 +19,7 @@
     KEYS:{
       QUERYBOX:{
         CTRL_CLS:'qbctrl',
+        HIDDEN:'hide',
         LABEL:'label',
         NAME:'name',
         VALUE:'value',

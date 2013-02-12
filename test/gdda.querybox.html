@@ -24,6 +24,7 @@
       name: 'year',
       label:'统计年份',
       value: 2012,
+      hide:true,
       verify: ['num', 'len:4', 'min:1990', 'max:2013'],
       callback:{
         blur:function($querybox,$cur){
@@ -44,7 +45,7 @@
         change:function($querybox,$cur) {
           //alert($cur.val());
           var $year = $('[name=year]',$querybox);
-          $year.val($year.val()+$cur.val());
+          $year.val($year.val()+$cur.val()).parent().show();
         }
       }
     }];

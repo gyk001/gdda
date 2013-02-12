@@ -5,6 +5,7 @@
 	var _util = _gdda.util;
 	var _log = _gdda.log;
 	var _QB_KEYS = _gdda.defaults.KEYS.QUERYBOX;
+	var _QB_HIDDEN = _QB_KEYS.HIDDEN;
 	var _QB_VALUE = _QB_KEYS.VALUE;
 	var _QB_LABEL = _QB_KEYS.LABEL;
 	var _QB_TYPE = _QB_KEYS.TYPE;
@@ -49,58 +50,65 @@
 	 * @return {jQuery}           返回生成的控件
 	 */
 	var _renderCtrl = function($querybox, ctrlCfg) {
-			// TODO:
-			//console.dir(ctrlCfg);
-			//忽略空对象（写配置时多写逗号会有该现象）
-			if(!ctrlCfg || ctrlCfg.length < 1) {
-				return;
-			}
-			// 查询框父Div的ID
-			var qbId = $querybox.attr('id');
-			// 控件名
-			var name = _util.trim(ctrlCfg[_QB_NAME]);
-			if(name) {
-				var ctrlId = [qbId, '_', name].join('');
-				// 控件标签
-				var label = _util.trim(ctrlCfg[_QB_LABEL]);
-				if(label) {
-					$('<label/>').text(label).attr('for', ctrlId) /*.attr('id',[ctrlId,'_',_QB_KEYS.LABEL].join(''))*/
-					.appendTo($querybox);
-				}
+		// TODO:
+		//console.dir(ctrlCfg);
+		//忽略空对象（写配置时多写逗号会有该现象）
+		if(!ctrlCfg || ctrlCfg.length < 1) {
+			return;
+		}
+		// 查询框父Div的ID
+		var qbId = $querybox.attr('id');
+		// 控件名
+		var name = _util.trim(ctrlCfg[_QB_NAME]);
+		if(name) {
+			var ctrlId = [qbId, '_', name].join('');
+			var hide = ctrlCfg[_QB_HIDDEN] || false;
 
-				// 控件类型(默认为input)
-				var type = _util.trim(ctrlCfg[_QB_TYPE]) || 'input';
-				// 控件生成函数
-				var genCtrl = _renderCtrl[type];
-				if(typeof genCtrl === 'function') {
-					//生成控件
-					var $ctrl = genCtrl(ctrlId, name, $querybox, ctrlCfg);
-					if($ctrl && $ctrl.length) {
-						//取回调配置
-						var callback = ctrlCfg[_QB_CALLBACK];
-						//绑定回调
-						if(callback) {
-							_bindCtrlCallBack($ctrl, $querybox, callback);
-						}
-						return $ctrl.addClass(_QB_CTRL_CLS);
-					}
-				} else {
-					throw new Error('querybox ctrl type unknown:' + type);
-				}
+			// 控件父元素，span
+			var $ctrlBox = $('<span/>').appendTo($querybox);
+			//控件隐藏时仍需要需生成label（其他控件的回调可能会显示该控件），不过需要设置隐藏
+			if(hide === true) {
+				$ctrlBox.css('display', 'none');
 			}
-		};
-	_renderCtrl.input = function(ctrlId, name, $querybox, ctrlCfg) {
+			// 控件标签
+			var labelText = _util.trim(ctrlCfg[_QB_LABEL]);
+			if(labelText) {
+				var $label = $('<label/>').text(labelText).attr('for', ctrlId).appendTo($ctrlBox);
+			}
+
+			// 控件类型(默认为input)
+			var type = _util.trim(ctrlCfg[_QB_TYPE]) || 'input';
+			// 控件生成函数
+			var genCtrl = _renderCtrl[type];
+			if(typeof genCtrl === 'function') {
+				//生成控件
+				var $ctrl = genCtrl(ctrlId, name, $ctrlBox, ctrlCfg);
+				if($ctrl && $ctrl.length) {
+					//取回调配置
+					var callback = ctrlCfg[_QB_CALLBACK];
+					//绑定回调
+					if(callback) {
+						_bindCtrlCallBack($ctrl, $querybox, callback);
+					}
+					return $ctrl.addClass(_QB_CTRL_CLS);
+				}
+			} else {
+				throw new Error('querybox ctrl type unknown:' + type);
+			}
+		}
+	};
+	_renderCtrl.input = function(ctrlId, name, $ctrlBox, ctrlCfg) {
 		var node = ['<input name="', name, '" id="', ctrlId, '"/>'].join('');
-		var $ctrl = $(node).appendTo($querybox);
+		var $ctrl = $(node).appendTo($ctrlBox);
 		//var value = 
 		return $ctrl.val(ctrlCfg[_QB_VALUE]);
 
 		//['<input name="',name,'" id="',qbId,'_',name,'" />']
 		//$('<input/>').attr('name',name).attr('id',[qbId,'_',name,'_',_QB_KEYS.LABEL].join('')).appendTo($querybox);
 	};
-	_renderCtrl.select = function(ctrlId, name, $querybox, ctrlCfg) {
+	_renderCtrl.select = function(ctrlId, name, $ctrlBox, ctrlCfg) {
 		var node = ['<select name="', name, '" id="', ctrlId, '"/>'].join('');
-		var $ctrl = $(node).appendTo($querybox);
+		var $ctrl = $(node).appendTo($ctrlBox);
 		var val = ctrlCfg[_QB_VALUE];
 		//配置的下拉选项
 		var opts = ctrlCfg[_QB_SELECT_VALUES];
