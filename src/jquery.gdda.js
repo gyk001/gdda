@@ -16,15 +16,17 @@
       search : '_search',
       tool : '_tool'
     },
-    cfgKeys:{
-      QB_CTRL_CLS:'qbctrl',
-      QB_LABEL:'label',
-      QB_NAME:'name',
-      QB_VALUE:'value',
-      QB_VERIFY:'verify',
-      QB_TYPE:'type',
-      QB_SELECT_VALUES:'values',
-      QB_CALLBACK:'callback'
+    KEYS:{
+      QUERYBOX:{
+        CTRL_CLS:'qbctrl',
+        LABEL:'label',
+        NAME:'name',
+        VALUE:'value',
+        VERIFY:'verify',
+        TYPE:'type',
+        SELECT_VALUES:'values',
+        CALLBACK:'callback'
+      }
     }
   };
 

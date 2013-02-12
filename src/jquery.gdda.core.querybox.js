@@ -4,14 +4,14 @@
 	var _gdda = $.gdda;
 	var _util = _gdda.util;
 	var _log = _gdda.log;
-	var _KEYS = _gdda.defaults.cfgKeys;
-	var _QB_VALUE = _KEYS.QB_VALUE;
-	var _QB_LABEL = _KEYS.QB_LABEL;
-	var _QB_TYPE = _KEYS.QB_TYPE;
-	var _QB_NAME = _KEYS.QB_NAME;
-	var _QB_SELECT_VALUES = _KEYS.QB_SELECT_VALUES;
-	var _QB_CALLBACK = _KEYS.QB_CALLBACK;
-	var _QB_CTRL_CLS = _KEYS.QB_CTRL_CLS;
+	var _QB_KEYS = _gdda.defaults.KEYS.QUERYBOX;
+	var _QB_VALUE = _QB_KEYS.VALUE;
+	var _QB_LABEL = _QB_KEYS.LABEL;
+	var _QB_TYPE = _QB_KEYS.TYPE;
+	var _QB_NAME = _QB_KEYS.NAME;
+	var _QB_SELECT_VALUES = _QB_KEYS.SELECT_VALUES;
+	var _QB_CALLBACK = _QB_KEYS.CALLBACK;
+	var _QB_CTRL_CLS = _QB_KEYS.CTRL_CLS;
 
 /**
  * 为查询控件绑定回调
@@ -62,7 +62,7 @@
 			// 控件标签
 			var label = _util.trim(ctrlCfg[_QB_LABEL]);
 			if( label ){
-				$('<label/>').text(label).attr('for',ctrlId)/*.attr('id',[ctrlId,'_',_KEYS.QB_LABEL].join(''))*/.appendTo($querybox);
+				$('<label/>').text(label).attr('for',ctrlId)/*.attr('id',[ctrlId,'_',_QB_KEYS.LABEL].join(''))*/.appendTo($querybox);
 			}
 			
 			// 控件类型(默认为input)
@@ -93,7 +93,7 @@
 		return $ctrl.val(ctrlCfg[_QB_VALUE]);
 
 		//['<input name="',name,'" id="',qbId,'_',name,'" />']
-		//$('<input/>').attr('name',name).attr('id',[qbId,'_',name,'_',_KEYS.QB_LABEL].join('')).appendTo($querybox);
+		//$('<input/>').attr('name',name).attr('id',[qbId,'_',name,'_',_QB_KEYS.LABEL].join('')).appendTo($querybox);
 	};
 	_renderCtrl.select = function(ctrlId,name,$querybox,ctrlCfg){
 		var node = ['<select name="',name,'" id="',ctrlId,'"/>'].join('');
