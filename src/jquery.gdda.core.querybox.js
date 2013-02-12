@@ -11,8 +11,41 @@
 	var _QB_NAME = _KEYS.QB_NAME;
 	var _QB_SELECT_VALUES = _KEYS.QB_SELECT_VALUES;
 	var _QB_CALLBACK = _KEYS.QB_CALLBACK;
+	var _QB_CTRL_CLS = _KEYS.QB_CTRL_CLS;
 
+/**
+ * 为查询控件绑定回调
+ * @param  {[type]}   $ctrl     控件
+ * @param  {[type]}   $querybox 控件所在的查询框
+ * @param  {Function} callback  回调对象,形如:
+ *    {
+ *      change:function($querybox,$ctrl) {
+ *        var $year = $('[name=year]',$querybox);
+ *        $year.val($year.val()+$ctrl.val());
+ *      }
+ *    }
+ * @return {[type]}             [description]
+ */
+	var _bindCtrlCallBack = function($ctrl,$querybox,callbacks){
+		var _caller = function (event){
+			var cb = event.data.cb;
+			cb($querybox,$ctrl,event);
+		};
+		for (var eType in callbacks) {
+			var callback = callbacks[eType];
+			if(typeof callback === 'function'){
+				$querybox.on(eType+'.gdda','#'+$ctrl.attr('id'),{cb:callback},_caller);
+			}
+		}
+		return $ctrl;
+	};
 
+/**
+ * 生成一个查询控件，包括解析控件配置，生成dom元素，绑定回调事件等操作
+ * @param  {[type]} $querybox 控件所在查询框
+ * @param  {[type]} ctrlCfg   控件配置
+ * @return {[type]}           返回生成的控件
+ */
 	var _renderCtrl = function($querybox,ctrlCfg){
 		// TODO:
 		//console.dir(ctrlCfg);
@@ -32,24 +65,21 @@
 				$('<label/>').text(label).attr('for',ctrlId)/*.attr('id',[ctrlId,'_',_KEYS.QB_LABEL].join(''))*/.appendTo($querybox);
 			}
 			
-			// 控件类型
-			var type = _util.trim(ctrlCfg[_QB_TYPE]);
-			if(!type){
-				type = 'input';
-			}
-			var fun = _renderCtrl[type];
-			if(typeof fun ==='function'){
-				var $ctrl = fun(ctrlId,name,$querybox,ctrlCfg);
-				var callback = ctrlCfg[_QB_CALLBACK];
-				if(callback){
-					for (var eType in callback) {
-						var cb = callback[eType];
-						if(typeof cb === 'function'){
-							$ctrl.bind(eType+'.gdda',function(){
-								cb($querybox,$ctrl);
-							});
-						}
-					};
+			// 控件类型(默认为input)
+			var type = _util.trim(ctrlCfg[_QB_TYPE]) || 'input';
+			// 控件生成函数
+			var genCtrl = _renderCtrl[type];
+			if(typeof genCtrl ==='function'){
+				//生成控件
+				var $ctrl = genCtrl(ctrlId,name,$querybox,ctrlCfg);
+				if($ctrl && $ctrl.length){
+					//取回调配置
+					var callback = ctrlCfg[_QB_CALLBACK];
+					//绑定回调
+					if(callback){
+						_bindCtrlCallBack($ctrl,$querybox,callback);
+					}
+					return $ctrl.addClass(_QB_CTRL_CLS);
 				}
 			}else{
 				throw new Error('querybox ctrl type unknown:'+type);
@@ -131,7 +161,8 @@
 	$.extend(_gdda,{
 		'core':{
 			'querybox':{
-				'render': _renderQueryBox
+				'render': _renderQueryBox,
+				'ctrl':_renderCtrl
 			}
 		}
 	});

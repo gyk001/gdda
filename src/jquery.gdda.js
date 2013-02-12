@@ -17,6 +17,7 @@
       tool : '_tool'
     },
     cfgKeys:{
+      QB_CTRL_CLS:'qbctrl',
       QB_LABEL:'label',
       QB_NAME:'name',
       QB_VALUE:'value',

@@ -52,8 +52,17 @@
       year :12,
       type:'wsz'
     };
+    $.gdda.core.querybox.ctrl.input2 = function(ctrlId,name,$querybox,ctrlCfg){
+      var node = ['<input name="',name,'" id="',ctrlId,'"/>'].join('');
+      var $ctrl = $(node).appendTo($querybox);
+      //var value = 
+      return $ctrl.val(ctrlCfg['value']);
+    };
     $.gdda.core.querybox.render('test_qb_t', paramsCfg, params);
     $.gdda.core.querybox.render('test_qb_b', paramsCfg);
+    //['<input name="',name,'" id="',qbId,'_',name,'" />']
+    //$('<input/>').attr('name',name).attr('id',[qbId,'_',name,'_',_KEYS.QB_LABEL].join('')).appendTo($querybox);
+
     //renderQueryBox('test_qb_b', params);
     //renderQueryBox('test_qb_m', params);
     /*
