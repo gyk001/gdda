@@ -33,10 +33,11 @@
 	params:{
 		pYear:{
 			type:'page.ctrl',
-			value:''
+			value:'_the_ctrl_id_'
 		},
 		pType:{
-			type:''
+			type:'gdda.var',
+			value:'_the_var_name_'
 		}
 	}
 };

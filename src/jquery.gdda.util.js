@@ -2,7 +2,19 @@
 (function($){
 	"use strict";
 	var _gdda = $.gdda;
-	var _log = _gdda.log;
+	
+	var _log = {
+		log:function(arg){
+			if(window._GDDA_DEBUG){
+				console.log(arg);					
+			}
+		},
+		dir:function(arg){
+			if(window._GDDA_DEBUG){
+				console.dir(arg);					
+			}	
+		}
+	};
 
 	var _hide_querybox_container=false;
 
@@ -84,7 +96,8 @@
 			trim: _trim,
 			findNodeById:_findNodeById,
 			divHolder: _divHolder,
-			getHideQBParent:_getHideQueryboxContainer
+			getHideQBParent:_getHideQueryboxContainer,
+			log: _log
 		}
 	});
 })(jQuery,undefined);

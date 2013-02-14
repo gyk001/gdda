@@ -27,7 +27,6 @@
   // ]]>
   '</script>', 
   '<script src="../src/jquery.gdda.js"></script>',
-  '<script src="../src/jquery.gdda.log.js"></script>', 
   '<script src="../src/jquery.gdda.util.js"></script>', 
   '<script src="../src/jquery.gdda.core.querybox.js"></script>', 
   '<script src="../src/jquery.gdda.core.config.js"></script>', 

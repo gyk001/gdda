@@ -81,6 +81,14 @@
   var did2 = 'config_02';
   var _qid = 'bmi.year.grid_0100'; 
 
+  $.gdda.core.config.addLoadedCallback(function(){
+    alert('callback1');
+  });
+
+  $.gdda.core.config.addLoadedCallback(function(){
+    alert('callback2');
+  });
+
   //$('#'+did).gdda(_qid);
   $.gdda.core.querybox.addQueryDoneCallback(function(){alert(1);});
   $('#'+did).gdda({qid:_qid});

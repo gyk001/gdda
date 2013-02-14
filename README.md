@@ -1,6 +1,7 @@
 # Gdda
 
 Gyk001 Drill Down Analyze jQueryPlugin
+![](https://api.travis-ci.org/gyk001/gdda.png?branch=master)
 
 ## Getting Started
 Download the [production version][min] or the [development version][max].

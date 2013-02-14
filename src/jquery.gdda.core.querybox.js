@@ -3,7 +3,7 @@
 	"use strict";
 	var _gdda = $.gdda;
 	var _util = _gdda.util;
-	var _log = _gdda.log;
+	var _log = _util.log;
 	var _QB_KEYS = _gdda.defaults.KEYS.QUERYBOX;
 	var _QB_HIDDEN = _QB_KEYS.HIDDEN;
 	var _QB_VALUE = _QB_KEYS.VALUE;

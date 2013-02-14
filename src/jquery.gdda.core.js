@@ -9,8 +9,8 @@
 (function($) {
   "use strict";
   var _gdda = $.gdda;
-  var _log = _gdda.log;
   var _util = _gdda.util;
+  var _log = _util.log;
   var _defaults = _gdda.defaults;
   var _core = _gdda.core;
   var _querybox = _core.querybox;
