@@ -60,7 +60,7 @@
 			crossDomain: true,
 			processData: false
 		}).done(function(js){
-			alert('done');
+			//alert('done');
 			//处理返回的内容
 			var str = ['(function(){return ',js,';})();'].join('');
 			try{
@@ -81,7 +81,7 @@
 			//标记加载失败
 			dfd.reject(e);
 		}).always(function(){
-			alert('always');
+			//alert('always');
 			delete _ajaxs[qid] ;
 			//alert('al');
 		});

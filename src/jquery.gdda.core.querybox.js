@@ -10,10 +10,54 @@
 	var _QB_LABEL = _QB_KEYS.LABEL;
 	var _QB_TYPE = _QB_KEYS.TYPE;
 	var _QB_NAME = _QB_KEYS.NAME;
-	var _QB_SELECT_VALUES = _QB_KEYS.SELECT_VALUES;
+	//var _QB_SELECT_VALUES = _QB_KEYS.SELECT_VALUES;
 	var _QB_CALLBACK = _QB_KEYS.CALLBACK;
 	var _QB_CTRL_CLS = _QB_KEYS.CTRL_CLS;
 
+
+
+	//查询成功回调链
+	var _queryDoneCallbacks = [];
+	//查询失败回调链
+	var _queryFailCallbacks = [];
+
+	/**
+	 * 添加查询成功回调函数
+	 * @param {Function} callback 查询成功后进行回调的函数
+	 */
+	var _addQueryDoneCallback = function(callback) {
+			_queryDoneCallbacks.push(callback);
+		};
+
+	/**
+	 * 添加查询失败回调函数
+	 * @param {Function} callback 查询失败后进行回调的函数
+	 */
+	var _addQueryFailCallback = function(callback) {
+			_queryFailCallbacks.push(callback);
+		};
+
+	var _renderDoneCallbacks = [];
+	var _renderFailCallbacks = [];
+
+	var _addRenderDoneCallback = function(callback){
+		_renderDoneCallbacks.push(callback);
+		//console.dir(_renderDoneCallbacks);
+	};
+
+	var _addRenderFailCallback = function(callback){
+		_renderFailCallbacks.push(callback);		
+	};
+
+	var _clearRenderDoneCallback = function(){
+		_renderDoneCallbacks.length = 0;		
+	};
+
+	var _clearRenderFailCallback = function(){
+		_renderFailCallbacks.length = 0;		
+	};
+
+	
 	/**
 	 * 为查询控件绑定回调
 	 * @param  {jQuery}   $ctrl     控件
@@ -77,7 +121,7 @@
 				}
 
 				// 控件类型(默认为input)
-				var type = _util.trim(ctrlCfg[_QB_TYPE]) || 'input';
+				var type = _util.trim(ctrlCfg[_QB_TYPE]) || 'text';
 				// 控件生成函数
 				var genCtrl = _renderCtrl[type];
 				if(typeof genCtrl === 'function') {
@@ -97,116 +141,103 @@
 				}
 			}
 		};
-	_renderCtrl.input = function(ctrlId, name, $ctrlBox, ctrlCfg) {
-		var node = ['<input name="', name, '" id="', ctrlId, '"/>'].join('');
-		var $ctrl = $(node).appendTo($ctrlBox);
-		//var value = 
-		return $ctrl.val(ctrlCfg[_QB_VALUE]);
-
-		//['<input name="',name,'" id="',qbId,'_',name,'" />']
-		//$('<input/>').attr('name',name).attr('id',[qbId,'_',name,'_',_QB_KEYS.LABEL].join('')).appendTo($querybox);
-	};
-	_renderCtrl.select = function(ctrlId, name, $ctrlBox, ctrlCfg) {
-		var node = ['<select name="', name, '" id="', ctrlId, '"/>'].join('');
-		var $ctrl = $(node).appendTo($ctrlBox);
-		var val = ctrlCfg[_QB_VALUE];
-		//配置的下拉选项
-		var opts = ctrlCfg[_QB_SELECT_VALUES];
-		if(opts && opts instanceof Array) {
-			for(var i = 0, len = opts.length; i < len; i++) {
-				var opt = opts[i];
-				//忽略空元素
-				if(!opt || opt.length < 1) {
-					continue;
-				}
-				//添加选项
-				$('<option/>').attr('value', opt[0]).text(opt[1]).attr('selected', (val && val === opt[0])).appendTo($ctrl);
-			}
-		}
-		return $ctrl;
-	};
 
 	/**
-	 * 渲染整个查询框
-	 * @param  {String} querboxDiv 查询框ID
-	 * @param  {Object} paramsCfg  配置
-	 * @param  {Object} params     覆盖参数
-	 * @return {jQuery}            返回查询框对象
+	 * 执行实际渲染查询框的操作并改变dfd对象状态
+	 * @param  {Deferred} dfd         [description]
+	 * @param  {String} queryboxDiv 查询框ID
+	 * @param  {Object} paramsCfg   查询框配置对象
+	 * @param  {Object} params      查询条件覆盖值
+	 * @return {undefined}			无
 	 */
-	var _renderQueryBox = function(querboxDiv, paramsCfg, params) {
-			// 新建一个deferred对象
-			var dfd = $.Deferred();
-			var _doRenderQueryBox = function() {
-					try {
-						var qb = _util.findNodeById(querboxDiv);
-						if(!qb) {
-							_log.log('div not exist!');
-							return;
-						}
-						// 取得查询框对象
-						var $qb = $(qb);
-						// 取得divHolder对象，方便元素从DOM上分离和附加
-						var qbHolder = _util.divHolder($qb);
-						// 分离元素
-						qbHolder.detach();
-						// 清空查询框
-						$qb.empty();
-						// 遍历参数配置，生成查询控件
-						if(paramsCfg) {
-							var len = paramsCfg.length;
-							for(var i = 0; i < len; i++) {
-								var cfg = $.extend({}, paramsCfg[i]);
-								//_log.dir(cfg);
-								if(params) {
-									var newVal = params[cfg[_QB_NAME]];
-									if(newVal) {
-										cfg[_QB_VALUE] = newVal;
-									}
-								}
-								_renderCtrl($qb, cfg);
+	var _deferredRenderQueryBox = function(dfd, queryboxDiv, paramsCfg, params) {
+			try {
+				var qb = _util.findNodeById(queryboxDiv);
+				if(!qb) {
+					_log.log('div not exist!' + queryboxDiv);
+					return;
+				}
+				// 取得查询框对象
+				var $qb = $(qb);
+				// 取得divHolder对象，方便元素从DOM上分离和附加
+				var qbHolder = _util.divHolder($qb);
+				// 分离元素
+				qbHolder.detach();
+				// 清空查询框
+				$qb.empty();
+				// 遍历参数配置，生成查询控件
+				if(paramsCfg) {
+					var len = paramsCfg.length;
+					for(var i = 0; i < len; i++) {
+						var cfg = $.extend({}, paramsCfg[i]);
+						//_log.dir(cfg);
+						if(params) {
+							var newVal = params[cfg[_QB_NAME]];
+							if(newVal) {
+								cfg[_QB_VALUE] = newVal;
 							}
 						}
-						//附加元素至DOM
-						qbHolder.retach();
-						//return $qb;
-						// 改变Deferred对象的执行状态
-						dfd.resolve($qb);
+						_renderCtrl($qb, cfg);
+					}
+				}
+				//附加元素至DOM
+				qbHolder.retach();
+				//return $qb;
+				// 改变Deferred对象的执行状态
+				dfd.resolve($qb);
+			} catch(e) {
+				// 改变Deferred对象的执行状态
+				dfd.reject(e);
+			}
+		};
+	/**
+	 * 渲染整个查询框
+	 * @param  {String} queryboxDiv 查询框ID
+	 * @param  {Object} paramsCfg  配置
+	 * @param  {Object} params     覆盖参数
+	 * @return {Deferred}            返回Deferred对象
+	 */
+	var _renderQueryBox = function(queryboxDiv, paramsCfg, params) {
+			// 新建一个deferred对象
+			var dfd = $.Deferred();
+			// 注册成功，失败回调链
+			dfd.done(_renderDoneCallbacks).fail(_renderFailCallbacks);
+			//dfd.resolve();
+			// 调用渲染查询框函数
+			setTimeout(_deferredRenderQueryBox, 0, dfd, queryboxDiv, paramsCfg, params);
+			return dfd.promise(); // 返回promise对象
+		};
+
+
+	var _query = function($qb, options) {
+			// 新建一个deferred对象
+			var dfd = $.Deferred();
+			dfd.done(_queryDoneCallbacks).fail(_queryFailCallbacks);
+			var _doQuery = function() {
+					try {
+						var data = {
+							a: 1
+						};
+						dfd.resolve(data);
 					} catch(e) {
-						// 改变Deferred对象的执行状态
 						dfd.reject();
 					}
 				};
-			setTimeout(_doRenderQueryBox, 0);
+			setTimeout(_doQuery, 1000);
 			return dfd.promise(); // 返回promise对象
 		};
-	var _queryDoneCallback = [];
-	
-	var _addQueryDoneCallback = function(callback){
-		_queryDoneCallback.push(callback);	
-	};
-
-	var _query = function($qb,options){
-		// 新建一个deferred对象
-		var dfd = $.Deferred();
-		dfd.done(_queryDoneCallback);
-		var _doQuery = function(){
-			try{
-				var data = {a:1};
-				dfd.resolve(data);			
-			}catch(e){
-				dfd.reject();
-			}
-		};
-		setTimeout(_doQuery, 1000);
-		return dfd.promise(); // 返回promise对象
-	};
 
 	$.extend(true, _gdda, {
 		'core': {
 			'querybox': {
 				'render': _renderQueryBox,
+				'addRenderDoneCallback':_addRenderDoneCallback,
+				'addRenderFailCallback':_addRenderFailCallback,
+				'clearRenderDoneCallback': _clearRenderDoneCallback,
+				'clearRenderFailCallback': _clearRenderFailCallback,
 				'query': _query,
-				'addQueryDoneCallback':_addQueryDoneCallback,
+				'addQueryDoneCallback': _addQueryDoneCallback,
+				'addQueryFailCallback': _addQueryDoneCallback,
 				'ctrl': _renderCtrl
 			}
 		}

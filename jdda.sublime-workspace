@@ -4,6 +4,166 @@
 		"selected_items":
 		[
 			[
+				"pro",
+				"promise"
+			],
+			[
+				"_lo",
+				"_loadedCallbacks"
+			],
+			[
+				"De",
+				"Deferred"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"_qu",
+				"_queryboxRenderDone"
+			],
+			[
+				"_",
+				"_hide_querybox_container"
+			],
+			[
+				"q",
+				"queryBoxSuffix"
+			],
+			[
+				"de",
+				"defaults"
+			],
+			[
+				"o",
+				"options"
+			],
+			[
+				"op",
+				"options"
+			],
+			[
+				"conf",
+				"config_01"
+			],
+			[
+				"qid",
+				"qid_or_options"
+			],
+			[
+				"ar",
+				"arguments"
+			],
+			[
+				"_gdd",
+				"_gdda_with_options"
+			],
+			[
+				"opt",
+				"options"
+			],
+			[
+				"_c",
+				"_config_loaded"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"_u",
+				"_URL_PREFIX"
+			],
+			[
+				"te",
+				"textStatus"
+			],
+			[
+				"ctr",
+				"ctrlBox"
+			],
+			[
+				"ct",
+				"ctrlBox"
+			],
+			[
+				"_Q",
+				"_QB_KEYS"
+			],
+			[
+				"ret",
+				"return"
+			],
+			[
+				"typ",
+				"typeof"
+			],
+			[
+				"for",
+				"for	for (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"_QB_",
+				"_QB_NAME"
+			],
+			[
+				"QB",
+				"QB_TYPE"
+			],
+			[
+				"ctrl",
+				"ctrlCfg"
+			],
+			[
+				"id",
+				"idPrefix"
+			],
+			[
+				"_re",
+				"_renderCtrl"
+			],
+			[
+				"re",
+				"_renderQueryBox"
+			],
+			[
+				"s",
+				"script	Tag"
+			],
+			[
+				"str",
+				"strict"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"c",
+				"ctrlCfg"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"th",
+				"thoder"
+			],
+			[
+				"test",
+				"test_qb_t"
+			],
+			[
+				"qb",
+				"qbHolder"
+			],
+			[
+				"l",
+				"label	Tag"
+			],
+			[
 				"e",
 				"extends"
 			],
@@ -14,10 +174,6 @@
 			[
 				"j",
 				"jQuery.each	jQuery.each"
-			],
-			[
-				"fun",
-				"function"
 			]
 		]
 	},
@@ -27,9 +183,29 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 375.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"ma",
+				"Markdown Preview: preview in Browser"
+			],
+			[
+				"fo",
+				"Format: Javascript"
+			],
+			[
+				"bro",
+				"File: Open In Browser - Testing Server"
+			],
+			[
+				"f",
+				"Format: Javascript"
+			],
+			[
+				"fom",
+				"Format: Javascript"
+			],
 			[
 				"ins",
 				"Package Control: Install Package"
@@ -49,10 +225,6 @@
 			[
 				"showt",
 				"Git: Show Tags"
-			],
-			[
-				"fo",
-				"Format: Javascript"
 			],
 			[
 				"",
@@ -127,7 +299,7 @@
 				"Package Control: Remove Package"
 			]
 		],
-		"width": 386.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -144,9 +316,28 @@
 	},
 	"file_history":
 	[
+		"/Users/Guo/Workspace/javascript/gdda/libs/lib-loader.js",
+		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.log.js",
+		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.util.js",
+		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.core.js",
+		"/Users/Guo/Workspace/javascript/gdda/ajaxdemo/bmi/year/grid_0100.js",
 		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.js",
-		"/D/GuoWork/SoftUtil/ST2/Data/Packages/User/Preferences.sublime-settings",
+		"/Users/Guo/Workspace/javascript/gdda/test/gdda.config.html",
+		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.core.config.js",
+		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.core.querybox.js",
+		"/Users/Guo/Workspace/javascript/gdda/libs/highcharts/index.htm",
+		"/Users/Guo/Workspace/javascript/gdda/README.md",
+		"/Users/Guo/Workspace/javascript/gdda/dist/jquery.gdda.src.js",
+		"/Users/Guo/Workspace/javascript/gdda/grunt.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/test/cfgdemo/bmi/year/grid_0100.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/gdda.querybox.html",
+		"/Users/Guo/Workspace/javascript/gdda/dist/jquery.gdda.min.js",
 		"/Users/Guo/Workspace/javascript/gdda/test/gdda_test.js",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
+		"/Users/Guo/Workspace/javascript/gdda/design/gdda.xmind",
+		"/D/GuoWork/SoftUtil/ST2/Data/Packages/User/Preferences.sublime-settings",
 		"/Users/Guo/Workspace/javascript/gdda/.travis.yml",
 		"/D/GuoWork/javascript/gdda/jdda.sublime-project",
 		"/C/Users/Guo/Desktop/Main.java",
@@ -252,26 +443,7 @@
 		"/D/GuoWork/javascript/grunt-demo/README.md",
 		"/D/GuoWork/javascript/grunt-demo/test/grunt-demo-1.html",
 		"/D/GuoWork/javascript/grunt-study/dist/grunt-study.min.js",
-		"/D/GuoWork/Workspace/Aurora-Server/pom.xml",
-		"/D/GuoWork/Workspace/Aurora-Server/.project",
-		"/C/Users/Guo/Desktop/structure1355114936571.xml",
-		"/D/GuoWork/Workspace/ehr/src/main/webapp/js/business/util/page.js",
-		"/D/ROOT/js/highchart/highcharts.src.js",
-		"/D/GuoWork/Workspace/HSAS/src/com/sinosoft/common/filter/CharacterEncodingFilter.java",
-		"/D/GuoWork/Workspace/UAAMS/WebContent/js/userManageTree.js",
-		"/C/Users/Guo/Desktop/EXPORT.out",
-		"/C/Users/Guo/Desktop/ehr.sql",
-		"/C/Users/Guo/Desktop/bigtab.txt",
-		"/C/Users/Guo/Desktop/bt.txt",
-		"/C/Users/Guo/Desktop/UserHandleAction.jad",
-		"/C/Users/Guo/Desktop/xxx.out",
-		"/C/Users/Guo/Desktop/UserHandleAction.class",
-		"/D/GuoWork/hddeployback/UserAction.jad",
-		"/D/GuoWork/hddeployback/xxx.out",
-		"/E/xxx.out",
-		"/D/GuoWork/HDDeploy/conf/etc/rc.d/init.d/nginx",
-		"/D/GuoWork/HDDeploy/conf/etc/rc.d/init.d/tm-cas",
-		"/C/Ping/10.165.190.232_2012-11-13.txt"
+		"/D/GuoWork/Workspace/Aurora-Server/pom.xml"
 	],
 	"find":
 	{
@@ -286,9 +458,29 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"divH",
+			"extend",
+			",\n",
+			"QUERYBOX",
+			"_KEYS.QB_",
+			"ctrl",
+			"idPrefix",
+			"',\n",
+			"			\n",
+			"jQuery",
+			"warn",
+			";\n",
+			"\n	",
+			"hasPrev",
+			"thoder",
+			"();\n",
+			"ctrl+space",
+			"ctrl",
+			"c't'r'l",
+			");\n",
 			"wp",
 			"	location / {\n		root html;\n		access_log on;\n		allow all;\n	}",
 			"[\\r]\"",
@@ -357,7 +549,7 @@
 		"replace_history":
 		[
 		],
-		"reverse": false,
+		"reverse": true,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
@@ -373,11 +565,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 38.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 38.0
 	},
 	"layout":
 	{
@@ -434,7 +626,7 @@
 		[
 			[
 				"",
-				"/D/GuoWork/javascript/gdda/jdda.sublime-project"
+				"/Users/Guo/Workspace/gblog/source/_posts/blog.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -443,6 +635,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 170.0,
+	"side_bar_width": 263.0,
 	"status_bar_visible": true
 }

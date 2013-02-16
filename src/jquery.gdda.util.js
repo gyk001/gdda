@@ -6,12 +6,20 @@
 	var _log = {
 		log:function(arg){
 			if(window._GDDA_DEBUG){
-				console.log(arg);					
+				try{
+					undefined.a = 1;
+				}catch(e){
+					console.log(arg+e.stack.split('\n')[2]);
+				}
 			}
 		},
 		dir:function(arg){
 			if(window._GDDA_DEBUG){
-				console.dir(arg);					
+				try{
+					undefined.a =1 ;
+				}catch(e){
+					console.dir(arg+e.stack.split('\n')[2]);					
+				}
 			}	
 		}
 	};

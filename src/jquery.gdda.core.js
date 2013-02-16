@@ -56,7 +56,8 @@
     _querybox.render(qbId,options.query).done(function($qb){
       _queryboxRenderDone($qb,options);
     }).fail(function(){
-      alert('渲染查询框出错!');
+      _log.log('渲染查询框出错!');
+      //alert('渲染查询框出错!');
     });
   };
 

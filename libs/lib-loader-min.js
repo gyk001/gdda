@@ -25,13 +25,8 @@
   '_log4javascript.addAppender(new log4javascript.PopUpAppender());',
   //'log.debug("This is debugging message from the log4javascript basic demo page");',
   // ]]>
-  '</script>',
-  '<script src="../src/jquery.gdda.js"></script>',
-  '<script src="../src/jquery.gdda.util.js"></script>', 
-  '<script src="../src/jquery.gdda.core.querybox.js"></script>',
-  '<script src="../src/jquery.gdda.core.querybox.ctrls.js"></script>',
-  '<script src="../src/jquery.gdda.core.config.js"></script>', 
-  '<script src="../src/jquery.gdda.core.js"></script>'];
+  '</script>', 
+  '<script src="../dist/jquery.gdda.min.js"></script>'];
 
   for(var i = 0; i < nodes.length; i++) {
     document.write(nodes[i]);

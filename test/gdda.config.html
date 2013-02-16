@@ -81,8 +81,10 @@
   var did2 = 'config_02';
   var _qid = 'bmi.year.grid_0100'; 
 
+  var _qb = $.gdda.core.querybox;
+
   $.gdda.core.config.addLoadedCallback(function(){
-    alert('callback1');
+    //alert('callback1');
   });
 
   $.gdda.core.config.addLoadedCallback(function(){
@@ -90,14 +92,15 @@
   });
 
   //$('#'+did).gdda(_qid);
-  $.gdda.core.querybox.addQueryDoneCallback(function(){alert(1);});
+  _qb.addQueryDoneCallback(function(){});
+  
   $('#'+did).gdda({qid:_qid});
   setTimeout(function(){
-    $.gdda.core.querybox.addQueryDoneCallback(function(){alert(2);});
+    $.gdda.core.querybox.addQueryDoneCallback(function(){/*alert(2);*/});
     $('#'+did2).gdda({qid:_qid});
   },2000);
   
-
+  $.gdda.core
 
   //$.gdda('#'+did,_qid);
 /*
