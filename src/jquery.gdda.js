@@ -29,7 +29,8 @@
         SELECT_VALUES:'values',
         CALLBACK:'callback'
       }
-    }
+    },
+    module:{}
   },
     _ajaxs :{}
   };

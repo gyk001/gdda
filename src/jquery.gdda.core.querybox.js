@@ -198,6 +198,7 @@
 	 * @return {Deferred}            返回Deferred对象
 	 */
 	var _renderQueryBox = function(queryboxDiv, paramsCfg, params) {
+			//debugger;
 			// 新建一个deferred对象
 			var dfd = $.Deferred();
 			// 注册成功，失败回调链
@@ -208,24 +209,21 @@
 			return dfd.promise(); // 返回promise对象
 		};
 
+	var _doDeferredQuery = function(dfd,$qb,options){
+		//dfd.resolve();
+		//dfd.reject();
+	};
 
 	var _query = function($qb, options) {
 			// 新建一个deferred对象
 			var dfd = $.Deferred();
 			dfd.done(_queryDoneCallbacks).fail(_queryFailCallbacks);
-			var _doQuery = function() {
-					try {
-						var data = {
-							a: 1
-						};
-						dfd.resolve(data);
-					} catch(e) {
-						dfd.reject();
-					}
-				};
-			setTimeout(_doQuery, 1000);
+			
+			setTimeout(_doDeferredQuery, 0,dfd.$qb,options);
 			return dfd.promise(); // 返回promise对象
 		};
+
+	
 
 	$.extend(true, _gdda, {
 		'core': {

@@ -11,13 +11,10 @@
   var _gdda = $.gdda;
   var _util = _gdda.util;
   var _log = _util.log;
+  var _throwError = _util.throwError;
   var _defaults = _gdda.defaults;
   var _core = _gdda.core;
   var _querybox = _core.querybox;
-
-  var _throwError = function(msg){
-    throw new Error(msg);   
-  };
 
   var _doGdda = function($div,options){
     var did = $($div).attr('id');
@@ -29,7 +26,7 @@
       _throwError('must has qid!');
     }
     var coreCfg = _gdda.core.config;
-    coreCfg.load(qid).then(function(){
+    coreCfg.load(qid).done(function(){
       var cfg = coreCfg.get(qid);
       //console.dir(_cfg);
       var finalCfg = $.extend(true, {}, _defaults, cfg, options);
@@ -40,11 +37,7 @@
   };
 
   var _queryboxRenderDone = function($qb,options){
-    _querybox.query($qb,options).done(function(data){
-      console.dir(data);
-    }).fail(function(){
-
-    });
+    _querybox.query();
   };
 
   var _doGddaWithOptions = function(qid,did,options){
@@ -54,7 +47,7 @@
       $('<div/>').attr('id',qbId).appendTo(_util.getHideQBParent());
     }
     _querybox.render(qbId,options.query).done(function($qb){
-      _queryboxRenderDone($qb,options);
+      _querybox.query($qb,options);
     }).fail(function(){
       _log.log('渲染查询框出错!');
       //alert('渲染查询框出错!');

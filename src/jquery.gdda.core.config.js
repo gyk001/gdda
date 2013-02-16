@@ -11,9 +11,9 @@
 	// 已加载的配置
 	var _config_loaded = {};
 	// 配置加载完成回调链
-	var _loadedCallbacks = [];
+	var _loadDoneCallbacks = [];
 	// 配置加载异常回调链
-	var _loadExecptionCallbacks = [];
+	var _loadFailCallbacks = [];
 
 	/**
 	 * 判断给定查询ID的配置是否已加载
@@ -42,7 +42,7 @@
 		//构造Defferred对象
 		var dfd = $.Deferred();
 		// 注册成功，失败回调链
-		dfd.done(_loadedCallbacks).fail(_loadExecptionCallbacks);
+		dfd.done(_loadDoneCallbacks).fail(_loadFailCallbacks);
 		//尝试取已存在的配置
 		var _config = _config_loaded[qid];
 		//配置项已存在则直接进入已加载完成状态，done回调中传入已加载的配置
@@ -88,13 +88,13 @@
 		return dfd.promise();
 	};
 
-	var _addLoadedCallback = function(callback){
-		_loadedCallbacks.push(callback);
+	var _addLoadDoneCallback = function(callback){
+		_loadDoneCallbacks.push(callback);
+	};
+	var _addLoadFailCallback = function(callback){
+		_loadFailCallbacks.push(callback);
 	};
 
-	var _loader = {};
-
-	var _module = {};
 
 	var _generate = function(qid){
 		
@@ -104,10 +104,10 @@
 		'core': {
 			'config': {
 				load: _load,
-				addLoadedCallback: _addLoadedCallback,
+				addLoadDoneCallback: _addLoadDoneCallback,
+				addLoadFailCallback:_addLoadFailCallback,
 				exists: _config_exists,
 				get: _get_config,
-				module:_module,
 				generate:_generate
 			}
 		}

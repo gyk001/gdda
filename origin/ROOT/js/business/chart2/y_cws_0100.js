@@ -1,0 +1,295 @@
+hsasCharts.chartscfg.y_cws_0100 ={
+		"title":'床位数年度趋势分析',
+		"grid":{
+			colNames : [ '年份', '实有床位'],
+			colModel : [ {
+				name : 'YEAR_TIME',
+				index : 'YEAR_TIME',
+				width: 74
+			}, {
+				name : 'SYCW',
+				index : 'SYCW',
+				width: 82
+			}]			
+		},
+		"dataLabel":true,
+      	 "queryUrl":"yc/y_cws_0100",
+      	 "searchBox":[{
+   	 		"title":'机构类型：',
+       		"type": "select",
+       		"prefix" : "rotCtrl",
+       		"options":[
+					{title:"社区卫生服务中心",value:"FWZX"},
+					{title:"社区卫生服务站",value:"FWZ"},
+					{title:"二级医院",value:"YY2"},
+					{title:"三级医院",value:"YY3"},
+					{title:"全部",value:"ALL"}
+       		           ],
+       		"defaultValue":"ALL"
+       	 },{
+   	 		"title":'区属情况：',
+       		"type": "select",
+       		"prefix" : "qsCtrl",
+       		"options":[
+					{title:"区属",value:"Y"},
+					{title:"非区属",value:"N"},
+					{title:"全部",value:"ALL"}
+       		    ],
+       		"defaultValue":"ALL"
+       	 }],
+         "type":"line",
+     	 "xAxisSel" :'YEAR_TIME',
+		 "seriesInfos": [
+  				    ['实有床位','SYCW']
+  				],
+       	"params":[
+       	          {
+		            "name":"rot",
+		            "type":"pageCtrlValue",
+		            "value":"rotCtrl"
+		         },
+		         {
+		             "name":"qs",
+		             "type":"pageCtrlValue",
+		             "value":"qsCtrl"
+		          },
+		          /*========*/
+                  {
+                     "name":"al",
+                     "type":"constValue",
+                     "value":"ZONE"
+                  },
+                  {
+                     "name":"offset",
+                     "type":"constValue",
+                     "value":0
+                  },
+                  {
+                     "name":"limit",
+                     "type":"constValue",
+                     "value":1000
+                  }
+               ],
+         "pointClick":{
+          	"type":"chart",
+          	 "config":{
+                "queryId":'m_cws_0100',
+                "params":[
+                          {
+                              "name":"yearTime",
+                              "type":"pointClick",
+                              "value":"xVal"
+                           },
+                           {
+                              "name":"al",
+                              "type":"constValue",
+                              "value":"ZONE"
+                           },
+                           {
+                              "name":"rot",
+                              "type":"pageCtrlValue",
+                              "value":"rotCtrl"
+                           },
+                           {
+                               "name":"qs",
+                               "type":"pageCtrlValue",
+                               "value":"qsCtrl"
+                            },
+                           {
+                              "name":"offset",
+                              "type":"constValue",
+                              "value":"0"
+                           },
+                           {
+                              "name":"limit",
+                              "type":"constValue",
+                              "value":"1000"
+                           }
+                ]     
+          	 }
+          },
+          "links":[
+{
+    "title":"诊疗人次数年度趋势分析",
+    "show":true,
+    "type":"chart",
+    "queryId":'y_zlrcs_0100',
+    "params":[
+              {
+                 "name":"al",
+                 "type":"constValue",
+                 "value":"ZONE"
+              },
+              {
+                  "name":"rot",
+                  "type":"pageCtrlValue",
+                  "value":"rotCtrl"
+               },
+               {
+                   "name":"qs",
+                   "type":"pageCtrlValue",
+                   "value":"qsCtrl"
+                },
+              {
+                 "name":"offset",
+                 "type":"constValue",
+                 "value":"0"
+              },
+              {
+                 "name":"limit",
+                 "type":"constValue",
+                 "value":"1000"
+              }
+           ]                     
+},{
+    "title":"出院人数年度趋势分析",
+    "show":true,
+    "type":"chart",
+    "queryId":'y_cyrs_0100',
+    "params":[
+              {
+                 "name":"al",
+                 "type":"constValue",
+                 "value":"ZONE"
+              },
+              {
+                  "name":"rot",
+                  "type":"pageCtrlValue",
+                  "value":"rotCtrl"
+               },
+               {
+                   "name":"qs",
+                   "type":"pageCtrlValue",
+                   "value":"qsCtrl"
+                },
+              {
+                 "name":"offset",
+                 "type":"constValue",
+                 "value":"0"
+              },
+              {
+                 "name":"limit",
+                 "type":"constValue",
+                 "value":"1000"
+              }
+           ]                     
+},{
+    "title":"卫生技术人员年度趋势分析",
+    "show":true,
+    "type":"chart",
+    "queryId":'y_wsjsry_0100',
+    "params":[
+				{
+				    "name":"al",
+				    "type":"constValue",
+				    "value":"ZONE"
+				 },
+			      {
+                     "name":"rot",
+                     "type":"pageCtrlValue",
+                     "value":"rotCtrl"
+                  },
+                  {
+                      "name":"qs",
+                      "type":"pageCtrlValue",
+                      "value":"qsCtrl"
+                   },
+				 {
+				    "name":"offset",
+				    "type":"constValue",
+				    "value":"0"
+				 },
+				 {
+				    "name":"limit",
+				    "type":"constValue",
+				    "value":"1000"
+				 }
+           ]
+ }/*
+                   {
+                      "title":"和其他区比一比",
+                      "show":true,
+                      "type":"chart",
+                      "queryId":'qdb_cws_0100'
+                   },{
+                       "title":"卫生技术人员年度趋势分析",
+                       "show":true,
+                       "type":"chart",
+                       "queryId":'y_wsjsry_0100',
+                       "params":[
+								{
+								    "name":"al",
+								    "type":"constValue",
+								    "value":"ZONE"
+								 },
+								 {
+								     "name":"qs",
+								     "type":"constValue",
+								     "value":"ALL"
+								  },
+								  
+								 {
+								    "name":"rot",
+								    "type":"constValue",
+								    "value":"ALL"
+								 },
+								 {
+								    "name":"offset",
+								    "type":"constValue",
+								    "value":"0"
+								 },
+								 {
+								    "name":"limit",
+								    "type":"constValue",
+								    "value":"1000"
+								 }
+                              ]
+                    },{
+                        "title":"诊疗人次数年度趋势分析",
+                        "show":true,
+                        "type":"chart",
+                        "queryId":'y_zlrcs_0100',
+                        "params":[
+                                  {
+                                     "name":"al",
+                                     "type":"constValue",
+                                     "value":"ZONE"
+                                  },
+                                  {
+                                     "name":"rot",
+                                     "type":"constValue",
+                                     "value":"ALL"
+                                  },
+                                  {
+                                     "name":"offset",
+                                     "type":"constValue",
+                                     "value":"0"
+                                  },
+                                  {
+                                     "name":"limit",
+                                     "type":"constValue",
+                                     "value":"1000"
+                                  },
+                                  {
+                                      "name":"qs",
+                                      "type":"constValue",
+                                      "value":"ALL"
+                                   }
+                               ]                       
+                   }*/]
+};
+hsasCharts.charts.y_cws_0100={
+		"xAxis" : {
+			"labels" : {
+				"formatter" : function() {return this.value + '年';}
+			}
+		},"yAxis" : {
+			"labels" : {
+				"formatter" : function() {return this.value;}
+			},
+			"min":0
+		},
+		"tooltip" : {
+			"formatter" : function() { return this.series.name + '<br/>' + '<b>' + this.x + '</b>年:<b>' + this.y + '</b>'; }
+		}
+};

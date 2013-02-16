@@ -4,7 +4,7 @@ Gyk001 Drill Down Analyze jQueryPlugin
 
 
 <a href="https://travis-ci.org/gyk001/gdda">
-    <img src="https://api.travis-ci.org/gyk001/gdda.png?branch=master"/>
+    <img id="_travis_status" src="https://api.travis-ci.org/gyk001/gdda.png?branch=master"/>
 </a>
 
 ## Getting Started
