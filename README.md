@@ -1,11 +1,11 @@
-# Gdda
+<h1>
+ Gdda
+ <a href="https://travis-ci.org/gyk001/gdda">
+    <img id="_travis_status" src="https://api.travis-ci.org/gyk001/gdda.png?branch=dev"/>
+</a>
+</h1>
 
 Gyk001 Drill Down Analyze jQueryPlugin
-
-
-<a href="https://travis-ci.org/gyk001/gdda">
-    <img id="_travis_status" src="https://api.travis-ci.org/gyk001/gdda.png?branch=master"/>
-</a>
 
 ## Getting Started
 Download the [production version][min] or the [development version][max].
@@ -20,7 +20,7 @@ In your web page:
 <script src="dist/gdda.min.js"></script>
 <script>
 jQuery(function($) {
-  $.awesome(); // "awesome"
+  $.('#_travis_status').attr('src','https://api.travis-ci.org/gyk001/gdda.png?branch=dev&_='+Math.random());
 });
 </script>
 ```
