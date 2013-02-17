@@ -31,14 +31,12 @@ module.exports = function(grunt) {
     },
     qunit: {
       urls:[
-        'http://localhost:8000/test/gdda.querybox.html',
-        'http://localhost:8000/test/gdda.option_load.html',
-        'http://localhost:8000/test/gdda.querybox.query.html'/*,
+        'http://localhost:8000/test/core.option_load.html',
+        'http://localhost:8000/test/core.querybox.html',
+        'http://localhost:8000/test/core.querybox.query.html'/*,
         'http://localhost:8000/test/gdda.html'*/
       ]
-      /*files: ['test/1/*.html']*/
       
-
     },
     lint: {
       files: ['grunt.js', 'src/**/*.js', 'test/**/*.js']

@@ -17,7 +17,7 @@
       tool : '_tool'
     },
     prefix:{
-      optionUrl:'http://localhost:8000/ajax/options1/',
+      optionUrl:'http://localhost:8000/ajax/options/',
       dataUrl:'http://localhost:8000/ajax/json/'
     },
     KEYS:{

@@ -24,7 +24,6 @@
   window._GDDA_DEBUG = true;
   var _qb = $.gdda.core.querybox;
   var _log = $.gdda.util.log;
-  _log.log('begin');
   var paramsCfg = [{
       name: 'year',
       label: '统计年份',

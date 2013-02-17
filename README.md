@@ -1,7 +1,8 @@
 <h1>
  Gdda
- <a href="https://travis-ci.org/gyk001/gdda">
-    <img id="_travis_status" src="https://api.travis-ci.org/gyk001/gdda.png?branch=dev"/>
+ <span id="_travis_status"></span>
+ <a id="_travis_status" href="https://travis-ci.org/gyk001/gdda">
+    
 </a>
 </h1>
 
@@ -31,6 +32,7 @@ _(Nothing yet)_
 
 <script>
 jQuery(function($) {
-  $.('#_travis_status').attr('src','https://api.travis-ci.org/gyk001/gdda.png?branch=dev&_='+Math.random());
+
+  $('<img/>').attr('src','https://api.travis-ci.org/gyk001/gdda.png?branch=dev&_='+Math.random()).appendTo($('#_travis_status'));
 });
 </script>

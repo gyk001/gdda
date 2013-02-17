@@ -77,43 +77,22 @@
   asyncTest('option load', function() {
     expect(3);
     var _qunit_this = this;
+    //断言：加载配置之前框架缓存无该配置对象
     equal(_core_option.get(_qunit_this.qid),undefined,'before load option is not exist');
-    _log.dir(_core_option.get(_qunit_this.qid));
-    //stop();
-    //expect(_qunit_this.elems.length);
+    //_log.dir(_core_option.get(_qunit_this.qid));
+    //暂停测试，等待加载完成
+    stop();
+
     _core_option.addLoadDoneCallback(function(opt) {
+      //断言： 加载配置以后缓存至框架内
       notEqual(_core_option.get(_qunit_this.qid),undefined,'after load option is exist');
-       _log.dir(_core_option.get(_qunit_this.qid));
+       //_log.dir(_core_option.get(_qunit_this.qid));
+       //TODO: 比较两个配置对象，属性为函数时断言会失败，有待实现
       ok(true,'TODO: deepEqual options ignore functions!!');
       //deepEqual(opt, _qunit_this.expectedOptions, 'load option');
     });
-    _log.log('3333');
+    //加载配置对象，完成后启动测试
     _core_option.load(_qunit_this.qid).always(start);
   });
 
-  /*
-  var did = 'config_01';
-  var did2 = 'config_02';
-  var _qid = 'bmi.year.grid_0100'; 
-
-  var _qb = $.gdda.core.querybox;
-
-  $.gdda.core.config.addLoadDoneCallback(function(){
-    _log.log('callback1');
-  });
-
-  $.gdda.core.config.addLoadDoneCallback(function(){
-    //alert({xx:'callback2'});
-    _log.log('callback2');
-  });
-
-  //$('#'+did).gdda(_qid);
-  _qb.addQueryDoneCallback(function(){});
-  
-  $('#'+did).gdda({qid:_qid});
-  setTimeout(function(){
-    $.gdda.core.querybox.addQueryDoneCallback(function(){/*alert(2);});
-    $('#'+did2).gdda({qid:_qid});
-  },2000);
-  */
 }(jQuery));

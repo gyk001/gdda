@@ -25,9 +25,6 @@
   var _qb = $.gdda.core.querybox;
   var _log = $.gdda.util.log;
 
-  $.gdda.defaults.urlPrefix = 'http://localhost:8000/test/ajax/';
-  
-
   var paramsCfg = [{
     name: 'year',
     label: '统计年份',
@@ -104,6 +101,8 @@
   asyncTest('query with extra params', function() {
     //module setup方法中的this对象句柄
     var _mod = this;
+    //暂停测试器，等待异步方法完成
+    stop();
     // 运行测试数断言(参数个数+2个返回数据测试)
     expect(paramsCfg.length + 2);
     // 清空回调
@@ -116,7 +115,6 @@
         var _val = params[param.name] || param.value;
         equal($(['#', $qb.attr('id'), '_', param.name].join('')).val(), _val, ['查询框:', qbDivId, '>控件:', param.name, '值:', _val].join(''));
         _log.log(_val);
-        //start();
       });
     });
 
