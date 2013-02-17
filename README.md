@@ -29,10 +29,10 @@ _(Nothing yet)_
 
 
 
-
-<script>
-jQuery(function($) {
-
-  $('<img/>').attr('src','https://api.travis-ci.org/gyk001/gdda.png?branch=dev&_='+Math.random()).appendTo($('#_travis_status'));
-});
-</script>
+<div>
+    <script >
+    jQuery(function($) {
+      $('<img/>').attr('src','https://api.travis-ci.org/gyk001/gdda.png?branch=dev&_='+Math.random()).appendTo($('#_travis_status'));
+    });
+    </script>
+</div>
