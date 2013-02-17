@@ -5,6 +5,7 @@
 </a>
 </h1>
 
+
 Gyk001 Drill Down Analyze jQueryPlugin
 
 ## Getting Started
@@ -15,15 +16,6 @@ Download the [production version][min] or the [development version][max].
 
 In your web page:
 
-```html
-<script src="jquery.js"></script>
-<script src="dist/gdda.min.js"></script>
-<script>
-jQuery(function($) {
-  $.('#_travis_status').attr('src','https://api.travis-ci.org/gyk001/gdda.png?branch=dev&_='+Math.random());
-});
-</script>
-```
 
 ## Documentation
 _(Coming soon)_
@@ -33,3 +25,12 @@ _(Coming soon)_
 
 ## Release History
 _(Nothing yet)_
+
+
+
+
+<script>
+jQuery(function($) {
+  $.('#_travis_status').attr('src','https://api.travis-ci.org/gyk001/gdda.png?branch=dev&_='+Math.random());
+});
+</script>
