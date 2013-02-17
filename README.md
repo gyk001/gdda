@@ -13,12 +13,13 @@ Download the [production version][min] or the [development version][max].
 
 In your web page:
 
+
 ```html
 <script src="jquery.js"></script>
 <script src="dist/gdda.min.js"></script>
 <script>
 jQuery(function($) {
-  $.('#test').gdda({qid:'query_0100'});
+   $.('#test').gdda({qid:'query_0100'});
 });
 </script>
 ```
