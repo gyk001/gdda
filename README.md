@@ -1,7 +1,7 @@
 <h1>
  Gdda
  <a href="https://travis-ci.org/gyk001/gdda">
-    <img id="_travis_status" src="https://api.travis-ci.org/gyk001/gdda.png?branch=dev"/>
+    <img id="_travis_status" src="https://api.travis-ci.org/gyk001/gdda.png?branch=master"/>
 </a>
 </h1>
 
@@ -20,7 +20,7 @@ In your web page:
 <script src="dist/gdda.min.js"></script>
 <script>
 jQuery(function($) {
-  $.('#_travis_status').attr('src','https://api.travis-ci.org/gyk001/gdda.png?branch=dev&_='+Math.random());
+  $.('#_travis_status').attr('src','https://api.travis-ci.org/gyk001/gdda.png?branch=master&_='+Math.random());
 });
 </script>
 ```
