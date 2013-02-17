@@ -23,6 +23,8 @@
   */
   window._GDDA_DEBUG = true;
   var _qb = $.gdda.core.querybox;
+  var _log = $.gdda.util.log;
+  _log.log('begin');
   var paramsCfg = [{
       name: 'year',
       label: '统计年份',
@@ -68,6 +70,7 @@
       this.elems = $('#qunit-fixture').children();
     }
   });
+  
 
   asyncTest('render querybox without extra params',  function() {
     expect(paramsCfg.length * 2);
@@ -84,6 +87,7 @@
     });
 
     var _startTest = function() {
+      //alert(123);
       start();
     };
 
@@ -121,42 +125,6 @@
   });
 
 
-  module('jQuery#gdda#core#querybox#query', {
-    setup: function() {
-      this.elems = $('#qunit-fixture').children();
-    }
-  });
-
-  asyncTest('query with extra params',  function() {
-    expect(paramsCfg.length * 2);
-    var _startTest = function() {
-      start();
-    };
-    _qb.clearRenderDoneCallback();
-    _qb.addRenderDoneCallback(function($qb) {
-      $.each(paramsCfg, function(i, param) {
-        var _val = params[param.name] || param.value;
-        equal($(['#', $qb.attr('id'), '_', param.name].join('')).val(), _val, ['查询框:', qbDivId, '>控件:', param.name,'值:', _val].join(''));
-      });
-    });
-
-
-    _qb.addRenderDoneCallback(function($qb) {
-      
-      _qb.query($qb).always(_startTest);
-    });
-
-
-    _qb.addRenderFailCallback(function(e) {
-      ok(false, '渲染查询框出错:' + e.message);
-    });
-
-    var qbDivIds = ['test_qb_b_e', 'test_qb_t_e'];
-    for(var i = 0, len = qbDivIds.length; i < len; i++) {
-      var qbDivId = qbDivIds[i];
-      _qb.render(qbDivId, paramsCfg, params);
-    }
-  });
   /*
   test('is gdda', 1, function() {
    // debugger;

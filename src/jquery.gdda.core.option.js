@@ -5,7 +5,9 @@
 	var _util = _gdda.util;
 	var _log = _util.log;
 	var _default = _gdda.defaults;
-	var _URL_PREFIX = _default.urlPrefix;
+	var _prefix = _default.prefix;
+	var _optionUrlPrefix = _prefix.optionUrl;
+	
 	var _ajaxs = _gdda._ajaxs;
 
 	// 已加载的配置
@@ -50,7 +52,7 @@
 			return dfd.resolve(_config).promise();
 		}
 		//根据qid句点分割规则构造加载URL地址
-		var _url = [_URL_PREFIX].concat(qid.split('.').join('/'),'.js').join('');
+		var _url = [_optionUrlPrefix].concat(qid.split('.').join('/'),'.js').join('');
 		//_log.log(_url);
 		//构造请求对象并送入Ajax暂存区
 		_ajaxs[qid]= $.ajax({
@@ -102,7 +104,7 @@
 
 	$.extend(true,_gdda, {
 		'core': {
-			'config': {
+			'option': {
 				load: _load,
 				addLoadDoneCallback: _addLoadDoneCallback,
 				addLoadFailCallback:_addLoadFailCallback,

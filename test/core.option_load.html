@@ -2,22 +2,28 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Gdda Test Suite</title>
+  <title>Test-config</title>
   <!-- Load local jQuery. This can be overridden with a ?jquery=___ param. -->
   <script src="../libs/lib-loader.js"></script>
   <!-- Load local QUnit (grunt requires v1.0.0 or newer). -->
   <link rel="stylesheet" href="../libs/qunit/qunit.css" media="screen">
   <script src="../libs/qunit/qunit.js"></script>
   <!-- Load local lib and tests. -->
-  <script src="../src/jquery.gdda.js"></script>
-  <script src="gdda_test.js"></script>
+  <script type="text/javascript" src="js/core.option_load.js"></script>
+  <!--
+  <script src="../src/jquery.gdda.core.querybox.js"></script>
+  -->
   <!-- Removing access to jQuery and $. But it'll still be available as _$, if
        you REALLY want to mess around with jQuery in the console. REMEMBER WE
        ARE TESTING YOUR PLUGIN HERE -->
-  <script>window._$ = jQuery.noConflict(true);</script>
+  <script>//window._$ = jQuery.noConflict(true);
+  
+  </script>
+ 
 </head>
 <body>
-  <h1 id="qunit-header">Gdda Test Suite</h1>
+
+  <h1 id="qunit-header">GDDA测试：【加载配置】</h1>
   <h2 id="qunit-banner"></h2>
   <div id="qunit-testrunner-toolbar"></div>
   <h2 id="qunit-userAgent"></h2>
@@ -27,5 +33,6 @@
     <span>normal test markup</span>
     <span gdda="testvalue">awesome test markup</span>
   </div>
+
 </body>
 </html>

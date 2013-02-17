@@ -4,6 +4,10 @@
 	var _gdda = $.gdda;
 	var _util = _gdda.util;
 	var _log = _util.log;
+	var _default = _gdda.defaults;
+	var _prefix = _default.prefix;
+	var _dataUrlPrefix = _prefix.dataUrl;
+
 	var _QB_KEYS = _gdda.defaults.KEYS.QUERYBOX;
 	var _QB_HIDDEN = _QB_KEYS.HIDDEN;
 	var _QB_VALUE = _QB_KEYS.VALUE;
@@ -37,27 +41,35 @@
 			_queryFailCallbacks.push(callback);
 		};
 
+	var _clearQueryDoneCallback = function() {
+			_queryDoneCallbacks.length = 0;
+		};
+		
+	var _clearQueryFailCallback = function() {
+			_queryFailCallbacks.length = 0;
+		};
+
 	var _renderDoneCallbacks = [];
 	var _renderFailCallbacks = [];
 
-	var _addRenderDoneCallback = function(callback){
-		_renderDoneCallbacks.push(callback);
-		//console.dir(_renderDoneCallbacks);
-	};
+	var _addRenderDoneCallback = function(callback) {
+			_renderDoneCallbacks.push(callback);
+			//console.dir(_renderDoneCallbacks);
+		};
 
-	var _addRenderFailCallback = function(callback){
-		_renderFailCallbacks.push(callback);		
-	};
+	var _addRenderFailCallback = function(callback) {
+			_renderFailCallbacks.push(callback);
+		};
 
-	var _clearRenderDoneCallback = function(){
-		_renderDoneCallbacks.length = 0;		
-	};
+	var _clearRenderDoneCallback = function() {
+			_renderDoneCallbacks.length = 0;
+		};
 
-	var _clearRenderFailCallback = function(){
-		_renderFailCallbacks.length = 0;		
-	};
+	var _clearRenderFailCallback = function() {
+			_renderFailCallbacks.length = 0;
+		};
 
-	
+
 	/**
 	 * 为查询控件绑定回调
 	 * @param  {jQuery}   $ctrl     控件
@@ -209,33 +221,47 @@
 			return dfd.promise(); // 返回promise对象
 		};
 
-	var _doDeferredQuery = function(dfd,$qb,options){
-		//dfd.resolve();
-		//dfd.reject();
-	};
+	var _doDeferredQuery = function(dfd, $qb, options) {
+			_log.dir(arguments);
+
+			var params = {
+				todo: 'markparam'
+			};
+			$.ajax({
+				url: _dataUrlPrefix+options.url,
+				data: params,
+				dataType: 'json'
+			}).done(function(data) {
+				dfd.resolve(data);
+			}).fail(function(e) {
+				dfd.reject(e);
+			});
+			//dfd.reject();
+		};
 
 	var _query = function($qb, options) {
 			// 新建一个deferred对象
 			var dfd = $.Deferred();
 			dfd.done(_queryDoneCallbacks).fail(_queryFailCallbacks);
-			
-			setTimeout(_doDeferredQuery, 0,dfd.$qb,options);
+			setTimeout(_doDeferredQuery, 0, dfd, $qb, options);
 			return dfd.promise(); // 返回promise对象
 		};
 
-	
+
 
 	$.extend(true, _gdda, {
 		'core': {
 			'querybox': {
 				'render': _renderQueryBox,
-				'addRenderDoneCallback':_addRenderDoneCallback,
-				'addRenderFailCallback':_addRenderFailCallback,
+				'addRenderDoneCallback': _addRenderDoneCallback,
+				'addRenderFailCallback': _addRenderFailCallback,
 				'clearRenderDoneCallback': _clearRenderDoneCallback,
 				'clearRenderFailCallback': _clearRenderFailCallback,
 				'query': _query,
 				'addQueryDoneCallback': _addQueryDoneCallback,
-				'addQueryFailCallback': _addQueryDoneCallback,
+				'addQueryFailCallback': _addQueryFailCallback,
+				'clearQueryDoneCallback': _clearQueryDoneCallback,
+				'clearQueryFailCallback': _clearQueryFailCallback,
 				'ctrl': _renderCtrl
 			}
 		}

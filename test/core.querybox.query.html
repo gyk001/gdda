@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../libs/qunit/qunit.css" media="screen">
   <script src="../libs/qunit/qunit.js"></script>
   <!-- Load local lib and tests. -->
-  <script src="../test/gdda_querybox_test.js"></script>
+  <script src="js/gdda_querybox_query.js"></script>
   
   <!-- Removing access to jQuery and $. But it'll still be available as _$, if
        you REALLY want to mess around with jQuery in the console. REMEMBER WE
@@ -58,61 +58,14 @@
   </div>
   <hr/>
 
-  <div id="querybox_in_middle">
-    <div>top</div>
-    <div id="test_qb_m">
-      <label for="test_qb_m_x">X档案1</label><input id="test_qb_m_x" name="x" value="xx1">
-    </div>
-    <div>bottom</div>
-  </div>
-  <hr/>
-  <div id="querybox_in_top">
-    <div>
-      <div id="test_qb_t">
-      <label for="test_qb_m_x">X档案2</label><input id="test_qb_t_x" name="x" value="xx2">
-    </div>
-    <div>bottom</div>
-    </div>
-  </div>
-  <hr/>
-   <div id="querybox_in_bottom">
-    <div>top</div>
-    <div>
-      <div id="test_qb_b">
-      <label for="test_qb_b_x">X档案3</label><input id="test_qb_b_x" name="x" value="xx3">
-    </div>
-    </div>
-    <div>top</div>
-    <div id="test_qb_m_e">
-      <label for="test_qb_m_x_e">X档案1</label><input id="test_qb_m_x" name="x" value="xx1">
-    </div>
-    <div>bottom</div>
-  </div>
-  <hr/>
-  <div id="querybox_in_top">
-    <div>
-      <div id="test_qb_t_e">
-      <label for="test_qb_m_x_e">X档案2</label><input id="test_qb_t_x" name="x" value="xx2">
-    </div>
-    <div>bottom</div>
-    </div>
-  </div>
-  <hr/>
-   <div id="querybox_in_bottom">
-    <div>top</div>
-    <div>
-      <div id="test_qb_b_e">
-      <label for="test_qb_b_x_e">X档案3</label><input id="test_qb_b_x" name="x" value="xx3">
-    </div>
-    </div>
-  </div>
+  
 
   <hr/>
    <div id="querybox_in_bottom">
     <div>top</div>
     <div>
-      <div id="test_qb_b_e">
-      <label for="test_qb_b_x_query">X档案3</label><input id="test_qb_b_x" name="x" value="xx3">
+      <div id="test_qb_b_x_query">
+      <label for="test_qb_b_x">X档案3</label><input id="test_qb_b_x" name="x" value="xx3">
     </div>
     </div>
   </div>

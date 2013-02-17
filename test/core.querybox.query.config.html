@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Gdda Test Suite</title>
+  <!-- Load local jQuery. This can be overridden with a ?jquery=___ param. -->
+  <script src="../libs/lib-loader.js"></script>
+  <!-- Load local QUnit (grunt requires v1.0.0 or newer). -->
+  <link rel="stylesheet" href="../libs/qunit/qunit.css" media="screen">
+  <script src="../libs/qunit/qunit.js"></script>
+  <!-- Load local lib and tests. -->
+  <script src="../test/gdda_querybox_query_config.js"></script>
+  
+  <!-- Removing access to jQuery and $. But it'll still be available as _$, if
+       you REALLY want to mess around with jQuery in the console. REMEMBER WE
+       ARE TESTING YOUR PLUGIN HERE -->
+  <script>//window._$ = jQuery.noConflict(true);</script>
+  <script type="text/javascript">
+
+  $(function() {
+
+    //['<input name="',name,'" id="',qbId,'_',name,'" />']
+    //$('<input/>').attr('name',name).attr('id',[qbId,'_',name,'_',_KEYS.QB_LABEL].join('')).appendTo($querybox);
+
+    //renderQueryBox('test_qb_b', params);
+    //renderQueryBox('test_qb_m', params);
+    /*
+    $t = $('#test_qb_t');
+    $b = $('#test_qb_b');
+    $m = $('#test_qb_m');
+
+    var thoder = _divHolder($t);
+    var bhoder = _divHolder($b);
+    var mhoder = _divHolder($m);
+
+    bhoder.detach();
+    thoder.detach();
+    thoder.retach();
+    bhoder.retach();
+
+    mhoder.detach();
+    mhoder.retach();
+    */
+
+  });
+  </script>
+</head>
+<body>
+    <h1 id="qunit-header">Gdda Test Suite</h1>
+  <h2 id="qunit-banner"></h2>
+  <div id="qunit-testrunner-toolbar"></div>
+  <h2 id="qunit-userAgent"></h2>
+  <ol id="qunit-tests"></ol>
+  <div id="qunit-fixture">
+    <span>lame test markup</span>
+    <span>normal test markup</span>
+    <span gdda="testvalue">awesome test markup</span>
+  </div>
+  <hr/>
+
+  <hr/>
+   <div id="querybox_in_bottom">
+    <div>top</div>
+    <div>
+      <div id="test_qb_b_x_query_config">
+      <label for="test_qb_b_x">X档案3</label><input id="test_qb_b_x" name="x" value="xx3">
+    </div>
+    </div>
+  </div>
+
+</body>
+</html>

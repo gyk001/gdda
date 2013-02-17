@@ -1,4 +1,4 @@
-/*global module:false*/
+/*global module:false, console:false*/
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -16,11 +16,10 @@ module.exports = function(grunt) {
         src: ['<banner:meta.banner>', 
           '<file_strip_banner:src/<%= pkg.name %>.js>',
           '<file_strip_banner:src/<%= pkg.name %>.util.js>',
+          '<file_strip_banner:src/<%= pkg.name %>.core.option.js>',
           '<file_strip_banner:src/<%= pkg.name %>.core.querybox.js>',
           '<file_strip_banner:src/<%= pkg.name %>.core.querybox.ctrls.js>',
-          '<file_strip_banner:src/<%= pkg.name %>.core.config.js>',
           '<file_strip_banner:src/<%= pkg.name %>.core.js>'],
-
         dest: 'dist/<%= pkg.name %>.src.js'
       }
     },
@@ -32,17 +31,20 @@ module.exports = function(grunt) {
     },
     qunit: {
       urls:[
-        'http://localhost:8000/test/gdda.config.html',
         'http://localhost:8000/test/gdda.querybox.html',
-        'http://localhost:8000/test/gdda.html'
-      ]/*,
-      files: ['test/1/*.html']*/
+        'http://localhost:8000/test/gdda.option_load.html',
+        'http://localhost:8000/test/gdda.querybox.query.html'/*,
+        'http://localhost:8000/test/gdda.html'*/
+      ]
+      /*files: ['test/1/*.html']*/
+      
+
     },
     lint: {
       files: ['grunt.js', 'src/**/*.js', 'test/**/*.js']
     },
     watch: {
-      files: '<config:lint.files>',
+      files: ['<config:lint.files>','test/*.html','ajax/**/*.js','ajax/**/*.json'],
       tasks: 'lint qunit'
     },
     jshint: {
@@ -68,7 +70,7 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', 'lint server qunit concat min');
-  grunt.registerTask('dev', 'server watch qunit');
+  grunt.registerTask('dev', 'server watch');
   //grunt.registerTask('mintest', 'lint concat min server qunit');
 
 };

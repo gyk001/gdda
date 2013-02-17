@@ -15,10 +15,13 @@
 		},
 		dir: function(arg) {
 			if(window._GDDA_DEBUG) {
+				//console.dir(arg );
 				try {
 					undefined.a = 1;
 				} catch(e) {
-					console.dir(arg + e.stack.split('\n')[2]);
+					console.group(e.stack.split('\n')[2]);
+					console.dir(arg);
+					console.groupEnd();
 				}
 			}
 		}

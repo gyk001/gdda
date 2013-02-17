@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Gdda Test Suite</title>
+  <!-- Load local jQuery. This can be overridden with a ?jquery=___ param. -->
+  <script src="../libs/lib-loader.js"></script>
+  <!-- Load local QUnit (grunt requires v1.0.0 or newer). -->
+  <link rel="stylesheet" href="../libs/qunit/qunit.css" media="screen">
+  <script src="../libs/qunit/qunit.js"></script>
+  <!-- Load local lib and tests. -->
+  <script src="js/core.querybox.js"></script>
+  
+  <!-- Removing access to jQuery and $. But it'll still be available as _$, if
+       you REALLY want to mess around with jQuery in the console. REMEMBER WE
+       ARE TESTING YOUR PLUGIN HERE -->
+  <script>//window._$ = jQuery.noConflict(true);</script>
+  
+</head>
+<body>
+    <h1 id="qunit-header">Gdda Test Suite</h1>
+  <h2 id="qunit-banner"></h2>
+  <div id="qunit-testrunner-toolbar"></div>
+  <h2 id="qunit-userAgent"></h2>
+  <ol id="qunit-tests"></ol>
+  <div id="qunit-fixture">
+    <span>lame test markup</span>
+    <span>normal test markup</span>
+    <span gdda="testvalue">awesome test markup</span>
+  </div>
+  <hr/>
+
+  <div id="querybox_in_middle">
+    <div>top</div>
+    <div id="test_qb_m">
+      <label for="test_qb_m_x">X档案1</label><input id="test_qb_m_x" name="x" value="xx1">
+    </div>
+    <div>bottom</div>
+  </div>
+  <hr/>
+  <div id="querybox_in_top">
+    <div>
+      <div id="test_qb_t">
+      <label for="test_qb_m_x">X档案2</label><input id="test_qb_t_x" name="x" value="xx2">
+    </div>
+    <div>bottom</div>
+    </div>
+  </div>
+  <hr/>
+   <div id="querybox_in_bottom">
+    <div>top</div>
+    <div>
+      <div id="test_qb_b">
+      <label for="test_qb_b_x">X档案3</label><input id="test_qb_b_x" name="x" value="xx3">
+    </div>
+    </div>
+    <div>top</div>
+    <div id="test_qb_m_e">
+      <label for="test_qb_m_x_e">X档案1</label><input id="test_qb_m_x" name="x" value="xx1">
+    </div>
+    <div>bottom</div>
+  </div>
+  <hr/>
+  <div id="querybox_in_top">
+    <div>
+      <div id="test_qb_t_e">
+      <label for="test_qb_m_x_e">X档案2</label><input id="test_qb_t_x" name="x" value="xx2">
+    </div>
+    <div>bottom</div>
+    </div>
+  </div>
+  <hr/>
+   <div id="querybox_in_bottom">
+    <div>top</div>
+    <div>
+      <div id="test_qb_b_e">
+      <label for="test_qb_b_x_e">X档案3</label><input id="test_qb_b_x" name="x" value="xx3">
+    </div>
+    </div>
+  </div>
+
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
 	type:'grid',
-	url:'ajaxdemo/json/bmi.year.grid_0100.json',
+	url:'ajaxdemo/json/zlrc_ks_0100.json',
 	query: [{
 		name: 'pYear',
 		label: '统计年份',

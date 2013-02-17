@@ -14,30 +14,30 @@
   var _throwError = _util.throwError;
   var _defaults = _gdda.defaults;
   var _core = _gdda.core;
-  var _querybox = _core.querybox;
+  var _core_option = _gdda.option;
+  var _core_querybox = _core.querybox;
 
-  var _doGdda = function($div,options){
+  var _doGdda = function($div,extraOptions){
     var did = $($div).attr('id');
     if(!did){
       _throwError('main div must has attr id!');
     }
-    var qid = options.qid;
+    var qid = extraOptions.qid;
     if(!qid){
       _throwError('must has qid!');
     }
-    var coreCfg = _gdda.core.config;
-    coreCfg.load(qid).done(function(){
-      var cfg = coreCfg.get(qid);
+    _core_option.load(qid).done(function(){
+      var option_loaded = _core_option.get(qid);
       //console.dir(_cfg);
-      var finalCfg = $.extend(true, {}, _defaults, cfg, options);
-      _doGddaWithOptions(qid,did,finalCfg);
+      var mergeOption = $.extend(true, {}, _defaults, option_loaded, extraOptions);
+      _doGddaWithOptions(qid,did,mergeOption);
     }).fail(function(){
       alert('err!');
     });
   };
 
   var _queryboxRenderDone = function($qb,options){
-    _querybox.query();
+    _core_querybox.query();
   };
 
   var _doGddaWithOptions = function(qid,did,options){
@@ -46,8 +46,8 @@
     if( ! _util.findNodeById(qbId)){
       $('<div/>').attr('id',qbId).appendTo(_util.getHideQBParent());
     }
-    _querybox.render(qbId,options.query).done(function($qb){
-      _querybox.query($qb,options);
+    _core_querybox.render(qbId,options.query).done(function($qb){
+      _core_querybox.query($qb,options);//.done().fail();
     }).fail(function(){
       _log.log('渲染查询框出错!');
       //alert('渲染查询框出错!');

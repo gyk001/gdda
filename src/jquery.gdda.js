@@ -16,7 +16,10 @@
       query : '_query',
       tool : '_tool'
     },
-    urlPrefix:'http://localhost:8000/ajaxdemo/',
+    prefix:{
+      optionUrl:'http://localhost:8000/ajax/options1/',
+      dataUrl:'http://localhost:8000/ajax/json/'
+    },
     KEYS:{
       QUERYBOX:{
         CTRL_CLS:'qbctrl',
@@ -29,8 +32,7 @@
         SELECT_VALUES:'values',
         CALLBACK:'callback'
       }
-    },
-    module:{}
+    }
   },
     _ajaxs :{}
   };

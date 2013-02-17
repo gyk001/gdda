@@ -1,0 +1,30 @@
+{
+	"success":true,
+	"items":[
+	{
+		"TYPE_NAME":"内科"
+		,"TYPE_CODE":"NK"
+	 	,"COUNT":10847
+	}
+	,{
+		"TYPE_NAME":"外科"
+		,"TYPE_CODE":"WK"
+	 	,"COUNT":2333
+	}
+	,{
+		"TYPE_NAME":"产科"
+		,"TYPE_CODE":"CK"
+	 	,"COUNT":2007
+	}
+	,{
+		"TYPE_NAME":"中医"
+		,"TYPE_CODE":"ZY"
+	 	,"COUNT":660
+	}
+	,{
+		"TYPE_NAME":"其他科"
+		,"TYPE_CODE":"QTK"
+	 	,"COUNT":3794
+	}
+	]
+}
