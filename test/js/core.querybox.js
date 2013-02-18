@@ -73,92 +73,58 @@
 
   asyncTest('render querybox without extra params',  function() {
     expect(paramsCfg.length * 2);
+    //暂停测试
+    stop();
 
+    //渲染成功后运行测试断言
     _qb.addRenderDoneCallback(function($qb) {
       $.each(paramsCfg, function(i, param) {
         var _val = param.value;
-        equal($(['#', $qb.attr('id'), '_', param.name].join('')).val(), _val, ['查询框:', qbDivId, '>控件:', param.name,'值:', _val].join(''));
+        equal($(['#', $qb.attr('id'), '_', param.name].join('')).val(), _val, ['查询框:', $qb.attr('id'), '>控件:', param.name,'值:', _val].join(''));
       });
     });
-
+    //渲染失败直接断言失败
     _qb.addRenderFailCallback(function(e) {
       ok(false, '渲染查询框出错:' + e.message);
     });
 
-    var _startTest = function() {
-      //alert(123);
-      start();
-    };
-
     var qbDivIds = ['test_qb_b', 'test_qb_t'];
+    
+    var deferreds = [];
     for(var i = 0, len = qbDivIds.length; i < len; i++) {
-      var qbDivId = qbDivIds[i];
-      _qb.render(qbDivId, paramsCfg).always(_startTest);
+      // 将所有的延迟对象压入数组
+      deferreds.push( _qb.render(qbDivIds[i], paramsCfg));//.always(_startTest);
     }
+    //当所有延迟操作都完成后启动测试
+    $.when.apply($,deferreds).always(start);
   });
 
-
+  
   asyncTest('render querybox with extra params',  function() {
     expect(paramsCfg.length * 2);
+    stop();
+    //清空所有回调
     _qb.clearRenderDoneCallback();
+    //渲染成功后运行测试断言
     _qb.addRenderDoneCallback(function($qb) {
       $.each(paramsCfg, function(i, param) {
         var _val = params[param.name] || param.value;
-        equal($(['#', $qb.attr('id'), '_', param.name].join('')).val(), _val, ['查询框:', qbDivId, '>控件:', param.name,'值:', _val].join(''));
+        equal($(['#', $qb.attr('id'), '_', param.name].join('')).val(), _val, ['查询框:', $qb.attr('id'), '>控件:', param.name,'值:', _val].join(''));
       });
     });
-
+    //渲染失败直接断言失败
     _qb.addRenderFailCallback(function(e) {
       ok(false, '渲染查询框出错:' + e.message);
     });
 
-    var _startTest = function() {
-      start();
-    };
-
+    var deferreds = [];
     var qbDivIds = ['test_qb_b_e', 'test_qb_t_e'];
     for(var i = 0, len = qbDivIds.length; i < len; i++) {
-      var qbDivId = qbDivIds[i];
-      _qb.render(qbDivId, paramsCfg, params).always(_startTest);
+      // 将所有的延迟对象压入数组
+       deferreds.push(_qb.render(qbDivIds[i], paramsCfg, params));
     }
+    //当所有延迟操作都完成后启动测试
+    $.when.apply($,deferreds).always(start);   
   });
 
-
-  /*
-  test('is gdda', 1, function() {
-   // debugger;
-    strictEqual(this.elems.gdda({debug:false}).text(), 'gddagddagdda', 'should be thoroughly gdda');
-  });
-
-  module('jQuery.gdda');
-
-  test('is gdda', 1, function() {
-    strictEqual($.gdda(), 'gdda', 'should be thoroughly gdda');
-  });
-
-  module(':gdda selector', {
-    setup: function() {
-      this.elems = $('#qunit-fixture').children();
-    }
-  });
-
-  test('is gdda', 1, function() {
-    // Use deepEqual & .get() when comparing jQuery objects.
-    deepEqual($('span:gdda').text(),'awesome test markup', 'knows gdda when it sees it');
-  });
-
- module('jQuery#gdda#core', {
-    setup: function() {
-      this.elems = $('#qunit-fixture').children();
-    }
-  });
-  test('gdda extends', 1, function() {
-    expect(4);
-    ok( !! $.gdda.core,'gdda.core is exist!' );
-    ok( ! $.gdda.core.test,'before extend gdda.core.test is not exist!' );
-    $.extend($.gdda.core,{'test':function(){return 'gdda.core.test!';}});
-    ok( !! $.gdda.core.test,'before extend gdda.core.test is exist!' );
-    equal($.gdda.core.test(),'gdda.core.test!','gdda.core.test result is OK!');
-  });
-*/
 }(jQuery));
