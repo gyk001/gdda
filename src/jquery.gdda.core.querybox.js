@@ -209,7 +209,7 @@
 	 * @param  {Object} params     覆盖参数
 	 * @return {Deferred}            返回Deferred对象
 	 */
-	var _renderQueryBox = function(queryboxDiv, paramsCfg, params) {
+	var _renderQueryBox_old_ = function(queryboxDiv, paramsCfg, params) {
 			//debugger;
 			// 新建一个deferred对象
 			var dfd = $.Deferred();
@@ -219,6 +219,17 @@
 			// 调用渲染查询框函数
 			setTimeout(_deferredRenderQueryBox, 0, dfd, queryboxDiv, paramsCfg, params);
 			return dfd.promise(); // 返回promise对象
+		};
+
+	/**
+	 * 渲染整个查询框
+	 * @param  {String} queryboxDiv 查询框ID
+	 * @param  {Object} paramsCfg  配置
+	 * @param  {Object} params     覆盖参数
+	 * @return {Deferred}            返回Deferred对象
+	 */
+	var _renderQueryBox = function(queryboxDiv, paramsCfg, params) {
+			return _util.buildDeferred(_deferredRenderQueryBox,_renderDoneCallbacks,_renderFailCallbacks,queryboxDiv,paramsCfg,params);
 		};
 
 	var _doDeferredQuery = function(dfd, $qb, options) {
@@ -239,7 +250,7 @@
 			//dfd.reject();
 		};
 
-	var _query = function($qb, options) {
+	var _query_old_ = function($qb, options) {
 			// 新建一个deferred对象
 			var dfd = $.Deferred();
 			dfd.done(_queryDoneCallbacks).fail(_queryFailCallbacks);
@@ -247,6 +258,10 @@
 			return dfd.promise(); // 返回promise对象
 		};
 
+	var _query = function($qb, options) {
+		return _util.buildDeferred(_doDeferredQuery,_queryDoneCallbacks,_queryFailCallbacks,$qb,options);
+		};
+		
 
 
 	$.extend(true, _gdda, {
