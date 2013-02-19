@@ -1,5 +1,5 @@
-/*global console:false,alert:false,_log4javascript:false*/
-(function($) {
+/*global devel:false*/
+(function($,undefined) {
 	"use strict";
 	var _gdda = $.gdda;
 	var _util = _gdda.util;
@@ -248,14 +248,6 @@
 				dfd.reject(e);
 			});
 			//dfd.reject();
-		};
-
-	var _query_old_ = function($qb, options) {
-			// 新建一个deferred对象
-			var dfd = $.Deferred();
-			dfd.done(_queryDoneCallbacks).fail(_queryFailCallbacks);
-			setTimeout(_doDeferredQuery, 0, dfd, $qb, options);
-			return dfd.promise(); // 返回promise对象
 		};
 
 	var _query = function($qb, options) {

@@ -5,9 +5,9 @@
  * Copyright (c) 2012 gyk001
  * Licensed under the GPL license.
  */
- /*global console:false*/
+ /*global */
 
-(function($) {
+(function($,undefined) {
   "use strict";
   $.gdda = {
     defaults:{//暴露默认配置,允许运行时更改
@@ -20,6 +20,8 @@
       optionUrl:'http://localhost:8000/ajax/options/',
       dataUrl:'http://localhost:8000/ajax/json/'
     },
+    predefine:{},
+    stretch:{},
     KEYS:{
       QUERYBOX:{
         CTRL_CLS:'qbctrl',
@@ -34,7 +36,14 @@
       }
     }
   },
-    _ajaxs :{}
+    _ajaxs :{},
+    module:{}
+  };
+
+  var _gdda = $.gdda;
+  var _module = _gdda.module;
+  var _getModule = function(moduleType){
+    return _gdda.module[moduleType];   
   };
 
 /*
@@ -101,4 +110,8 @@
     }
   };
 */
+
+  $.extend(true,_gdda,{
+    getModule:_getModule
+  });
 }(jQuery));

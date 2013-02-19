@@ -6,8 +6,12 @@
  * Licensed under the GPL license.
  */
 /*jslint devel:true*/
-(function($) {
+(function($,undefined) {
   "use strict";
+
+
+  
+  
   var _gdda = $.gdda;
   var _util = _gdda.util;
   var _log = _util.log;
@@ -16,6 +20,7 @@
   var _core = _gdda.core;
   var _core_option = _gdda.option;
   var _core_querybox = _core.querybox;
+  var _core_module = _core.module;
 
   var _doGdda = function($div,extraOptions){
     var did = $($div).attr('id');
@@ -36,18 +41,33 @@
     });
   };
 
-  var _queryboxRenderDone = function($qb,options){
-    _core_querybox.query();
+  var _renderModule = function(data,options){
+    _log.dir(data);
+  };
+
+  var _queryData = function($qb,options){
+    //执行查询
+    _core_querybox.query($qb,options).done(function(data){
+      //查询完成后渲染模块
+      _renderModule(data,options);
+    }).fail(function(e){
+      _throwError('查询数据失败:'+ ((e && e.message) ? e.message :''));
+    });
   };
 
   var _doGddaWithOptions = function(qid,did,options){
+    //取查询框ID后缀
     var queryBoxSuffix = options.suffix.query;
+    //构造查询框ID
     var qbId = [did,queryBoxSuffix].join('');
+    //页面没有查询框容器则在隐藏域生成一个容器
     if( ! _util.findNodeById(qbId)){
       $('<div/>').attr('id',qbId).appendTo(_util.getHideQBParent());
     }
+    //渲染查询框
     _core_querybox.render(qbId,options.query).done(function($qb){
-      _core_querybox.query($qb,options);//.done().fail();
+      //查询框渲染完成后执行查询
+      _queryData($qb,options);
     }).fail(function(){
       _log.log('渲染查询框出错!');
       //alert('渲染查询框出错!');
@@ -125,4 +145,6 @@
     }
   };
 */
+  
+
 }(jQuery));

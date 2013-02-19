@@ -4,32 +4,132 @@
 		"selected_items":
 		[
 			[
-				"pro",
-				"promise"
+				"no",
+				"notEqual"
+			],
+			[
+				"_or",
+				"_core_option"
+			],
+			[
+				"e",
+				"expectedOptions"
+			],
+			[
+				"_cor",
+				"_core_option"
+			],
+			[
+				"_co",
+				"_core_option"
+			],
+			[
+				"_q",
+				"_qunit_this"
+			],
+			[
+				"_query",
+				"_queryFailCallbacks"
+			],
+			[
+				"_clearQ",
+				"_clearQueryFailCallback"
+			],
+			[
+				"_claer",
+				"_clearQueryDoneCallback"
+			],
+			[
+				"exp",
+				"expectItems"
+			],
+			[
+				"eq",
+				"strictEqual"
+			],
+			[
+				"_",
+				"_options"
+			],
+			[
+				"re",
+				"reject"
+			],
+			[
+				"add",
+				"addQueryDoneCallback"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"_quer",
+				"_querybox"
+			],
+			[
+				"tr",
+				"_throwError"
+			],
+			[
+				"_t",
+				"_util"
+			],
+			[
+				"_l",
+				"_loadDoneCallbacks"
+			],
+			[
+				"_loa",
+				"_loadFailCallbacks"
 			],
 			[
 				"_lo",
-				"_loadedCallbacks"
+				"_loadDoneCallbacks"
 			],
 			[
-				"De",
-				"Deferred"
+				"_ren",
+				"_renderDoneCallbacks"
 			],
 			[
 				"fun",
 				"function"
 			],
 			[
-				"_qu",
-				"_queryboxRenderDone"
+				"_re",
+				"_renderDoneCallbacks"
 			],
 			[
-				"_",
-				"_hide_querybox_container"
+				"qb",
+				"qbDivId"
+			],
+			[
+				"_qu",
+				"_queryDoneCallbacks"
 			],
 			[
 				"q",
-				"queryBoxSuffix"
+				"qbDivId"
+			],
+			[
+				"para",
+				"paramsCfg"
+			],
+			[
+				"pa",
+				"paramsCfg"
+			],
+			[
+				"quer",
+				"querboxDiv"
+			],
+			[
+				"pro",
+				"promise"
+			],
+			[
+				"De",
+				"Deferred"
 			],
 			[
 				"de",
@@ -66,10 +166,6 @@
 			[
 				"_c",
 				"_config_loaded"
-			],
-			[
-				"fu",
-				"function"
 			],
 			[
 				"_u",
@@ -120,14 +216,6 @@
 				"idPrefix"
 			],
 			[
-				"_re",
-				"_renderCtrl"
-			],
-			[
-				"re",
-				"_renderQueryBox"
-			],
-			[
 				"s",
 				"script	Tag"
 			],
@@ -156,16 +244,8 @@
 				"test_qb_t"
 			],
 			[
-				"qb",
-				"qbHolder"
-			],
-			[
 				"l",
 				"label	Tag"
-			],
-			[
-				"e",
-				"extends"
 			],
 			[
 				"ex",
@@ -191,7 +271,15 @@
 				"Markdown Preview: preview in Browser"
 			],
 			[
+				"mak",
+				"Markdown Preview: preview in Browser"
+			],
+			[
 				"fo",
+				"Format: Javascript"
+			],
+			[
+				"fom",
 				"Format: Javascript"
 			],
 			[
@@ -200,10 +288,6 @@
 			],
 			[
 				"f",
-				"Format: Javascript"
-			],
-			[
-				"fom",
 				"Format: Javascript"
 			],
 			[
@@ -299,7 +383,7 @@
 				"Package Control: Remove Package"
 			]
 		],
-		"width": 575.0
+		"width": 494.0
 	},
 	"console":
 	{
@@ -316,26 +400,58 @@
 	},
 	"file_history":
 	[
-		"/Users/Guo/Workspace/javascript/gdda/libs/lib-loader.js",
-		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.log.js",
-		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.util.js",
+		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.core.option.js",
 		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.core.js",
-		"/Users/Guo/Workspace/javascript/gdda/ajaxdemo/bmi/year/grid_0100.js",
-		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.js",
-		"/Users/Guo/Workspace/javascript/gdda/test/gdda.config.html",
-		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.core.config.js",
-		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.core.querybox.js",
-		"/Users/Guo/Workspace/javascript/gdda/libs/highcharts/index.htm",
-		"/Users/Guo/Workspace/javascript/gdda/README.md",
-		"/Users/Guo/Workspace/javascript/gdda/dist/jquery.gdda.src.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/js/core.option_load.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/js/gdda_querybox.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/core.querybox.html",
 		"/Users/Guo/Workspace/javascript/gdda/grunt.js",
-		"/Users/Guo/Workspace/javascript/gdda/test/test/cfgdemo/bmi/year/grid_0100.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/core.option_load.html",
+		"/Users/Guo/Workspace/javascript/gdda/test/js/core.querybox.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/js/core.querybox.query.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/core.querybox.query.html",
+		"/Users/Guo/Workspace/javascript/gdda/README.md",
+		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.js",
+		"/Users/Guo/Workspace/javascript/gdda/libs/lib-loader.js",
+		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.core.config.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/js/gdda_test.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/gdda.querybox.query.html",
+		"/Users/Guo/Workspace/javascript/gdda/test/js/gdda_querybox_query.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/ajax/config/querybox/query/query_0100.js",
+		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.core.querybox.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/gdda.config.html",
+		"/Users/Guo/Workspace/javascript/gdda/test/html/gdda.html",
+		"/Users/Guo/Workspace/javascript/gdda/origin/hsas/js/business/hsasChartUtil.js",
+		"/Users/Guo/Workspace/javascript/gdda/origin/hsas/js/business/chart2/m_cws_0100.js",
+		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.core.data.js",
+		"/Users/Guo/Workspace/javascript/gdda/origin/hsas/js/business/hsasGridUtil.js",
+		"/Users/Guo/Workspace/javascript/gdda/origin/hsas/js/business/chart2/y_cws_0100.js",
+		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.module.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/gdda_querybox_test.js",
 		"/Users/Guo/Workspace/javascript/gdda/test/gdda.querybox.html",
-		"/Users/Guo/Workspace/javascript/gdda/dist/jquery.gdda.min.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/gdda_querybox_query.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/gdda_querybox.js",
+		"/Users/Guo/Workspace/javascript/gdda/ajaxdemo/bmi/year/grid_0100.js",
+		"/Users/Guo/Workspace/javascript/gdda/ajaxdemo/json/zlrc_ks_0100.json",
+		"/Users/Guo/Workspace/javascript/gdda/test/gdda.querybox.query.config.html",
+		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.util.js",
+		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.core.querybox.ctrls.js",
+		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.core.main.js",
 		"/Users/Guo/Workspace/javascript/gdda/test/gdda_test.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/gdda.html",
+		"/Users/Guo/Workspace/javascript/gdda/libs/lib-loader-min.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/unit/gdda.config.html",
+		"/Users/Guo/Workspace/javascript/gdda/test/unit/gdda.querybox.html",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
+		"/Users/Guo/Workspace/javascript/gdda/jdda.sublime-project",
+		"/Users/Guo/Workspace/javascript/gdda/src/jquery.gdda.log.js",
+		"/Users/Guo/Workspace/javascript/gdda/libs/highcharts/index.htm",
+		"/Users/Guo/Workspace/javascript/gdda/dist/jquery.gdda.src.js",
+		"/Users/Guo/Workspace/javascript/gdda/test/test/cfgdemo/bmi/year/grid_0100.js",
+		"/Users/Guo/Workspace/javascript/gdda/dist/jquery.gdda.min.js",
 		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
 		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
-		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
 		"/Users/Guo/Workspace/javascript/gdda/design/gdda.xmind",
 		"/D/GuoWork/SoftUtil/ST2/Data/Packages/User/Preferences.sublime-settings",
 		"/Users/Guo/Workspace/javascript/gdda/.travis.yml",
@@ -411,39 +527,7 @@
 		"/C/Users/Guo/Desktop/mode_cdftemplete.jsp",
 		"/D/精神卫生/trans_zonecode_match12.sql",
 		"/D/上地机房部署文件/nginx/html/hsas/jsp/page/gis/zfxdr_punish.jsp",
-		"/D/上地机房部署文件/nginx/html/hsas/js/page/gis_map.js",
-		"/D/精神卫生/trans_organise_match_transid_0000000201.csv",
-		"/D/上地机房部署文件/nginx/html/hsas/jsp/popup/gis_chart_popup.html",
-		"/D/GuoWork/javascript/gdda/CONTRIBUTING.md",
-		"/D/GuoWork/javascript/gdda/package.json",
-		"/D/GuoWork/javascript/jquery/src/core.js",
-		"/D/GuoWork/javascript/gdda/README.md",
-		"/C/Users/Guo/.ssh/id_rsa.pub",
-		"/D/GuoWork/javascript/gdda/LICENSE-GPL",
-		"/D/GuoWork/javascript/gdda/dist/gdda.min.js",
-		"/D/GuoWork/javascript/gdda/dist/gdda.js",
-		"/D/GuoWork/javascript/jquery-validation/jquery.validate.js",
-		"/D/GuoWork/javascript/jquery-validation/lib/jquery-1.8.3.js",
-		"/D/GuoWork/javascript/jquery-validation/lib/jquery-1.7.2.js",
-		"/D/GuoWork/javascript/jquery-validation/lib/jquery.js",
-		"/D/GuoWork/javascript/jquery-validation/build/release.sh",
-		"/D/GuoWork/javascript/jquery/src/data.js",
-		"/D/GuoWork/javascript/jquery/CONTRIBUTING.md",
-		"/D/GuoWork/javascript/jquery/grunt.js",
-		"/D/GuoWork/javascript/jquery/.gitmodules",
-		"/D/GuoWork/javascript/jquery/.editorconfig",
-		"/D/GuoWork/javascript/jquery/src/support.js",
-		"/D/GuoWork/javascript/jquery/src/exports.js",
-		"/D/GuoWork/javascript/jquery/src/sizzle/README.md",
-		"/D/GuoWork/javascript/grunt-study/dist/grunt-study.js",
-		"/D/GuoWork/javascript/jquery/README.md",
-		"/D/GuoWork/javascript/jquery/test/qunit/History.md",
-		"/D/GuoWork/javascript/jquery/test/qunit/README.md",
-		"/D/GuoWork/javascript/jquery/src/css.js",
-		"/D/GuoWork/javascript/grunt-demo/README.md",
-		"/D/GuoWork/javascript/grunt-demo/test/grunt-demo-1.html",
-		"/D/GuoWork/javascript/grunt-study/dist/grunt-study.min.js",
-		"/D/GuoWork/Workspace/Aurora-Server/pom.xml"
+		"/D/上地机房部署文件/nginx/html/hsas/js/page/gis_map.js"
 	],
 	"find":
 	{
@@ -458,9 +542,28 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"console",
+			"\n  ",
+			"QUnit",
+			"_log",
+			"_qb",
+			"_query",
+			"sysTohc",
+			"renderChartDynamicPart",
+			"renderChartWithParams",
+			"makeParamsData",
+			"chartCfg.",
+			"^$",
+			"_queryDoneCallbacks",
+			"}\n",
+			"^$",
+			"^\\s*$",
+			"^\\s+$",
+			"^\\s$",
+			"^.*$",
 			"divH",
 			"extend",
 			",\n",
@@ -545,7 +648,7 @@
 		"highlight": false,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
 		],
@@ -553,7 +656,7 @@
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
-		"wrap": true
+		"wrap": false
 	},
 	"groups":
 	[
@@ -635,6 +738,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 263.0,
+	"side_bar_width": 309.0,
 	"status_bar_visible": true
 }
