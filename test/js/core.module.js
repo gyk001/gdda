@@ -89,7 +89,6 @@
         }).fail(function(e){
           ok(false,'render fail:'+e.message);
         }).always(function(){
-          _log.log('adsfdsfdfffadda');
           QUnit.start();
         });
       }).fail(function(e){
