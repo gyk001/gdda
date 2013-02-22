@@ -9,9 +9,6 @@
 (function($,undefined) {
   "use strict";
 
-
-  
-  
   var _gdda = $.gdda;
   var _util = _gdda.util;
   var _log = _util.log;
