@@ -12,70 +12,109 @@
   var _gdda = $.gdda;
   var _util = _gdda.util;
   var _log = _util.log;
+  var _divHolder = _util.divHolder;
   var _throwError = _util.throwError;
   var _defaults = _gdda.defaults;
+  var _callbacks = _defaults.callbacks;
   var _core = _gdda.core;
-  var _core_option = _gdda.option;
+  var _core_option = _core.option;
   var _core_querybox = _core.querybox;
   var _core_module = _core.module;
 
-  var _doGdda = function($div,extraOptions){
-    var did = $($div).attr('id');
-    if(!did){
-      _throwError('main div must has attr id!');
-    }
-    var qid = extraOptions.qid;
-    if(!qid){
-      _throwError('must has qid!');
-    }
-    _core_option.load(qid).done(function(){
-      var option_loaded = _core_option.get(qid);
-      //console.dir(_cfg);
-      var mergeOption = $.extend(true, {}, _defaults, option_loaded, extraOptions);
-      _doGddaWithOptions(qid,did,mergeOption);
-    }).fail(function(){
-      alert('err!');
-    });
-  };
 
-  var _renderModule = function(data,options){
-    _log.dir(data);
-  };
 
-  var _queryData = function($qb,options){
-    //执行查询
-    _core_querybox.query($qb,options).done(function(data){
-      //查询完成后渲染模块
-      _renderModule(data,options);
-    }).fail(function(e){
-      _throwError('查询数据失败:'+ ((e && e.message) ? e.message :''));
-    });
-  };
-
-  var _doGddaWithOptions = function(qid,did,options){
+  var _doGddaWithOptions = function(context,options){
+    context.options = options;
     //取查询框ID后缀
     var queryBoxSuffix = options.suffix.query;
+    var divHolder = context.holders;
+    var mainDivHolder = divHolder.main;
     //构造查询框ID
-    var qbId = [did,queryBoxSuffix].join('');
+    var qbId = [mainDivHolder.getId(),queryBoxSuffix].join('');
+    var $qbDiv;// = undefined;
     //页面没有查询框容器则在隐藏域生成一个容器
     if( ! _util.findNodeById(qbId)){
-      $('<div/>').attr('id',qbId).appendTo(_util.getHideQBParent());
+      $qbDiv = $('<div/>').attr('id',qbId).appendTo(_util.getHideQBParent());
+    }else{
+      $qbDiv = $('#'+qbId);
     }
+    divHolder.querybox = _divHolder($qbDiv);
+    var queryCfg = options.query;
     //渲染查询框
-    _core_querybox.render(qbId,options.query).done(function($qb){
+    _core_querybox.render.call(context, $qbDiv, queryCfg).done(function($qb){
       //查询框渲染完成后执行查询
-      _queryData($qb,options);
+      _queryData(context,$qb, queryCfg);
     }).fail(function(){
       _log.log('渲染查询框出错!');
       //alert('渲染查询框出错!');
     });
   };
 
+
+  var _doGdda = function(htmlDiv,option){
+    //todo: 可以先不生成jquery对象
+    var $div = $(htmlDiv);
+    //主数据区域
+    if(!$div.attr('id')){
+      _throwError('main div must has attr:id!');
+    }
+    
+    //true表示不是从配置文件加载的配置，而是就地生成的配置项
+    var spotOption =  !option.qid;
+    //没有查询id则生成一个随机ID,而且不需要加载配置文件
+    var qid = spotOption ?  'R'+Math.random() :option.qid ;
+    //构造上下文环境
+    var context = {
+      spotOption: spotOption,
+      qid: qid,
+      holders :{
+        main:_divHolder($div)
+      },
+      //TODO:实例
+      dfd:$.Deferred().progress(_callbacks.progress)
+    };
+    if(spotOption){
+      _doGddaWithOptions(context,$.extend(true, {}, _defaults ,option));
+    }else{
+      //加载配置文件
+      var dfd_load = _core_option.load(qid,context);
+      dfd_load.done(function(origOption){
+        _doGddaWithOptions(context,$.extend(true, {}, _defaults , origOption, option));
+      });
+      dfd_load.fail(function(e){
+        _log.dir(e.message);
+        this.dfd.reject(e);
+      });
+    }
+    return context.dfd;
+  };
+
+
+
+  var _renderModule = function(context, data){
+    _core_module.render(context, data);
+    //context.dfd.resolve(context);
+    _log.dir(context);
+    _log.dir(data);
+  };
+
+  var _queryData = function(context, $qb, queryCfg){
+    //执行查询
+    _core_querybox.query.call(context, $qb, queryCfg).done(function(data){
+      //查询完成后渲染模块
+      _renderModule(context, data);
+    }).fail(function(e){
+      _throwError('查询数据失败:'+ ((e && e.message) ? e.message :''));
+    });
+  };
+
   //TODO: Collection method.
   $.fn.gdda = function(options) {
-    return this.each(function(index,$div) {
-      _doGdda($div,options);
+    var deferreds = [];
+    this.each(function(index,htmlDiv) {
+      deferreds.push(_doGdda(htmlDiv,options));
     });
+    return $.when(deferreds);
   };
 
 /*

@@ -109,7 +109,7 @@
     _qb.clearRenderDoneCallback();
     
     _qb.addRenderDoneCallback(function($qb) {
-      _log.dir(paramsCfg);
+     // _log.dir(paramsCfg);
       //校验查询框
       $.each(paramsCfg, function(i, param) {
         var _val = params[param.name] || param.value;

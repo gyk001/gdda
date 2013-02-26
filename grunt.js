@@ -20,7 +20,8 @@ module.exports = function(grunt) {
           '<file_strip_banner:src/<%= pkg.name %>.core.module.js>',
           '<file_strip_banner:src/<%= pkg.name %>.core.querybox.js>',
           '<file_strip_banner:src/<%= pkg.name %>.core.querybox.ctrls.js>',
-          '<file_strip_banner:src/<%= pkg.name %>.core.js>'],
+          '<file_strip_banner:src/<%= pkg.name %>.core.js>',
+          '<file_strip_banner:src/module/*.js>'],
         dest: 'dist/<%= pkg.name %>.src.js'
       }
     },
@@ -31,12 +32,15 @@ module.exports = function(grunt) {
       }
     },
     qunit: {
+      files:[
+        'test/test.html'
+      ],
       urls:[
-        'http://localhost:8000/test/core.option_load.html',
+        'http://localhost:8000/test/core.option_load.html?notrycatch=true',
         'http://localhost:8000/test/core.module.html',
-        'http://localhost:8000/test/core.querybox.html',
-        'http://localhost:8000/test/core.querybox.query.html'/*,
-        'http://localhost:8000/test/gdda.html'*/
+        //'http://localhost:8000/test/core.querybox.html',
+        //'http://localhost:8000/test/core.querybox.query.html'/*,
+        'http://localhost:8000/test/gdda.html'
       ]
       
     },

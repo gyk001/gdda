@@ -1,5 +1,5 @@
 /*global devel:false*/
-(function($,undefined) {
+(function($, undefined) {
 	"use strict";
 	var _gdda = $.gdda;
 	var _util = _gdda.util;
@@ -44,7 +44,7 @@
 	var _clearQueryDoneCallback = function() {
 			_queryDoneCallbacks.length = 0;
 		};
-		
+
 	var _clearQueryFailCallback = function() {
 			_queryFailCallbacks.length = 0;
 		};
@@ -155,33 +155,34 @@
 		};
 
 	/**
-	 * 执行实际渲染查询框的操作并改变dfd对象状态
+	 * 执行实际渲染查询框的操作并改变dfd对象状态. </br>
+	 * 该函数读取配置下下的query.ctrls结点渲染查询框，
+	 * 并设置各个控件的默认值，如果参数 params中有覆盖值则使用该覆盖值作为默认值.</br>
+	 * 
+	 * 注意：渲染查询框并不读取query.params结点，<br/>
+	 * 该结点是查询数据操作时用来控制向后台发送参数的,可以附加，删除，修饰参数等，<br/>
+	 * 比如使用页面上某个不在查询框里的控件的值
+	 * 
 	 * @param  {Deferred} dfd         [description]
-	 * @param  {String} queryboxDiv 查询框ID
-	 * @param  {Object} paramsCfg   查询框配置对象
+	 * @param  {String} $querybox 查询框句柄
+	 * @param  {Object} queryCfg   查询框配置对象
 	 * @param  {Object} params      查询条件覆盖值
 	 * @return {undefined}			无
 	 */
-	var _deferredRenderQueryBox = function(dfd, queryboxDiv, paramsCfg, params) {
+	var _deferredRenderQueryBox = function(dfd, context, $querybox, queryCfg, params) {
 			try {
-				var qb = _util.findNodeById(queryboxDiv);
-				if(!qb) {
-					_log.log('div not exist!' + queryboxDiv);
-					return;
-				}
-				// 取得查询框对象
-				var $qb = $(qb);
 				// 取得divHolder对象，方便元素从DOM上分离和附加
-				var qbHolder = _util.divHolder($qb);
+				var qbHolder = context.holders.querybox;
 				// 分离元素
 				qbHolder.detach();
-				// 清空查询框
-				$qb.empty();
+				// TODO:清空查询框
+				$querybox.empty();
 				// 遍历参数配置，生成查询控件
-				if(paramsCfg) {
-					var len = paramsCfg.length;
+				if(queryCfg) {
+					var ctrls = queryCfg.ctrls;
+					var len = ctrls.length;
 					for(var i = 0; i < len; i++) {
-						var cfg = $.extend({}, paramsCfg[i]);
+						var cfg = $.extend({}, ctrls[i]);
 						//_log.dir(cfg);
 						if(params) {
 							var newVal = params[cfg[_QB_NAME]];
@@ -189,72 +190,53 @@
 								cfg[_QB_VALUE] = newVal;
 							}
 						}
-						_renderCtrl($qb, cfg);
+						_renderCtrl($querybox, cfg);
 					}
 				}
 				//附加元素至DOM
 				qbHolder.retach();
 				//return $qb;
 				// 改变Deferred对象的执行状态
-				dfd.resolve($qb);
+				dfd.resolveWith(context, [$querybox]);
 			} catch(e) {
 				// 改变Deferred对象的执行状态
-				dfd.reject(e);
+				dfd.rejectWith(context, [e]);
 			}
 		};
-	/**
-	 * 渲染整个查询框
-	 * @param  {String} queryboxDiv 查询框ID
-	 * @param  {Object} paramsCfg  配置
-	 * @param  {Object} params     覆盖参数
-	 * @return {Deferred}            返回Deferred对象
-	 */
-	var _renderQueryBox_old_ = function(queryboxDiv, paramsCfg, params) {
-			//debugger;
-			// 新建一个deferred对象
-			var dfd = $.Deferred();
-			// 注册成功，失败回调链
-			dfd.done(_renderDoneCallbacks).fail(_renderFailCallbacks);
-			//dfd.resolve();
-			// 调用渲染查询框函数
-			setTimeout(_deferredRenderQueryBox, 0, dfd, queryboxDiv, paramsCfg, params);
-			return dfd.promise(); // 返回promise对象
-		};
 
 	/**
 	 * 渲染整个查询框
-	 * @param  {String} queryboxDiv 查询框ID
-	 * @param  {Object} paramsCfg  配置
+	 * @param  {String} $querybox 查询框句柄
+	 * @param  {Object} queryCfg  配置
 	 * @param  {Object} params     覆盖参数
 	 * @return {Deferred}            返回Deferred对象
 	 */
-	var _renderQueryBox = function(queryboxDiv, paramsCfg, params) {
-			return _util.buildDeferred(_deferredRenderQueryBox,_renderDoneCallbacks,_renderFailCallbacks,queryboxDiv,paramsCfg,params);
+	var _renderQueryBox = function($querybox, queryCfg, params) {
+			var context = this;
+			return _util.buildDeferred(_deferredRenderQueryBox, _renderDoneCallbacks, _renderFailCallbacks, context, $querybox, queryCfg, params);
 		};
 
-	var _doDeferredQuery = function(dfd, $qb, options) {
+	var _doDeferredQuery = function(dfd, context, $qb, queryCfg) {
 			_log.dir(arguments);
 
 			var params = {
 				todo: 'markparam'
 			};
 			$.ajax({
-				url: _dataUrlPrefix+options.url,
+				url: _dataUrlPrefix + queryCfg.url,
 				data: params,
 				dataType: 'json'
 			}).done(function(data) {
-				dfd.resolve(data);
+				dfd.resolveWith(context, [data]);
 			}).fail(function(e) {
-				dfd.reject(e);
+				dfd.rejectWith(context, [e]);
 			});
-			//dfd.reject();
 		};
 
 	var _query = function($qb, options) {
-		return _util.buildDeferred(_doDeferredQuery,_queryDoneCallbacks,_queryFailCallbacks,$qb,options);
+		var context = this;
+			return _util.buildDeferred(_doDeferredQuery, _queryDoneCallbacks, _queryFailCallbacks, context, $qb, options);
 		};
-		
-
 
 	$.extend(true, _gdda, {
 		'core': {

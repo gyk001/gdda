@@ -35,25 +35,18 @@
 	var _get_config = function(qid){
 		return _config_loaded[qid];
 	};
-	/**
-	 * 加载对应查询ID的配置文件
-	 * @param  {String} qid 查询ID
-	 * @return {$.Deferred()}  done回调中传入已加载的配置对象
-	 */
-	var _load = function (qid){
-		//构造Defferred对象
-		var dfd = $.Deferred();
-		// 注册成功，失败回调链
-		dfd.done(_loadDoneCallbacks).fail(_loadFailCallbacks);
+
+	var _doDeferredLoad = function(dfd,qid,context){
 		//尝试取已存在的配置
 		var _config = _config_loaded[qid];
 		//配置项已存在则直接进入已加载完成状态，done回调中传入已加载的配置
 		if(_config){
-			return dfd.resolve(_config).promise();
+			return dfd.resolveWith(context,[_config]).promise();
 		}
+		
 		//根据qid句点分割规则构造加载URL地址
 		var _url = [_optionUrlPrefix].concat(qid.split('.').join('/'),'.js').join('');
-		//_log.log(_url);
+		_log.log('+++>>>> '+_url);
 		//构造请求对象并送入Ajax暂存区
 		_ajaxs[qid]= $.ajax({
 			url: _url,
@@ -62,6 +55,7 @@
 			crossDomain: true,
 			processData: false
 		}).done(function(js){
+			
 			//alert('done');
 			//处理返回的内容
 			var str = ['(function(){return ',js,';})();'].join('');
@@ -70,36 +64,56 @@
 				_config = _config_loaded[qid] = eval(str);
 				//_log.dir(_config);
 				// 标记已成功并传入配置对象
-				dfd.resolve(_config);
+				dfd.resolveWith(context,[_config]);
+				//context.dfd.notify('option.load');
 			}catch(e){
 				//console.dir(e);
 				//alert('加载失败!');
 				//标记加载失败
-				dfd.reject(e);
+				dfd.rejectWith(context,[e]);
 
 			}
 		}).fail(function(e){
+			
 			//alert('fail');
 			//标记加载失败
-			dfd.reject(e);
+			dfd.rejectWith(context,[e]);
 		}).always(function(){
 			//alert('always');
 			delete _ajaxs[qid] ;
 			//alert('al');
 		});
+	};
+	
+	/**
+	 * 加载对应查询ID的配置文件
+	 * @param  {String} qid 查询ID
+	 * @return {$.Deferred()}  done回调中传入已加载的配置对象
+	 */
+	var _load = function (qid,_context){
+		//上下文
+		var context = _context || this;
+		_log.dir(context);
+		//构造Defferred对象
+		var dfd = _util.buildDeferred(_doDeferredLoad,
+			_loadDoneCallbacks,_loadFailCallbacks,
+			qid,context);
+		//var dfd = $.Deferred();
+		// 注册成功，失败回调链
+		//dfd.done(_loadDoneCallbacks).fail(_loadFailCallbacks);
+		
 		return dfd.promise();
 	};
 
 	var _addLoadDoneCallback = function(callback){
 		_loadDoneCallbacks.push(callback);
 	};
+
 	var _addLoadFailCallback = function(callback){
 		_loadFailCallbacks.push(callback);
 	};
 
-
 	var _generate = function(qid){
-		
 	};
 
 	$.extend(true,_gdda, {

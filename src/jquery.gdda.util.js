@@ -6,6 +6,8 @@
 	var _array_push = Array.prototype.push;
 	var _obj_toString = Object.prototype.toString;
 
+	var _isTest = (navigator.userAgent.toLowerCase().indexOf('phantomjs') !== -1);
+
 	var _objectType = function(obj) {
 			if(typeof obj === "undefined") {
 				return "undefined";
@@ -29,6 +31,7 @@
 			case 'Array':
 			case 'Date':
 			case 'RegExp':
+			case 'Arguments':
 			case 'Function':
 				return type.toLowerCase();
 			}
@@ -44,19 +47,68 @@
 				try {
 					undefined.a = 1;
 				} catch(e) {
-					console.log(arg + e.stack.split('\n')[2]);
+					var _loc = e.stack.split('\n')[2];
+					console.log(arg + _loc);
 				}
 			}
 		},
-		dir: function(arg) {
+		dir: function(obj) {
 			if(window._GDDA_DEBUG) {
+				var printObj = function(obj, level) {
+						var i, fill;
+
+						for(var prop in obj) {
+							if(obj.hasOwnProperty(prop)) {
+								var val = obj[prop];
+								var type = _objectType(val);
+								if(type === 'object') {
+									printObj(val, level + 1);
+								} else if(type==='function'){
+									fill = '|--';
+									for(i = 0; i < level; i++) {
+										fill = fill + '|--';
+									}
+									fill = fill +prop+':function';
+									console.log(fill);
+								}else if(type === 'array' || type==='arguments') {
+									fill = '|--';
+									for(i = 0; i < level; i++) {
+										fill = fill + '|--';
+									}
+									fill = fill + '[';
+									for(i = 0; i < val.length; i++) {
+										// if(_objectType(val[i])==='object'){
+										// printObj(val[i],level+1);
+										// }else{
+										fill = fill + val[i] + ',';
+										//}
+									}
+									fill = fill + ']';
+									console.log(fill);
+								} else {
+									fill = '|--';
+									for(i = 0; i < level; i++) {
+										fill = fill + '|--';
+									}
+									console.log(fill + prop + ':' + obj[prop]);
+								}
+							}
+						}
+					};
+
 				//console.dir(arg );
 				try {
 					undefined.a = 1;
 				} catch(e) {
-					console.group(e.stack.split('\n')[2]);
-					console.dir(arg);
-					console.groupEnd();
+					if(!_isTest) {
+						console.group(e.stack.split('\n')[2]);
+						console.dir(obj);
+						console.groupEnd();
+					} else {
+						console.log("\n-->" + e.stack.split('\n')[2]);
+						printObj(obj, 0);
+						//console.log('\n');
+					}
 				}
 			}
 		}
@@ -117,6 +169,12 @@
 					} else {
 						$next.before($div);
 					}
+				},
+				getDiv: function() {
+					return $div;
+				},
+				getId: function() {
+					return $div.attr('id');
 				}
 			};
 			//};
@@ -143,6 +201,7 @@
 		};
 
 	var _buildDeferred = function(deferredCall, doneCallbacks, failCallbacks) {
+			_log.dir(doneCallbacks);
 			// 新建一个deferred对象
 			var dfd = $.Deferred();
 			// 注册成功，失败回调链
@@ -158,8 +217,10 @@
 					args = [deferredCall, 0, dfd];
 					if(arguments.length > 3) {
 						var extArgs = _array_slice.apply(arguments).slice(3);
+						
 						_array_push.apply(args, extArgs);
 					}
+					//_log.log('___________________________________');
 					// 设置延迟调用函数
 					setTimeout.apply(_win, args);
 				} catch(e) {

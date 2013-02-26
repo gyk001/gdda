@@ -1,30 +1,41 @@
 {
-	"success":true,
-	"items":[
-	{
-		"TYPE_NAME":"内科"
-		,"TYPE_CODE":"NK"
-	 	,"COUNT":10847
-	}
-	,{
-		"TYPE_NAME":"外科"
-		,"TYPE_CODE":"WK"
-	 	,"COUNT":2333
-	}
-	,{
-		"TYPE_NAME":"产科"
-		,"TYPE_CODE":"CK"
-	 	,"COUNT":2007
-	}
-	,{
-		"TYPE_NAME":"中医"
-		,"TYPE_CODE":"ZY"
-	 	,"COUNT":660
-	}
-	,{
-		"TYPE_NAME":"其他科"
-		,"TYPE_CODE":"QTK"
-	 	,"COUNT":3794
-	}
-	]
+	"success": true,
+	"items": [{
+		"YEAR_TIME": "2006",
+		"PERSON_NAME": "刘云飞",
+		"DEPT_NAME": "内科",
+		"HJ": 1291,
+		"MJZRC": 6
+	}, {
+		"YEAR_TIME": "2006",
+		"PERSON_NAME": "刘云飞",
+		"DEPT_NAME": "骨科",
+		"HJ": 13.1,
+		"MJZRC": 49
+	}, {
+		"YEAR_TIME": "2006",
+		"PERSON_NAME": "刘云飞",
+		"DEPT_NAME": "骨科",
+		"HJ": 13.1,
+		"MJZRC": 49
+	}, {
+		"YEAR_TIME": "2006",
+		"PERSON_NAME": "刘云飞",
+		"DEPT_NAME": "骨科",
+		"HJ": 13.1,
+		"MJZRC": 49
+	}, {
+		"YEAR_TIME": "2006",
+		"PERSON_NAME": "刘云飞",
+		"DEPT_NAME": "骨科",
+		"HJ": 13.1,
+		"MJZRC": 49
+	}, {
+		"YEAR_TIME": "2006",
+		"PERSON_NAME": "刘云飞",
+		"DEPT_NAME": "骨科",
+		"HJ": 13.1,
+		"MJZRC": 49
+	}]
+
 }

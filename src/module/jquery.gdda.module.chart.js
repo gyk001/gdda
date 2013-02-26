@@ -4,6 +4,7 @@
 	var _gdda = $.gdda;
 	var _util = _gdda.util;
 	var _log = _util.log;
+	
 	/*
 	var _prepareData = function(dfd, data, options){
 		_log.dir(data);
@@ -27,7 +28,7 @@
 
 	$.extend(true, _gdda, {
 		'module': {
-			'nope': {
+			'chart': {
 			//	prepareData: _prepareData,
 			//	buildOptions: _buildOptions,
 				render: _render

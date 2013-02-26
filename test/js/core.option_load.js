@@ -81,7 +81,7 @@
     equal(_core_option.get(_qunit_this.qid),undefined,'before load option is not exist');
     //_log.dir(_core_option.get(_qunit_this.qid));
     //暂停测试，等待加载完成
-    stop();
+    //stop();
 
     _core_option.addLoadDoneCallback(function(opt) {
       //断言： 加载配置以后缓存至框架内
@@ -91,8 +91,16 @@
       ok(true,'TODO: deepEqual options ignore functions!!');
       //deepEqual(opt, _qunit_this.expectedOptions, 'load option');
     });
+    var context = {
+      qid:'xx',
+      dfd:$.Deferred().progress(function(msg){
+        _log.log('context Defered progress...'+msg);
+      })
+    };
+    _log.dir(context);
     //加载配置对象，完成后启动测试
-    _core_option.load(_qunit_this.qid).always(start);
+    _core_option.load(_qunit_this.qid,context);//.always(start);
+    setTimeout(start,4000);
   });
 
 }(jQuery));

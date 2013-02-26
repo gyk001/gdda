@@ -34,6 +34,11 @@
         SELECT_VALUES:'values',
         CALLBACK:'callback'
       }
+    },
+    callbacks:{
+      progress:[],
+      done:[],
+      fail:[]
     }
   },
     _ajaxs :{},
