@@ -28,9 +28,9 @@
         ['合计', 'HJ'],
         ['门急诊人次', 'MJZRC']
       ],
-      DDS: {
+      drilldown: {
         pointClick: {
-          qid: 'all.chart',
+          qid: 'chart_dd_chart',
           params: {
             month:{
               type:'query.val',
@@ -58,7 +58,7 @@
     },
 
     query: {
-      url: 'chart_dd_chart.json',
+      url: 'zlrc_ks_0100.json',
       ctrls: [{
         name: 'year',
         label: '统计年份',
@@ -74,7 +74,7 @@
         name: 'month',
         label: '统计月份',
         value: 3,
-        hide: false,
+        hide: true,
         ignore: true /*查询数据时忽略该查询框的值,比如有查询框联动但只需要下级框的值时使用*/
         ,
         verify: ['num', 'min:1', 'max:12']

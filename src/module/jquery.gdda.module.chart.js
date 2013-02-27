@@ -2,10 +2,19 @@
 (function($, undefined) {
 	"use strict";
 	var _gdda = $.gdda;
+	var _module = _gdda.module;
+	//确保存在chart模块
+	$.extend(true, _module, {
+		chart: {
+			defaluts:{}
+		}
+	});
+
+	var _moduleChart = _module.chart;
+
 	var _util = _gdda.util;
 	var _throwError = _util.throrError;
 	var _log = _util.log;
-	var _module = _gdda.module;
 	//highchart默认配置
 	var _highchartsDefaults = {
 		"credits": { // 不显示highchart标记
@@ -35,6 +44,7 @@
 	};
 
 	var _prepareData = function(dfd, data, chartModuleConfig, context) {
+			context.dfd.notifyWith(context, ['data.start', data]);
 			_log.dir(data);
 			//------------------------ Begin 解析数据 ----------------------------
 			var xAxisSel = chartModuleConfig.xAxisSel;
@@ -76,84 +86,14 @@
 				});
 			}
 			//------------------------ END 解析数据 ----------------------------
-			return {
+			var hcData =  {
 				xAxis: chartXAxis,
 				series: chartSeries
 			};
-
-			//dfd.resolve(data);
+			context.dfd.notifyWith(context, ['data.ok', data, hcData]);
+			return hcData;
 		};
-	/*
-		function(clickEvent) {
-							// TODO: 链接显隐
-							// 判断配置点击的事件类型
-							var pointClick = finalSysChartConfig['pointClick'];
-							if (typeof pointClick !== 'undefined') {// 有点击事件配置
-								pointClickFunc(clickEvent, pointClick);
-							} else {// 没有点击事件配置，do nothing
-								// console.debug('no pointClick config');
-							}		
-						}
-
-	"plotOptions" : {
-			"series" : {
-				"point" : {
-					"events" : {
-						"click" : function(clickEvent) {
-							// TODO: 链接显隐
-							// 判断配置点击的事件类型
-							var pointClick = finalSysChartConfig['pointClick'];
-							if (typeof pointClick !== 'undefined') {// 有点击事件配置
-								pointClickFunc(clickEvent, pointClick);
-							} else {// 没有点击事件配置，do nothing
-								// console.debug('no pointClick config');
-							}		
-						}
-					}
-				}
-			}
-		}
-*/
-	var _pointClickFunc = function(context, ddCfg, clickEvent) {
-			//var ce = jQuery.extend(true,{},clickEvent);
-			//点击的chart
-			//var clickChart = ce.currentTarget.series.chart;
-			//取参数
-			var ddParams = {
-				abcdefg: 123456
-			};
-			var $mainDiv = context.holders.main.getDiv();
-			var lastChart = context.chart;
-			if(lastChart && lastChart.destory) {
-				lastChart.destory();
-			}
-			$mainDiv.gdda({
-				qid: ddCfg.qid
-			}, ddParams);
-
-		};
-	var _drilldownCallbacks = {
-		pointClick: function(context, ddCfg) {
-			var pointclick = {
-				plotOptions: {
-					series: {
-						point: {
-							events: {
-								click: function(event) {
-									_pointClickFunc(context, ddCfg, event);
-									_log.log('--------');
-								}
-							}
-						},
-						cursor: 'pointer'
-					}
-				}
-			};
-			//['plotOptions']['series']['cursor']='pointer';
-			return pointclick;
-		}
-	};
-
+	
 	var _buildOptions = function(dfd, data, chartModuleConfig, mainHolder, context) {
 			context.dfd.notifyWith(context, ['option.start', data]);
 			_log.dir(data);
@@ -169,16 +109,20 @@
 			//合并默认配置和用户自定义配置
 			$.extend(true, cfg, typeDestcfg, _module.chart.defaluts, chartModuleConfig.orig);
 			//取钻取配置
-			var drilldown = chartModuleConfig.drilldown;
-			//遍历钻取配置生成并合并入HighCharts配置
-			$.each(drilldown, function(ddType, ddCfg) {
-				var drilldownCallback = _drilldownCallbacks[ddType];
-				if(!drilldownCallback) {
-					_throwError('未知钻取类型:' + ddType);
-				}
-				var ddd = drilldownCallback(context, ddCfg);
-				$.extend(true, cfg, ddd);
-			});
+			var ddCfgs = chartModuleConfig.DDS;
+			//取所有钻取功能模块
+			var ddFuns = _moduleChart.DDS;
+			if(ddCfgs && ddFuns){
+				//遍历钻取配置生成并合并入HighCharts配置
+				$.each(ddCfgs, function(ddType, ddCfg) {
+					//取当前配置的钻取功能模块
+					var ddCallback = ddFuns[ddType];
+					if(_util.objectType(ddCallback) !== 'function') {
+						_throwError('钻取类型有误:' + ddType);
+					}
+					$.extend(true, cfg, ddCallback(context, ddCfg));
+				});
+			}
 			context.dfd.notifyWith(context, ['option.ok', cfg]);
 			return cfg;
 		};
@@ -205,14 +149,10 @@
 			context.dfd.resolveWith(context, [chart]);
 		};
 
-	$.extend(true, _gdda, {
-		module: {
-			chart: {
-				defaluts: _highchartsDefaults,
+	$.extend(true, _moduleChart, {
+		defaluts: _highchartsDefaults,
 				//	prepareData: _prepareData,
 				//	buildOptions: _buildOptions,
-				render: _render
-			}
-		}
+		render: _render
 	});
 })(jQuery);

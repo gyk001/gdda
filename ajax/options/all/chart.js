@@ -28,7 +28,7 @@
         ['合计', 'HJ'],
         ['门急诊人次', 'MJZRC']
       ],
-      drilldown: {
+      DDS: {
         pointClick: {
           qid: 'all.chart_dd_chart',
           params: {

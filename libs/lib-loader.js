@@ -36,7 +36,9 @@
   '<script src="../src/jquery.gdda.core.querybox.ctrls.js"></script>',
   '<script src="../src/jquery.gdda.core.js"></script>',
   '<script src="../src/module/jquery.gdda.module.nope.js"></script>',
-  '<script src="../src/module/jquery.gdda.module.chart.js"></script>']
+  '<script src="../src/module/jquery.gdda.module.chart.dd.js"></script>',
+  '<script src="../src/module/jquery.gdda.module.chart.js"></script>'
+  ]
 
   for(var i = 0; i < nodes.length; i++) {
     document.write(nodes[i]);
