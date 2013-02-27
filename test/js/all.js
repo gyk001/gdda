@@ -25,11 +25,15 @@
   var _gdda = $.gdda;
   var _qb = $.gdda.core.querybox;
   var _log = $.gdda.util.log;
-  
+
+  _gdda.defaults.callbacks.progress.push(function(action,obj){
+      _log.log('0000000:'+action);
+    });
+
   module('jQuery#gdda', {
     setup: function() {
       this.elem = $('#test1');
-      this.qid='all.nope_grid_chart';
+      this.qid='all.chart';
     }
   });
   
@@ -39,12 +43,15 @@
     var $mainDiv = this.elem;
     _log.dir($mainDiv);
     var qid=this.qid;
-    var dfd = $mainDiv.gdda({qid:qid});
-    dfd.done(function(context){
-      ok(true,'TODO:回调需要获取上下文');
-      //debugger;
-      //equal(context.qid, that.qid, '校验上下文环境和qid');
+    var context = $mainDiv.gdda({qid:qid});
+
+    context.dfd.done(function(chart){
+      ok(!! context,'TODO:回调需要获取上下文');
+      equal(context.qid, that.qid, '校验上下文环境和qid');
+
       start();
+    }).fail(function(e){
+      ok(false,'渲染失败!'+e.message);
     });
   });
 

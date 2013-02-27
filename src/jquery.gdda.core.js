@@ -23,7 +23,7 @@
 
 
 
-  var _doGddaWithOptions = function(context,options){
+  var _doGddaWithOptions = function(context,options,params){
     context.options = options;
     //取查询框ID后缀
     var queryBoxSuffix = options.suffix.query;
@@ -41,7 +41,7 @@
     divHolder.querybox = _divHolder($qbDiv);
     var queryCfg = options.query;
     //渲染查询框
-    _core_querybox.render.call(context, $qbDiv, queryCfg).done(function($qb){
+    _core_querybox.render.call(context, $qbDiv, queryCfg, params).done(function($qb){
       //查询框渲染完成后执行查询
       _queryData(context,$qb, queryCfg);
     }).fail(function(){
@@ -51,7 +51,7 @@
   };
 
 
-  var _doGdda = function(htmlDiv,option){
+  var _doGdda = function(htmlDiv,option,params){
     //todo: 可以先不生成jquery对象
     var $div = $(htmlDiv);
     //主数据区域
@@ -86,7 +86,7 @@
         this.dfd.reject(e);
       });
     }
-    return context.dfd;
+    return context;
   };
 
 
@@ -109,12 +109,20 @@
   };
 
   //TODO: Collection method.
-  $.fn.gdda = function(options) {
+  $.fn.gdda = function(options,params) {
     var deferreds = [];
+    if(this.length===1){
+      return _doGdda(this[0],options,params);
+    }else{
+      _throwError('only can process one div');
+    }
+    //debugger;
+    /*
     this.each(function(index,htmlDiv) {
       deferreds.push(_doGdda(htmlDiv,options));
     });
     return $.when(deferreds);
+    */
   };
 
 /*

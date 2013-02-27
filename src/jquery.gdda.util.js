@@ -106,8 +106,9 @@
 						console.groupEnd();
 					} else {
 						console.log("\n-->" + e.stack.split('\n')[2]);
-						printObj(obj, 0);
+						//printObj(obj, 0);
 						//console.log('\n');
+						//
 					}
 				}
 			}
@@ -175,6 +176,9 @@
 				},
 				getId: function() {
 					return $div.attr('id');
+				},
+				getElement:function(){
+					return $div.get();
 				}
 			};
 			//};

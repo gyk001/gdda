@@ -32,15 +32,13 @@ module.exports = function(grunt) {
       }
     },
     qunit: {
-      files:[
-        'test/test.html'
-      ],
+      
       urls:[
-        'http://localhost:8000/test/core.option_load.html?notrycatch=true',
-        'http://localhost:8000/test/core.module.html',
+        //'http://localhost:8000/test/core.option_load.html?notrycatch=true',
+        //'http://localhost:8000/test/core.module.html',
         //'http://localhost:8000/test/core.querybox.html',
-        //'http://localhost:8000/test/core.querybox.query.html'/*,
-        'http://localhost:8000/test/gdda.html'
+        //'http://localhost:8000/test/core.querybox.query.html?notrycatch=true'/*,
+        'http://localhost:8000/test/gdda.html?notrycatch=true'
       ]
       
     },

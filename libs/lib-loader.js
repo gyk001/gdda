@@ -13,6 +13,8 @@
   var nodes = ['<script src="' + path + '"></script>',
   // highcharts
   '<script src="../libs/highcharts/js/highcharts.js"></script>',
+  //jsonselect
+  '<script src="../libs/JSONSelect/jsonselect.js"></script>',
   // jqgrid
   '<script src="../libs/jqgrid/js/jquery.jqGrid.min.js"></script>',
   '<link rel="stylesheet" href="../libs/jqgrid/css/ui.jqgrid.css" media="screen">',

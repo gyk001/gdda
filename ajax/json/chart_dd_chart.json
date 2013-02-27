@@ -1,0 +1,41 @@
+{
+	"success": true,
+	"items": [{
+		"YEAR_TIME": 2006,
+		"PERSON_NAME": "刘云飞",
+		"DEPT_NAME": "内科",
+		"HJ": 129,
+		"MJZRC": 6
+	}, {
+		"YEAR_TIME": 2007,
+		"PERSON_NAME": "刘云飞",
+		"DEPT_NAME": "骨科",
+		"HJ": 131.1,
+		"MJZRC": 36
+	}, {
+		"YEAR_TIME": 2006,
+		"PERSON_NAME": "刘云飞",
+		"DEPT_NAME": "骨科",
+		"HJ": 113.1,
+		"MJZRC": 49
+	}, {
+		"YEAR_TIME": 2008,
+		"PERSON_NAME": "刘云飞",
+		"DEPT_NAME": "骨科",
+		"HJ": 123.1,
+		"MJZRC": 49
+	}, {
+		"YEAR_TIME": 2006,
+		"PERSON_NAME": "刘云飞",
+		"DEPT_NAME": "骨科",
+		"HJ": 13.1,
+		"MJZRC": 45
+	}, {
+		"YEAR_TIME": 2006,
+		"PERSON_NAME": "刘云飞",
+		"DEPT_NAME": "骨科",
+		"HJ": 13.1,
+		"MJZRC": 80
+	}]
+
+}
