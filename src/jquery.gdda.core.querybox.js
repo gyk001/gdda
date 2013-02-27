@@ -154,14 +154,18 @@
 				}
 			}
 		};
-
+	var _renderQueryButton = function(context, $querybox){
+		$('<button>').text('查询').appendTo($querybox).on('click', context,function(event){
+			_core.requery(event.data);
+		});	
+	};
 	/**
 	 * 执行实际渲染查询框的操作并改变dfd对象状态. </br>
 	 * 该函数读取配置下下的query.ctrls结点渲染查询框，
 	 * 并设置各个控件的默认值，如果参数 params中有覆盖值则使用该覆盖值作为默认值.</br>
 	 * 
 	 * 注意：渲染查询框并不读取query.params结点，<br/>
-	 * 该结点是查询数据操作时用来控制向后台发送参数的,可以附加，删除，修饰参数等，<br/>
+	 * 该结点是查询数据操作时用来控制向后台发送参数的,可以附加，修饰参数等，<br/>
 	 * 比如使用页面上某个不在查询框里的控件的值
 	 * 
 	 * @param  {Deferred} dfd         [description]
@@ -193,6 +197,7 @@
 						}
 						_renderCtrl($querybox, cfg);
 					}
+					_renderQueryButton(context, $querybox);
 				}
 				//附加元素至DOM
 				qbHolder.retach();
@@ -220,10 +225,11 @@
 	var _doDeferredQuery = function(dfd, context, $qb, queryCfg, params) {
 			_log.dir(arguments);
 
-			var p = _core.params.build(context, params);
+			var p = _core.params.buildWhenQuery(context, params);
 			
 			$.ajax({
 				url: _dataUrlPrefix + queryCfg.url,
+				type:'GET',
 				data: p,
 				dataType: 'json'
 			}).done(function(data) {

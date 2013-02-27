@@ -63,7 +63,7 @@
 		return params;
 	};
 
-	var _buildParamsWithParams = function(context, params){
+	var _buildParamsWhenQuery = function(context, params){
 		var boxParams = {};
 		//查询框句柄
 		var $qb = context.holders.querybox.getDiv;
@@ -78,7 +78,7 @@
 		return $.extend(boxParams, optionParams, params);
 	};
 
-	var _buildParamsWithEvent = function(context, ddCfg, event){
+	var _buildParamsWhenDrilldown = function(context, ddCfg, event){
 		return {a:1,b:2};
 	};
 
@@ -108,7 +108,8 @@
 	};
 
 	$.extend(true,_core_params,{
-		build: _buildParamsWithParams,
+		buildWhenQuery: _buildParamsWhenQuery,
+		buildWhenDrilldown:_buildParamsWhenDrilldown,
 		types:{
 			'const': _paramsTypeConst,
 			'ctrl.val': _paramsTypeCtrlVal,

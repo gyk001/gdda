@@ -111,6 +111,10 @@
           type: 'ctrl.val',
           val: 'the_page_ctrl_id'
         },
+        year:{
+          type:'const',
+          val:'xxxx'
+        },
         time: {
           type: 'fun',
           val: function(paramsObj, $querybox) {

@@ -28,7 +28,7 @@
 				year:3012
 			};
 			*/
-			_core_params.build(context,ddCfg,clickEvent);
+			_core_params.buildWhenDrilldown(context,ddCfg,clickEvent);
 			_log.log('^^^^^');
 			_log.dir(ddParams);
 
