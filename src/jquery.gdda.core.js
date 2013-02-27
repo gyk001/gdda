@@ -43,7 +43,7 @@
     //渲染查询框
     _core_querybox.render.call(context, $qbDiv, queryCfg, params).done(function($qb){
       //查询框渲染完成后执行查询
-      _queryData(context,$qb, queryCfg);
+      _queryData(context,$qb, queryCfg,params);
     }).fail(function(){
       _log.log('渲染查询框出错!');
       //alert('渲染查询框出错!');
@@ -74,12 +74,12 @@
       dfd:$.Deferred().progress(_callbacks.progress)
     };
     if(spotOption){
-      _doGddaWithOptions(context,$.extend(true, {}, _defaults ,option));
+      _doGddaWithOptions(context,$.extend(true, {}, _defaults ,option),params);
     }else{
       //加载配置文件
       var dfd_load = _core_option.load(qid,context);
       dfd_load.done(function(origOption){
-        _doGddaWithOptions(context,$.extend(true, {}, _defaults , origOption, option));
+        _doGddaWithOptions(context,$.extend(true, {}, _defaults , origOption, option),params);
       });
       dfd_load.fail(function(e){
         _log.dir(e.message);
@@ -98,9 +98,9 @@
     _log.dir(data);
   };
 
-  var _queryData = function(context, $qb, queryCfg){
+  var _queryData = function(context, $qb, queryCfg, params){
     //执行查询
-    _core_querybox.query.call(context, $qb, queryCfg).done(function(data){
+    _core_querybox.query.call(context, $qb, queryCfg, params).done(function(data){
       //查询完成后渲染模块
       _renderModule(context, data);
     }).fail(function(e){

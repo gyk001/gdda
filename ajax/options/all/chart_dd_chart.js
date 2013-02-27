@@ -75,7 +75,7 @@
         label: '统计月份',
         value: 3,
         hide: false,
-        ignore: true /*查询数据时忽略该查询框的值,比如有查询框联动但只需要下级框的值时使用*/
+        ignore: false /*查询数据时忽略该查询框的值,比如有查询框联动但只需要下级框的值时使用*/
         ,
         verify: ['num', 'min:1', 'max:12']
       }, {

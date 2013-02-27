@@ -2,6 +2,7 @@
 (function($, undefined) {
 	"use strict";
 	var _gdda = $.gdda;
+	var _core = _gdda.core;
 	var _util = _gdda.util;
 	var _log = _util.log;
 	var _default = _gdda.defaults;
@@ -216,15 +217,14 @@
 			return _util.buildDeferred(_deferredRenderQueryBox, _renderDoneCallbacks, _renderFailCallbacks, context, $querybox, queryCfg, params);
 		};
 
-	var _doDeferredQuery = function(dfd, context, $qb, queryCfg) {
+	var _doDeferredQuery = function(dfd, context, $qb, queryCfg, params) {
 			_log.dir(arguments);
 
-			var params = {
-				todo: 'markparam'
-			};
+			var p = _core.params.build(context, params);
+			
 			$.ajax({
 				url: _dataUrlPrefix + queryCfg.url,
-				data: params,
+				data: p,
 				dataType: 'json'
 			}).done(function(data) {
 				dfd.resolveWith(context, [data]);
@@ -233,9 +233,9 @@
 			});
 		};
 
-	var _query = function($qb, options) {
+	var _query = function($qb, options, params) {
 		var context = this;
-			return _util.buildDeferred(_doDeferredQuery, _queryDoneCallbacks, _queryFailCallbacks, context, $qb, options);
+			return _util.buildDeferred(_doDeferredQuery, _queryDoneCallbacks, _queryFailCallbacks, context, $qb, options, params);
 		};
 
 	$.extend(true, _gdda, {

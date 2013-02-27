@@ -43,7 +43,7 @@
     var $mainDiv = this.elem;
     _log.dir($mainDiv);
     var qid=this.qid;
-    var context = $mainDiv.gdda({qid:qid});
+    var context = $mainDiv.gdda({qid:qid},{year:4012,type:'wsz'});
 
     context.dfd.done(function(chart){
       ok(!! context,'TODO:回调需要获取上下文');

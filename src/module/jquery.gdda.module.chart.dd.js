@@ -2,6 +2,8 @@
 (function($, undefined) {
 	"use strict";
 	var _gdda = $.gdda;
+	var _core = _gdda.core;
+	var _core_params = _core.params;
 	var _util = _gdda.util;
 	var _throwError = _util.throrError;
 	var _log = _util.log;
@@ -21,9 +23,16 @@
 			//点击的chart
 			//var clickChart = ce.currentTarget.series.chart;
 			//取参数
-			var ddParams = {
-				abcdefg: 123456
+			var ddParams =/* {
+				abcdefg: 123456,
+				year:3012
 			};
+			*/
+			_core_params.build(context,ddCfg,clickEvent);
+			_log.log('^^^^^');
+			_log.dir(ddParams);
+
+
 			var $mainDiv = context.holders.main.getDiv();
 			var lastChart = context.chart;
 			if(lastChart && lastChart.destory) {

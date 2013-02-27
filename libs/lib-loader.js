@@ -34,6 +34,8 @@
   '<script src="../src/jquery.gdda.core.module.js"></script>',
   '<script src="../src/jquery.gdda.core.querybox.js"></script>',
   '<script src="../src/jquery.gdda.core.querybox.ctrls.js"></script>',
+  '<script src="../src/jquery.gdda.core.params.js"></script>',
+
   '<script src="../src/jquery.gdda.core.js"></script>',
   '<script src="../src/module/jquery.gdda.module.nope.js"></script>',
   '<script src="../src/module/jquery.gdda.module.chart.dd.js"></script>',
