@@ -43,6 +43,9 @@
             userName: {
               type: 'ctrl.val',
               val: 'qp_uname'
+            },
+            chartX:{
+              type:'chart.pointX'
             }
           }
         }

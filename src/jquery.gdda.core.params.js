@@ -44,12 +44,12 @@
 		return boxParams;
 	};
 
-	var _calcOptionParamsValue = function(context, queryParamsCfg){
+	var _calcOptionParamsValue = function(context, queryParamsCfg, event){
 		var params = {};
 		//查询框句柄
 		var $qb = context.holders.querybox.getDiv;
 		//遍历附加参数选项，并计算值
-		$.each(queryParamsCfg,function(qpcName,qpc){
+		$.each(queryParamsCfg,function(qpcName, qpc ){
 			//_log.log(qpcName+'->'+qpc.type);
 			if(!qpcName || ! qpc  ){
 				return true;
@@ -57,7 +57,7 @@
 			var type = qpc.type;
 			var typeFunc = _core_params_types[type];
 			if(_util.objectType(typeFunc)==='function'){
-				params[qpcName]= typeFunc(context, qpc, $qb);
+				params[qpcName]= typeFunc(context, qpc, $qb, event);
 			}else{
 				_throwError('未知的params类型:'+type);
 			}
@@ -82,7 +82,7 @@
 
 	var _buildParamsWhenDrilldown = function(context, ddCfg, event){
 		//生成配置项里的参数对象
-		var optionParams = _calcOptionParamsValue(context,ddCfg.params);
+		var optionParams = _calcOptionParamsValue(context,ddCfg.params, event);
 		return optionParams;
 	};
 
@@ -91,7 +91,6 @@
 	var _paramsTypeConst = function(context, queryParamItemCfg){
 		return queryParamItemCfg.val;
 	};
-
 
 	var _paramsTypeQueryVal = function(context, queryParamItemCfg, $querybox){
 		return $('[name='+queryParamItemCfg.val+']',$querybox).val();

@@ -31,7 +31,6 @@
 			_core_params.buildWhenDrilldown(context,ddCfg,clickEvent);
 			_log.log('^^^^^');
 			_log.dir(ddParams);
-			debugger;
 
 			var $mainDiv = context.holders.main.getDiv();
 			var lastChart = context.chart;
@@ -67,4 +66,20 @@
 	$.extend(true, _moduleChartDDS, {
 		pointClick: _ddPointClick
 	});
+
+	var _paramsTypePointX = function(context, queryParamItemCfg, $querybox, event){
+		return event.point.category;
+	};
+
+	var _paramsTypePointY = function(context, queryParamItemCfg, $querybox, event){
+		return event.point.config;
+	};
+
+$.extend(true,_core_params,{
+		types:{
+			'chart.pointX': _paramsTypePointX,
+			'chart.pointy': _paramsTypePointY
+		}	
+	});
+
 })(jQuery);
