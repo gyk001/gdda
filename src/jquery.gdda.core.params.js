@@ -46,6 +46,8 @@
 
 	var _calcOptionParamsValue = function(context, queryParamsCfg){
 		var params = {};
+		//查询框句柄
+		var $qb = context.holders.querybox.getDiv;
 		//遍历附加参数选项，并计算值
 		$.each(queryParamsCfg,function(qpcName,qpc){
 			//_log.log(qpcName+'->'+qpc.type);
@@ -55,7 +57,7 @@
 			var type = qpc.type;
 			var typeFunc = _core_params_types[type];
 			if(_util.objectType(typeFunc)==='function'){
-				params[qpcName]= typeFunc(context, qpc);
+				params[qpcName]= typeFunc(context, qpc, $qb);
 			}else{
 				_throwError('未知的params类型:'+type);
 			}
@@ -79,7 +81,9 @@
 	};
 
 	var _buildParamsWhenDrilldown = function(context, ddCfg, event){
-		return {a:1,b:2};
+		//生成配置项里的参数对象
+		var optionParams = _calcOptionParamsValue(context,ddCfg.params);
+		return optionParams;
 	};
 
 
@@ -88,11 +92,16 @@
 		return queryParamItemCfg.val;
 	};
 
+
+	var _paramsTypeQueryVal = function(context, queryParamItemCfg, $querybox){
+		return $('[name='+queryParamItemCfg.val+']',$querybox).val();
+	};
+
 	var _paramsTypeCtrlVal = function(context, queryParamItemCfg){
 		var ctrlId =  queryParamItemCfg.val;
 		if( ctrlId ){
 			var $ctrl = $('#'+ctrlId);
-			if($ctrl.length<1){
+			if($ctrl.length>0){
 				return $ctrl.val();
 			}
 		}
@@ -112,6 +121,7 @@
 		buildWhenDrilldown:_buildParamsWhenDrilldown,
 		types:{
 			'const': _paramsTypeConst,
+			'query.val': _paramsTypeQueryVal,
 			'ctrl.val': _paramsTypeCtrlVal,
 			'fun': _paramsTypeFun
 		}	

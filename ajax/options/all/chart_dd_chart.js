@@ -42,7 +42,7 @@
             },
             userName: {
               type: 'ctrl.val',
-              val: 'the_page_ctrl_id'
+              val: 'qp_uname'
             }
           }
         }
@@ -109,7 +109,7 @@
         },
         userName: {
           type: 'ctrl.val',
-          val: 'the_page_ctrl_id'
+          val: 'qp_uname'
         },
         year:{
           type:'const',

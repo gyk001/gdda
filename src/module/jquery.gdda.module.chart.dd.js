@@ -31,7 +31,7 @@
 			_core_params.buildWhenDrilldown(context,ddCfg,clickEvent);
 			_log.log('^^^^^');
 			_log.dir(ddParams);
-
+			debugger;
 
 			var $mainDiv = context.holders.main.getDiv();
 			var lastChart = context.chart;
