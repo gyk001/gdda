@@ -122,7 +122,7 @@
 				var hide = ctrlCfg[_QB_HIDDEN] || false;
 
 				// 控件父元素，span
-				var $ctrlBox = $('<span/>').appendTo($querybox);
+				var $ctrlBox = $('<span/>');
 				//控件隐藏时仍需要需生成label（其他控件的回调可能会显示该控件），不过需要设置隐藏
 				if(hide === true) {
 					$ctrlBox.css('display', 'none');
@@ -140,6 +140,8 @@
 				if(typeof genCtrl === 'function') {
 					//生成控件
 					var $ctrl = genCtrl(ctrlId, name, $ctrlBox, ctrlCfg);
+
+
 					if($ctrl && $ctrl.length) {
 						//取回调配置
 						var callback = ctrlCfg[_QB_CALLBACK];
@@ -147,7 +149,10 @@
 						if(callback) {
 							_bindCtrlCallBack($ctrl, $querybox, callback);
 						}
-						return $ctrl.addClass(_QB_CTRL_CLS);
+						$ctrl.addClass(_QB_CTRL_CLS);
+						//追加生成的控件父元素（内含控件和label）至查询框
+						$ctrlBox.appendTo($querybox);
+						return $ctrl;
 					}
 				} else {
 					throw new Error('querybox ctrl type unknown:' + type);

@@ -99,11 +99,14 @@
 			_log.dir(data);
 			//配置中的数据部分
 			var cfg = _prepareData(dfd, data, chartModuleConfig, context);
+			var $chartDiv = mainHolder.getDiv();
+			//var chartDivSize = mainHolder.getOrigSize();
 			//图表类型和渲染目标
 			var typeDestcfg = {
 				chart: {
 					type: chartModuleConfig.type,
-					renderTo: mainHolder.getDiv()[0]
+					//width: chartDivSize.width,
+					renderTo: $chartDiv[0]
 				}
 			};
 			//合并默认配置和用户自定义配置
@@ -143,6 +146,7 @@
 			//渲染图表
 			var chart = new Highcharts.Chart(chartOption);
 			context.chart = chart;
+			//chart.resize(644, 300, false);
 			//重新附加至dom
 			mainHolder.retach();
 			//发送完成消息
