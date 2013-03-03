@@ -23,21 +23,21 @@
 		}
 		var len = stack.length-1;
 		history.btn.attr('disabled',len<1).text('后退('+len+')');//.removeAttr('disabled');
-	}
+	};
 
 	var _renderHistoryButton = function($querybox){
 		var context = this;
 		var $btn = $('<button>').text('回退').attr('disabled','disabled').click(function(){
- 			_historyBack.call(context);
+			_historyBack.call(context);
 		});
 		$btn.appendTo($querybox);
 		if(!context._history){
 			context._history = {
 				stack:[],
 				btn:$btn
-			}
+			};
 		}
-	}
+	};
 
 	_core_querybox.addQueryDoneCallback(_storeHistoryThenUpdateButton);
 	_core_querybox.addRenderDoneCallback(_renderHistoryButton);
@@ -50,7 +50,7 @@
 		history.isback = true;
 		var params = stack.pop();
 		_core.requery(context, params);
-	}
+	};
 
 	$.extend(true, _gdda, {
 		'plugin': {
