@@ -53,7 +53,7 @@
         orig: {
           tooltip: {
             formatter: function() {
-              return '<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y + '°C';
+              return 'QQQQQQ<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y + '°C';
             }
           }
         }
@@ -96,8 +96,9 @@
         callback: {
           change: function($querybox, $cur) {
             //alert($cur.val());
-            var $year = $('[name=year]', $querybox);
-            $year.val($year.val() + $cur.val()).parent().show();
+            //var $year = $('[name=year]', $querybox);
+            //$year.val($year.val() + $cur.val()).parent().show();
+            $('button.querybtn',$querybox).click();
           }
         }
       }],

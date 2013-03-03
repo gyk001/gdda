@@ -189,7 +189,7 @@
     }
   };
 */
-  var _requery = function(context){
+  var _requery = function(context,params){
     _log.log('requery...............'+context.qid);   
     _queryData(context, context.holders.querybox.getDiv(), context.options.query); 
   };

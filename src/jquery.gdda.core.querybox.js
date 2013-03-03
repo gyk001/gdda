@@ -155,7 +155,7 @@
 			}
 		};
 	var _renderQueryButton = function(context, $querybox){
-		$('<button>').text('查询').appendTo($querybox).on('click', context,function(event){
+		$('<button>').text('查询').addClass('querybtn').appendTo($querybox).on('click', context,function(event){
 			_core.requery(event.data);
 		});	
 	};
@@ -181,7 +181,7 @@
 				// 分离元素
 				qbHolder.detach();
 				// TODO:清空查询框
-				$querybox.empty();
+				$querybox.empty().off('.gdda');
 				// 遍历参数配置，生成查询控件
 				if(queryCfg) {
 					var ctrls = queryCfg.ctrls;
@@ -225,15 +225,15 @@
 	var _doDeferredQuery = function(dfd, context, $qb, queryCfg, params) {
 			_log.dir(arguments);
 
-			var p = _core.params.buildWhenQuery(context, params);
+			var qp = _core.params.buildWhenQuery(context, params);
 			
 			$.ajax({
 				url: _dataUrlPrefix + queryCfg.url,
 				type:'GET',
-				data: p,
+				data: qp,
 				dataType: 'json'
 			}).done(function(data) {
-				dfd.resolveWith(context, [data]);
+				dfd.resolveWith(context, [ data, qp]);
 			}).fail(function(e) {
 				dfd.rejectWith(context, [e]);
 			});
