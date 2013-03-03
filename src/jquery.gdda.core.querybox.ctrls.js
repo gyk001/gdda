@@ -27,7 +27,7 @@
 
 	var _select = function(ctrlId, name, $ctrlBox, ctrlCfg) {
 		var node = ['<select name="', name, '" id="', ctrlId, '"/>'].join('');
-		var $ctrl = $(node).appendTo($ctrlBox);
+		var $ctrl = $(node);
 		var val = ctrlCfg[_QB_VALUE];
 		//配置的下拉选项
 		var opts = ctrlCfg[_QB_SELECT_VALUES];
@@ -42,7 +42,7 @@
 				$('<option/>').attr('value', opt[0]).text(opt[1]).attr('selected', (val && val === opt[0])).appendTo($ctrl);
 			}
 		}
-		return $ctrl;
+		return $ctrl.appendTo($ctrlBox);
 	};
 
 	var _hidden = function (ctrlId, name, $ctrlBox, ctrlCfg){

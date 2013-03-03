@@ -34,8 +34,9 @@
 
 			var $mainDiv = context.holders.main.getDiv();
 			var lastChart = context.chart;
-			if(lastChart && lastChart.destory) {
-				lastChart.destory();
+			//销毁已有的图表
+			if(lastChart && lastChart.destroy) {
+				lastChart.destroy();
 			}
 			$mainDiv.gdda({
 				qid: ddCfg.qid

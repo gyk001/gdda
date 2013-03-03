@@ -160,9 +160,13 @@
 				$parent = $div.parent();
 				isLast = true;
 			}
+			//var origWith = $div.width();
+			//var origHeight = $div.height();
+
+			//_log.log($div.width());
 			return {
 				detach: function() {
-					return $div.detach();
+					return $div/*.replaceWith('<h2>New heading</h2>')*/.detach();
 				},
 				retach: function() {
 					if(isLast) {
@@ -174,11 +178,17 @@
 				getDiv: function() {
 					return $div;
 				},
-				getId: function() {
-					return $div.attr('id');
-				},
 				getElement:function(){
 					return $div.get();
+				},
+				/*getOrigSize:function(){
+					return {
+						width: origWith,
+						height: origHeight
+					};
+				},
+				*/getId: function() {
+					return $div.attr('id');
 				}
 			};
 			//};
