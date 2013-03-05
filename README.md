@@ -1,7 +1,7 @@
 # Gdda
  
 
-[![Build Status](https://travis-ci.org/gyk001/gdda.png?branch=dev)](https://travis-ci.org/gyk001/gdda)
+[![Build Status](https://travis-ci.org/gyk001/gdda.png?branch=feature/singlecontext)](https://travis-ci.org/gyk001/gdda)
 
 Gyk001 Drill Down Analyze jQueryPlugin
 
